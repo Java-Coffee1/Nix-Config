@@ -14,4 +14,6 @@
       btw = "echo I use nixos, btw";
     };
   };
+  home.file.".hyprland".source = /home/javi/.config/hypr";
+
 }
