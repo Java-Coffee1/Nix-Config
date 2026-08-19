@@ -8,12 +8,12 @@
   home.file."Projects/.keep".text = "";
   programs.git.enable = true;
 
+  home.file.".config/hypr/hyprland.lua".source = ./hyprland/hyprland.lua;
+
   programs.bash = {
     enable = true;
     shellAliases = {
       btw = "echo I use nixos, btw";
     };
   };
-  home.file.".hyprland".source = /home/javi/.config/hypr";
-
 }
