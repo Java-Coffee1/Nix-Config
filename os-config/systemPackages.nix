@@ -39,6 +39,9 @@ in
     kdePackages.kdbusaddons
     kdePackages.qtstyleplugin-kvantum
 
+    # -- Hyperland intergration --
+    kitty
+
     # -- Communication --
     element-desktop
     discord
