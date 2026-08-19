@@ -8,7 +8,7 @@
   home.file."Projects/.keep".text = "";
   programs.git.enable = true;
 
-  home.file.".config/hypr/hyprland.conf".source = ./hyprland/hyprland.conf;
+  home.file.".config/hypr/hyprland.lua".source = ./hyprland/hyprland.lua;
 
   programs.bash = {
     enable = true;
