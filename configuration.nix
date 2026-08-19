@@ -2,10 +2,15 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  
+
   imports = [
     ./os-config/systemPackages.nix
     ./os-config/programs.nix
@@ -64,9 +69,7 @@
   users.users.javi = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable 'sudo' for the user.
-    packages = with pkgs; [
-      tree
-    ];
+    packages = with pkgs; [ tree ];
   };
 
   security.sudo.wheelNeedsPassword = false;
@@ -75,19 +78,20 @@
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; # Goodix driver module
   # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-elan; # Elan(04f3:0c4b) driver
 
-############################################
+  ############################################
   ## Fonts
-############################################
+  ############################################
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   ############################################
   ## Nix Settings
   ############################################
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are

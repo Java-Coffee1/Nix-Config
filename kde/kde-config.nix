@@ -15,10 +15,16 @@
       kmix.increase_microphone_volume = "Microphone Volume Up";
       kmix.increase_volume = "Volume Up";
       kmix.increase_volume_small = "Shift+Volume Up";
-      kmix.mic_mute = ["Microphone Mute" "Meta+Volume Mute"];
+      kmix.mic_mute = [
+        "Microphone Mute"
+        "Meta+Volume Mute"
+      ];
       kmix.mute = "Volume Mute";
       ksmserver."Halt Without Confirmation" = [ ];
-      ksmserver."Lock Session" = ["Screensaver" "Meta+Ctrl+Alt+L"];
+      ksmserver."Lock Session" = [
+        "Screensaver"
+        "Meta+Ctrl+Alt+L"
+      ];
       ksmserver."Log Out" = "Ctrl+Alt+Del";
       ksmserver."Log Out Without Confirmation" = [ ];
       ksmserver.LogOut = [ ];
@@ -30,9 +36,19 @@
       kwin."Cycle Overview Opposite" = [ ];
       kwin."Decrease Opacity" = [ ];
       kwin."Edit Tiles" = "Meta+T";
-      kwin.Expose = ["Meta+F9" "Ctrl+F9"];
-      kwin.ExposeAll = ["Meta+F10" "Launch (C)" "Ctrl+F10"];
-      kwin.ExposeClass = ["Meta+F7" "Ctrl+F7"];
+      kwin.Expose = [
+        "Meta+F9"
+        "Ctrl+F9"
+      ];
+      kwin.ExposeAll = [
+        "Meta+F10"
+        "Launch (C)"
+        "Ctrl+F10"
+      ];
+      kwin.ExposeClass = [
+        "Meta+F7"
+        "Ctrl+F7"
+      ];
       kwin.ExposeClassCurrentDesktop = [ ];
       kwin."Grid View" = "Meta+G";
       kwin."Increase Opacity" = [ ];
@@ -59,7 +75,10 @@
       kwin."Switch Window Up" = "Meta+K";
       kwin."Switch Window fullscreen" = [ ];
       kwin."Switch Windows" = [ ];
-      kwin."Switch to Desktop 1" = ["Meta+F1" "Ctrl+F1"];
+      kwin."Switch to Desktop 1" = [
+        "Meta+F1"
+        "Ctrl+F1"
+      ];
       kwin."Switch to Desktop 10" = [ ];
       kwin."Switch to Desktop 11" = [ ];
       kwin."Switch to Desktop 12" = [ ];
@@ -70,15 +89,24 @@
       kwin."Switch to Desktop 17" = [ ];
       kwin."Switch to Desktop 18" = [ ];
       kwin."Switch to Desktop 19" = [ ];
-      kwin."Switch to Desktop 2" = ["Meta+F2" "Ctrl+F2"];
+      kwin."Switch to Desktop 2" = [
+        "Meta+F2"
+        "Ctrl+F2"
+      ];
       kwin."Switch to Desktop 20" = [ ];
       kwin."Switch to Desktop 21" = [ ];
       kwin."Switch to Desktop 22" = [ ];
       kwin."Switch to Desktop 23" = [ ];
       kwin."Switch to Desktop 24" = [ ];
       kwin."Switch to Desktop 25" = [ ];
-      kwin."Switch to Desktop 3" = ["Meta+F3" "Ctrl+F3"];
-      kwin."Switch to Desktop 4" = ["Meta+F4" "Ctrl+F4"];
+      kwin."Switch to Desktop 3" = [
+        "Meta+F3"
+        "Ctrl+F3"
+      ];
+      kwin."Switch to Desktop 4" = [
+        "Meta+F4"
+        "Ctrl+F4"
+      ];
       kwin."Switch to Desktop 5" = [ ];
       kwin."Switch to Desktop 6" = [ ];
       kwin."Switch to Desktop 7" = [ ];
@@ -102,12 +130,24 @@
       kwin."Switch to Screen to the Right" = [ ];
       kwin."Toggle Night Color" = [ ];
       kwin."Toggle Window Raise/Lower" = [ ];
-      kwin."Walk Through Windows" = ["Meta+Tab" "Alt+Tab"];
-      kwin."Walk Through Windows (Reverse)" = ["Meta+Shift+Tab" "Alt+Shift+Tab"];
+      kwin."Walk Through Windows" = [
+        "Meta+Tab"
+        "Alt+Tab"
+      ];
+      kwin."Walk Through Windows (Reverse)" = [
+        "Meta+Shift+Tab"
+        "Alt+Shift+Tab"
+      ];
       kwin."Walk Through Windows Alternative" = [ ];
       kwin."Walk Through Windows Alternative (Reverse)" = [ ];
-      kwin."Walk Through Windows of Current Application" = ["Meta+`" "Alt+`"];
-      kwin."Walk Through Windows of Current Application (Reverse)" = ["Meta+~" "Alt+~"];
+      kwin."Walk Through Windows of Current Application" = [
+        "Meta+`"
+        "Alt+`"
+      ];
+      kwin."Walk Through Windows of Current Application (Reverse)" = [
+        "Meta+~"
+        "Alt+~"
+      ];
       kwin."Walk Through Windows of Current Application Alternative" = [ ];
       kwin."Walk Through Windows of Current Application Alternative (Reverse)" = [ ];
       kwin."Window Above Other Windows" = [ ];
@@ -193,7 +233,10 @@
       kwin."Window to Screen 7" = [ ];
       kwin.disableInputCapture = "Meta+Shift+Esc";
       kwin.view_actual_size = "Meta+0";
-      kwin.view_zoom_in = ["Meta++" "Meta+="];
+      kwin.view_zoom_in = [
+        "Meta++"
+        "Meta+="
+      ];
       kwin.view_zoom_out = "Meta+-";
       mediacontrol.mediavolumedown = [ ];
       mediacontrol.mediavolumeup = [ ];
@@ -219,9 +262,15 @@
       org_kde_powerdevil.Sleep = "Sleep";
       org_kde_powerdevil."Toggle Keyboard Backlight" = "Keyboard Light On/Off";
       org_kde_powerdevil."Turn Off Screen" = [ ];
-      org_kde_powerdevil.powerProfile = ["Battery" "Meta+B"];
+      org_kde_powerdevil.powerProfile = [
+        "Battery"
+        "Meta+B"
+      ];
       plasmashell."Slideshow Wallpaper Next Image" = [ ];
-      plasmashell."activate application launcher" = ["Meta" "Alt+F1"];
+      plasmashell."activate application launcher" = [
+        "Meta"
+        "Alt+F1"
+      ];
       plasmashell."activate task manager entry 1" = "Meta+1";
       plasmashell."activate task manager entry 10" = [ ];
       plasmashell."activate task manager entry 2" = "Meta+2";
@@ -317,80 +366,154 @@
       kwinrc.Desktops."Number[$i]" = 1;
       kwinrc.Desktops."Numberx5b$ix5d" = 1;
       kwinrc.Desktops.Rows = 1;
-      kwinrc."Tiling/0abc1734-14eb-49ce-87bf-b024886c48d6/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/0abc1734-14eb-49ce-87bf-b024886c48d6/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/0abc1734-14eb-49ce-87bf-b024886c48d6/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/0abc1734-14eb-49ce-87bf-b024886c48d6/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/19f0310b-dbc8-4815-943c-f3d118281bdc/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/19f0310b-dbc8-4815-943c-f3d118281bdc/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/19f0310b-dbc8-4815-943c-f3d118281bdc/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/19f0310b-dbc8-4815-943c-f3d118281bdc/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/2db13015-a670-466c-99b2-6e3af83b0e19/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/2db13015-a670-466c-99b2-6e3af83b0e19/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/2db13015-a670-466c-99b2-6e3af83b0e19/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/2db13015-a670-466c-99b2-6e3af83b0e19/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/42eb1f35-4ad5-4c74-826b-3a722e7305e0/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/42eb1f35-4ad5-4c74-826b-3a722e7305e0/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/42eb1f35-4ad5-4c74-826b-3a722e7305e0/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/42eb1f35-4ad5-4c74-826b-3a722e7305e0/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/42fe0d00-509f-4719-b13e-38ffd2d13d89/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/42fe0d00-509f-4719-b13e-38ffd2d13d89/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/528c4dec-9762-4754-a071-455ae161cfa1/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/528c4dec-9762-4754-a071-455ae161cfa1/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/528c4dec-9762-4754-a071-455ae161cfa1/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/528c4dec-9762-4754-a071-455ae161cfa1/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/538763f3-3418-41a1-adc3-dbd275d6a858/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/538763f3-3418-41a1-adc3-dbd275d6a858/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/63040946-efe6-42b4-9556-23dfd7af9f01/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/63040946-efe6-42b4-9556-23dfd7af9f01/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/64c23305-4fef-4bcd-86dc-1658d0108d4a/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/64c23305-4fef-4bcd-86dc-1658d0108d4a/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/68978524-967f-4b61-b3bd-c86b3eaee2d8/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/68978524-967f-4b61-b3bd-c86b3eaee2d8/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/6c4f8711-505d-4a0c-9066-57966755a3b9/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/6c4f8711-505d-4a0c-9066-57966755a3b9/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/75b2fb5e-b095-4ade-b42a-d71ad68b3dda/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/75b2fb5e-b095-4ade-b42a-d71ad68b3dda/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/75b2fb5e-b095-4ade-b42a-d71ad68b3dda/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/75b2fb5e-b095-4ade-b42a-d71ad68b3dda/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/79086bc7-c39e-4c84-89fc-7dc8f33a81fc/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/79086bc7-c39e-4c84-89fc-7dc8f33a81fc/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/79086bc7-c39e-4c84-89fc-7dc8f33a81fc/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/79086bc7-c39e-4c84-89fc-7dc8f33a81fc/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/7d88109b-1051-4313-9d4a-83d394083117/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/7d88109b-1051-4313-9d4a-83d394083117/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/7d88109b-1051-4313-9d4a-83d394083117/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/7d88109b-1051-4313-9d4a-83d394083117/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/8d6cbebe-82e7-43e4-a5b2-6ab766815b0c/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/8d6cbebe-82e7-43e4-a5b2-6ab766815b0c/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/8d6cbebe-82e7-43e4-a5b2-6ab766815b0c/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/8d6cbebe-82e7-43e4-a5b2-6ab766815b0c/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/9acff1f8-bb35-4c46-8383-7f64b0bf6d05/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/9acff1f8-bb35-4c46-8383-7f64b0bf6d05/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/9acff1f8-bb35-4c46-8383-7f64b0bf6d05/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/9acff1f8-bb35-4c46-8383-7f64b0bf6d05/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/9b8ce155-0dab-48b6-9484-e692dbdfecf4/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/9b8ce155-0dab-48b6-9484-e692dbdfecf4/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      kwinrc."Tiling/9b8ce155-0dab-48b6-9484-e692dbdfecf4/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/9b8ce155-0dab-48b6-9484-e692dbdfecf4/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      kwinrc."Tiling/b03ae852-a6df-40bd-a209-e2a306598247/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/b03ae852-a6df-40bd-a209-e2a306598247/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/b03ae852-a6df-40bd-a209-e2a306598247/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/b03ae852-a6df-40bd-a209-e2a306598247/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/b1c46e2f-43d5-417e-835f-02633caf2e9c/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/b1c46e2f-43d5-417e-835f-02633caf2e9c/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/b1c46e2f-43d5-417e-835f-02633caf2e9c/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/b1c46e2f-43d5-417e-835f-02633caf2e9c/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/c544e00b-2182-4b53-bdf1-b6394277e536/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/c544e00b-2182-4b53-bdf1-b6394277e536/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/c544e00b-2182-4b53-bdf1-b6394277e536/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/c544e00b-2182-4b53-bdf1-b6394277e536/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/f7ea93ba-eae8-4013-8460-7bbdce66d12f/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/f7ea93ba-eae8-4013-8460-7bbdce66d12f/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/f7ea93ba-eae8-4013-8460-7bbdce66d12f/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding = 4;
-      kwinrc."Tiling/f7ea93ba-eae8-4013-8460-7bbdce66d12f/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
-      kwinrc."Tiling/f926865d-e4c2-42fc-9392-e5a53927f530/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding = 4;
-      kwinrc."Tiling/f926865d-e4c2-42fc-9392-e5a53927f530/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/0abc1734-14eb-49ce-87bf-b024886c48d6/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/0abc1734-14eb-49ce-87bf-b024886c48d6/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/0abc1734-14eb-49ce-87bf-b024886c48d6/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/0abc1734-14eb-49ce-87bf-b024886c48d6/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/19f0310b-dbc8-4815-943c-f3d118281bdc/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/19f0310b-dbc8-4815-943c-f3d118281bdc/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/19f0310b-dbc8-4815-943c-f3d118281bdc/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/19f0310b-dbc8-4815-943c-f3d118281bdc/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/2db13015-a670-466c-99b2-6e3af83b0e19/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/2db13015-a670-466c-99b2-6e3af83b0e19/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/2db13015-a670-466c-99b2-6e3af83b0e19/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/2db13015-a670-466c-99b2-6e3af83b0e19/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/42eb1f35-4ad5-4c74-826b-3a722e7305e0/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/42eb1f35-4ad5-4c74-826b-3a722e7305e0/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/42eb1f35-4ad5-4c74-826b-3a722e7305e0/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/42eb1f35-4ad5-4c74-826b-3a722e7305e0/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/42fe0d00-509f-4719-b13e-38ffd2d13d89/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/42fe0d00-509f-4719-b13e-38ffd2d13d89/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/528c4dec-9762-4754-a071-455ae161cfa1/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/528c4dec-9762-4754-a071-455ae161cfa1/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/528c4dec-9762-4754-a071-455ae161cfa1/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/528c4dec-9762-4754-a071-455ae161cfa1/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/538763f3-3418-41a1-adc3-dbd275d6a858/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/538763f3-3418-41a1-adc3-dbd275d6a858/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/63040946-efe6-42b4-9556-23dfd7af9f01/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/63040946-efe6-42b4-9556-23dfd7af9f01/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/64c23305-4fef-4bcd-86dc-1658d0108d4a/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/64c23305-4fef-4bcd-86dc-1658d0108d4a/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/68978524-967f-4b61-b3bd-c86b3eaee2d8/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/68978524-967f-4b61-b3bd-c86b3eaee2d8/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/6c4f8711-505d-4a0c-9066-57966755a3b9/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/6c4f8711-505d-4a0c-9066-57966755a3b9/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/75b2fb5e-b095-4ade-b42a-d71ad68b3dda/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/75b2fb5e-b095-4ade-b42a-d71ad68b3dda/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/75b2fb5e-b095-4ade-b42a-d71ad68b3dda/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/75b2fb5e-b095-4ade-b42a-d71ad68b3dda/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/79086bc7-c39e-4c84-89fc-7dc8f33a81fc/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/79086bc7-c39e-4c84-89fc-7dc8f33a81fc/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/79086bc7-c39e-4c84-89fc-7dc8f33a81fc/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/79086bc7-c39e-4c84-89fc-7dc8f33a81fc/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/7d88109b-1051-4313-9d4a-83d394083117/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/7d88109b-1051-4313-9d4a-83d394083117/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/7d88109b-1051-4313-9d4a-83d394083117/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/7d88109b-1051-4313-9d4a-83d394083117/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/8d6cbebe-82e7-43e4-a5b2-6ab766815b0c/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/8d6cbebe-82e7-43e4-a5b2-6ab766815b0c/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/8d6cbebe-82e7-43e4-a5b2-6ab766815b0c/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/8d6cbebe-82e7-43e4-a5b2-6ab766815b0c/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/9acff1f8-bb35-4c46-8383-7f64b0bf6d05/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/9acff1f8-bb35-4c46-8383-7f64b0bf6d05/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/9acff1f8-bb35-4c46-8383-7f64b0bf6d05/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/9acff1f8-bb35-4c46-8383-7f64b0bf6d05/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/9b8ce155-0dab-48b6-9484-e692dbdfecf4/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/9b8ce155-0dab-48b6-9484-e692dbdfecf4/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      kwinrc."Tiling/9b8ce155-0dab-48b6-9484-e692dbdfecf4/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/9b8ce155-0dab-48b6-9484-e692dbdfecf4/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      kwinrc."Tiling/b03ae852-a6df-40bd-a209-e2a306598247/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/b03ae852-a6df-40bd-a209-e2a306598247/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/b03ae852-a6df-40bd-a209-e2a306598247/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/b03ae852-a6df-40bd-a209-e2a306598247/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/b1c46e2f-43d5-417e-835f-02633caf2e9c/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/b1c46e2f-43d5-417e-835f-02633caf2e9c/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/b1c46e2f-43d5-417e-835f-02633caf2e9c/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/b1c46e2f-43d5-417e-835f-02633caf2e9c/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/c544e00b-2182-4b53-bdf1-b6394277e536/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/c544e00b-2182-4b53-bdf1-b6394277e536/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/c544e00b-2182-4b53-bdf1-b6394277e536/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/c544e00b-2182-4b53-bdf1-b6394277e536/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/f7ea93ba-eae8-4013-8460-7bbdce66d12f/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/f7ea93ba-eae8-4013-8460-7bbdce66d12f/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/f7ea93ba-eae8-4013-8460-7bbdce66d12f/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".padding =
+        4;
+      kwinrc."Tiling/f7ea93ba-eae8-4013-8460-7bbdce66d12f/2c372dcd-9b1e-4bf1-b155-e94efaa355c7".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      kwinrc."Tiling/f926865d-e4c2-42fc-9392-e5a53927f530/158c5371-da3f-42b2-b84d-50a5aa2d28a3".padding =
+        4;
+      kwinrc."Tiling/f926865d-e4c2-42fc-9392-e5a53927f530/158c5371-da3f-42b2-b84d-50a5aa2d28a3".tiles =
+        "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
       kwinrc.Xwayland.Scale = 1.25;
       kwinrc."org.kde.kdecoration2".ButtonsOnLeft = "SF";
       plasma-localerc.Formats.LANG = "en_US.UTF-8";
@@ -439,7 +562,8 @@
       "kate/anonymous.katesession"."Kate Plugins".textfilterplugin = true;
       "kate/anonymous.katesession".MainWindow0."Active ViewSpace" = 0;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-H-Splitter = "0,1870,0";
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-0-Bar-0-TvList = "kate_private_plugin_katefiletreeplugin,kateproject,kateprojectgit,lspclient_symbol_outline";
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-0-Bar-0-TvList =
+        "kate_private_plugin_katefiletreeplugin,kateproject,kateprojectgit,lspclient_symbol_outline";
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-0-LastSize = 200;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-0-SectSizes = 0;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-0-Splitter = 931;
@@ -451,35 +575,48 @@
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-2-LastSize = 200;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-2-SectSizes = 0;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-2-Splitter = 1870;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-3-Bar-0-TvList = "output,diagnostics,kate_plugin_katesearch,kateprojectinfo,kate_private_plugin_katekonsoleplugin";
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-3-Bar-0-TvList =
+        "output,diagnostics,kate_plugin_katesearch,kateprojectinfo,kate_private_plugin_katekonsoleplugin";
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-3-LastSize = 214;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-3-SectSizes = 0;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-3-Splitter = 1920;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-Style = 2;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-Sidebar-Visible = true;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-diagnostics-Position = 3;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-diagnostics-Show-Button-In-Sidebar = true;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-diagnostics-Show-Button-In-Sidebar =
+        true;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-diagnostics-Visible = false;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_plugin_katesearch-Position = 3;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_plugin_katesearch-Show-Button-In-Sidebar = true;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_plugin_katesearch-Show-Button-In-Sidebar =
+        true;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_plugin_katesearch-Visible = false;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Position = 0;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Show-Button-In-Sidebar = true;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Visible = false;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Position = 3;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Show-Button-In-Sidebar = true;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Visible = false;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Position =
+        0;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Show-Button-In-Sidebar =
+        true;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katefiletreeplugin-Visible =
+        false;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Position =
+        3;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Show-Button-In-Sidebar =
+        true;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kate_private_plugin_katekonsoleplugin-Visible =
+        false;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateproject-Position = 0;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateproject-Show-Button-In-Sidebar = true;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateproject-Show-Button-In-Sidebar =
+        true;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateproject-Visible = false;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateprojectgit-Position = 0;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateprojectgit-Show-Button-In-Sidebar = true;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateprojectgit-Show-Button-In-Sidebar =
+        true;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateprojectgit-Visible = false;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateprojectinfo-Position = 3;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateprojectinfo-Show-Button-In-Sidebar = true;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateprojectinfo-Show-Button-In-Sidebar =
+        true;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-kateprojectinfo-Visible = false;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-lspclient_symbol_outline-Position = 0;
-      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-lspclient_symbol_outline-Show-Button-In-Sidebar = true;
+      "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-lspclient_symbol_outline-Show-Button-In-Sidebar =
+        true;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-lspclient_symbol_outline-Visible = false;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-output-Position = 3;
       "kate/anonymous.katesession".MainWindow0.Kate-MDI-ToolView-output-Show-Button-In-Sidebar = true;
@@ -512,8 +649,10 @@
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0".Recursive = true;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0".Replaces = "";
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0".Search = "";
-      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0".SearchAsYouTypeAllProjects = true;
-      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0".SearchAsYouTypeCurrentFile = true;
+      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0".SearchAsYouTypeAllProjects =
+        true;
+      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0".SearchAsYouTypeCurrentFile =
+        true;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0".SearchAsYouTypeFolder = true;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0".SearchAsYouTypeOpenFiles = true;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0".SearchAsYouTypeProject = true;
