@@ -41,6 +41,7 @@ in
 
     # -- Hyperland intergration --
     kitty
+    rofi
 
     # -- Communication --
     element-desktop
