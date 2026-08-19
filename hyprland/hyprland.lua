@@ -248,6 +248,6 @@ hl.device({
 ----------------------
 -- including files
 ----------------------
-require("keybindings") -- Load keybindings from a separate file
 require("var") -- Load variables from a separate file 
+require("keybindings") -- Load keybindings from a separate file
 require("windows_and_workspaces") -- Load window and workspace rules from a separate file

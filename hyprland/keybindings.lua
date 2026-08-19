@@ -1,6 +1,7 @@
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
+require("var") -- Load variables from a separate file 
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
