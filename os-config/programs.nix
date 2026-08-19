@@ -1,6 +1,6 @@
-  ############################################
-  ## Programs
-  ############################################
+############################################
+## Programs
+############################################
 {
   ############################################
   ## Firefox
@@ -11,7 +11,8 @@
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
       installation_mode = "force_installed";
     };
-    "{446900e4-71c2-419f-a6a7-df9c091e268b}" = { # Bitwarden
+    "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+      # Bitwarden
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
       installation_mode = "force_installed";
     };
@@ -29,10 +30,10 @@
   ## Steam
   ############################################
   programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # if you use Remote Play
-  dedicatedServer.openFirewall = true; # if you host game servers
-  localNetworkGameTransfers.openFirewall = true; # for LAN game transfers
+    enable = true;
+    remotePlay.openFirewall = true; # if you use Remote Play
+    dedicatedServer.openFirewall = true; # if you host game servers
+    localNetworkGameTransfers.openFirewall = true; # for LAN game transfers
   };
 
   hardware.graphics = {
