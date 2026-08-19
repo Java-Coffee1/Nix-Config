@@ -9,6 +9,7 @@
     ./os-config/systemPackages.nix
     ./os-config/programs.nix
     ./hardware-configuration.nix
+    ./kde/kde-config.nix
   ];
 
   ############################################

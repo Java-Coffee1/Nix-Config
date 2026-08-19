@@ -4,7 +4,7 @@
   home.username = "javi";
   home.homeDirectory = "/home/javi";
   home.stateVersion = "25.05";
-
+  home.file."Projects/.keep".text = "";
   programs.git.enable = true;
 
   programs.bash = {
