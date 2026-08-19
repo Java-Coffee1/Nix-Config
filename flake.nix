@@ -19,13 +19,13 @@
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
-        plasma-manager.nixosModules.plasma-manager
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             users.javi = import ./home.nix;
             backupFileExtension = "backup";
+            sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
           };
         }
       ];

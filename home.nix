@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./kde/kde-config.nix ];
   home.username = "javi";
   home.homeDirectory = "/home/javi";
   home.stateVersion = "25.05";
