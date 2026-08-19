@@ -9,6 +9,8 @@
   programs.git.enable = true;
 
   home.file.".config/hypr/hyprland.lua".source = ./hyprland/hyprland.lua;
+  home.file.".config/hypr/keybindings.lua".source = ./hyprland/keybindings.lua;
+
 
   programs.bash = {
     enable = true;
