@@ -1,33 +1,52 @@
-  ############################################
-  ## System Packages
-  ############################################
+############################################
+## System Packages
+############################################
 
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-{pkgs, ...}:
+# List packages installed in system profile.
+# You can use https://search.nixos.org/ to find more packages (and options).
+{ pkgs, ... }:
 
+let
+  vscode-configured = pkgs.vscode-with-extensions.override {
+    vscodeExtensions = with pkgs.vscode-extensions; [
+      jnoortheen.nix-ide
+      ms-python.python
+      ms-azuretools.vscode-docker
+      ms-vscode-remote.remote-ssh
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "remote-ssh-edit";
+        publisher = "ms-vscode-remote";
+        version = "0.47.2";
+        sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
+      }
+    ];
+  };
+in
 {
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # -- Core CLI tools --
+    vim # Do not forget to add an editor to edit configuration.nix! Nano is also installed by default.
     wget
     curl
     htop
+    fwupd
+
+    # -- KDE / Plasma integration --
+    kdePackages.kdbusaddons
+    kdePackages.qtstyleplugin-kvantum
+
+    # -- Communication --
     element-desktop
+    discord
+    slack
+
+    # -- Media / Audio --
+    ytmdesktop
+    easyeffects
     orca-slicer
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        jnoortheen.nix-ide
-        ms-python.python
-        ms-azuretools.vscode-docker
-        ms-vscode-remote.remote-ssh
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "remote-ssh-edit";
-          publisher = "ms-vscode-remote";
-          version = "0.47.2";
-          sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
-        }
-      ];#end of vscodeExtensions
-    }) #end of vscode-with-extensions.override
-  ]; #end of environment.systemPackages
+
+    # -- Development --
+    vscode-configured
+  ];
 }

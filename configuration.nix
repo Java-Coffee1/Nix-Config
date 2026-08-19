@@ -70,6 +70,10 @@
   };
 
   security.sudo.wheelNeedsPassword = false;
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; # Goodix driver module
+  # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-elan; # Elan(04f3:0c4b) driver
 
 ############################################
   ## Fonts
@@ -105,5 +109,5 @@
   ## System State Version
   ############################################
 
-  system.stateVersion = "26.05"; # Did you read the comment?
+  system.stateVersion = "26.05";
 }
