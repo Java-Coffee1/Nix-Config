@@ -15,7 +15,7 @@
   home.file.".config/hypr/windows_and_workspaces.lua".source = ./hyprland/windows_and_workspaces.lua;
 
   ## rofi configuration files
-  home.file.".config/rofi/config.rasi".source = ../hyprland/rofi/config.rasi;
+  home.file.".config/rofi/config.rasi".source = ./hyprland/rofi/config.rasi;
   programs.bash = {
     enable = true;
     shellAliases = {
