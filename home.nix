@@ -10,6 +10,7 @@
 
   home.file.".config/hypr/hyprland.lua".source = ./hyprland/hyprland.lua;
   home.file.".config/hypr/keybindings.lua".source = ./hyprland/keybindings.lua;
+  home.file.".config/hypr/var.lua".source = ./hyprland/var.lua;
 
 
   programs.bash = {
