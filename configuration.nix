@@ -59,7 +59,8 @@
   };
 
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.plasma-login-manager.enable = true;
+  # services.displayManager.plasma-login-manager.enable = true;
+  services.displayManager.ly.enable = true;
 
   ############################################
   ## Users & Security
@@ -77,7 +78,12 @@
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; # Goodix driver module
   # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-elan; # Elan(04f3:0c4b) driver
-
+  security.pam.services = {
+    login.fprintAuth = false;
+    sudo.fprintAuth = false;
+    kscreenlocker.fprintAuth = true;   # keep it for unlocking the screen
+    polkit-1.fprintAuth = true;
+  };
   ############################################
   ## Fonts
   ############################################
