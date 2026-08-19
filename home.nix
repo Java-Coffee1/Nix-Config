@@ -11,7 +11,7 @@
   home.file.".config/hypr/hyprland.lua".source = ./hyprland/hyprland.lua;
   home.file.".config/hypr/keybindings.lua".source = ./hyprland/keybindings.lua;
   home.file.".config/hypr/var.lua".source = ./hyprland/var.lua;
-
+  home.file.".config/hypr/windows_and_workspaces.lua".source = ./hyprland/windows_and_workspaces.lua;
 
   programs.bash = {
     enable = true;
