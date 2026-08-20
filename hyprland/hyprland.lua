@@ -45,7 +45,7 @@ hl.monitor({
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
 -- end)
 hl.exec_cmd("mako")
-hl.exec_cmd("ags")
+hl.exec_cmd("ags run ~/.config/ags/config.js --gtk 3")
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
