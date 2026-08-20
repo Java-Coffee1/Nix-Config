@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
-  imports = [ ./kde/kde-config.nix ];
+  imports = [ ./kde/kde-config.nix inputs.ags.homeManagerModules.default];
   home.username = "javi";
   home.homeDirectory = "/home/javi";
   home.stateVersion = "25.05";
@@ -19,8 +19,18 @@
   home.file.".config/rofi/theme.rasi".source = ./hyprland/rofi/theme.rasi;
 
   ## widget config files 
-  home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
+  # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
 
+  programs.ags =  {
+    enable = true;
+    configDir = ./hyprland/ags;
+    extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
+    ];
+  };
+    
   programs.bash = {
     enable = true;
     shellAliases = {
