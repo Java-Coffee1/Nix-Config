@@ -21,9 +21,12 @@
   ## widget config files 
   # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
 
-  programs.ags =  {
+  home.file.".config/ags/config.tsx".source = ./hyprland/ags/config.tsx;
+  home.file.".config/ags/app.tsx".source = ./hyprland/ags/app.tsx;
+  home.file.".config/ags/style.scss".source = ./hyprland/ags/style.scss;
+
+  programs.ags = {
     enable = true;
-    configDir = ./hyprland/ags;
     extraPackages = with pkgs; [
       inputs.astal.packages.${pkgs.system}.battery
       fzf
