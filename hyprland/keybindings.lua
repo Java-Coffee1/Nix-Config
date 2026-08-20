@@ -13,6 +13,7 @@ require("var") -- Load variables from a separate file (mainMod, terminal, etc.)
 -- NOTE: "drag windows".
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. "+ C", hl.dsp.window.close())
+
 -- ───────── System & Hardware ─────────
 -- hl.bind("ALT + SHIFT", hl.dsp.exec_cmd("hyprctl switchxkblayout main prev"))
 -- hl.bind("SHIFT + ALT", hl.dsp.exec_cmd("hyprctl switchxkblayout main next"))
