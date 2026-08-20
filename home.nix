@@ -16,7 +16,11 @@
 
   ## rofi configuration files
   home.file.".config/rofi/config.rasi".source = ./hyprland/rofi/config.rasi;
-  home.file.".config/rofi/theme.rasi".source = ./hyperland/rofi/theme.rasi;
+  home.file.".config/rofi/theme.rasi".source = ./hyprland/rofi/theme.rasi;
+
+  ## widget config files 
+  home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
+
   programs.bash = {
     enable = true;
     shellAliases = {
