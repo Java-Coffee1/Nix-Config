@@ -25,8 +25,8 @@
     enable = true;
     configDir = ./hyprland/ags;
     extraPackages = with pkgs; [
-      gtksourceview
-      accountsservice
+      inputs.astal.packages.${pkgs.system}.battery
+      fzf
     ];
   };
     

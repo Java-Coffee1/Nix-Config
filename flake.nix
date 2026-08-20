@@ -15,7 +15,12 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    #############################
+    ## ags display
+    #############################
     ags.url = "github:Aylur/ags";
+    astal.url = "github:aylur/astal";
     
   };
 
