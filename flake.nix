@@ -24,7 +24,7 @@
       plasma-manager,
       treefmt-nix,
       ...
-    }:
+    }@inputs:
     {
       formatter = nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-linux" ] (
         system:
@@ -46,6 +46,7 @@
               users.javi = import ./home.nix;
               backupFileExtension = "backup";
               sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+              extraSpecialArgs = { inherit inputs; };
             };
           }
         ];
