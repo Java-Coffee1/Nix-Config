@@ -23,6 +23,12 @@ let
           version = "0.47.2";
           sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
         }
+        {
+          name = "hackatime-time-tracker";
+          publisher = "hackatime";
+          version = "30.2.2004";
+          sha256 = "sha256-bX8egMLHdyUq6yWF+ta7jGMBu4NO3KFJtvaA9jfZc/0=";
+        }
       ];
   };
 in

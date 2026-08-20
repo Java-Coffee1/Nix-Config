@@ -26,7 +26,6 @@
     configDir = ./hyprland/ags;
     extraPackages = with pkgs; [
       gtksourceview
-      webkitgtk
       accountsservice
     ];
   };
