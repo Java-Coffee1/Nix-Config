@@ -42,7 +42,8 @@ in
     # -- Hyperland intergration --
     kitty
     rofi
-
+    mako
+    ags
     # -- Communication --
     element-desktop
     discord
