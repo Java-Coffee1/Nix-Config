@@ -45,6 +45,7 @@ hl.monitor({
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
 -- end)
 hl.exec_cmd("mako")
+hl.exec_cmd("ags")
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
