@@ -30,7 +30,7 @@
 
   networking.hostName = "nixos-btw"; # Define your hostname.
   networking.networkmanager.enable = true;
-  # networking.wireless.enable = true;
+  networking.wireless.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -58,8 +58,6 @@
     autoRepeatInterval = 35;
   };
 
-  services.desktopManager.plasma6.enable = true;
-  # services.displayManager.plasma-login-manager.enable = true;
   services.displayManager.ly.enable = true;
 
   ############################################
@@ -69,7 +67,7 @@
   # Define a user account. Don't forget to set a password with `passwd`.
   users.users.javi = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable 'sudo' for the user.
+    extraGroups = [ "wheel" "docker" ]; # Enable 'sudo' for the user.
     packages = with pkgs; [ tree ];
   };
 
@@ -99,6 +97,10 @@
     "flakes"
   ];
   nixpkgs.config.allowUnfree = true;
+
+  virtualisation.docker = {
+    enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

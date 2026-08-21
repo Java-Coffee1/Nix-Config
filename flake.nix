@@ -7,28 +7,22 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # plasma-manager = {
+    #   url = "github:nix-community/plasma-manager";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
-    #############################
-    ## ags display
-    #############################
-    ags.url = "github:Aylur/ags";
-    astal.url = "github:aylur/astal";
-    
+        
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
-      plasma-manager,
+      # plasma-manager,
       treefmt-nix,
       ...
     }@inputs:
@@ -52,8 +46,7 @@
               useUserPackages = true;
               users.javi = import ./home.nix;
               backupFileExtension = "backup";
-              sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
-              extraSpecialArgs = { inherit inputs; };
+              # sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
             };
           }
         ];
