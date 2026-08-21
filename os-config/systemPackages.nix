@@ -62,5 +62,6 @@ in
 
     # -- Development --
     vscode-configured
-  ];
+    docker
+ ];
 }
