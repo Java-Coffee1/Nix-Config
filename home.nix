@@ -1,7 +1,7 @@
 { inputs, config, pkgs, ... }:
 
 {
-  imports = [ ./kde/kde-config.nix ];
+  # imports = [ ./kde/kde-config.nix ];
   home.username = "javi";
   home.homeDirectory = "/home/javi";
   home.stateVersion = "25.05";
@@ -13,6 +13,8 @@
   home.file.".config/hypr/keybindings.lua".source = ./hyprland/keybindings.lua;
   home.file.".config/hypr/var.lua".source = ./hyprland/var.lua;
   home.file.".config/hypr/windows_and_workspaces.lua".source = ./hyprland/windows_and_workspaces.lua;
+
+  wayland.windowManager.hyprland.systemd.enable = false;
 
   ## rofi configuration files
   home.file.".config/rofi/config.rasi".source = ./hyprland/rofi/config.rasi;
