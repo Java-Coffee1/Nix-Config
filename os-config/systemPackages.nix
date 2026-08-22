@@ -40,14 +40,21 @@ in
     curl
     htop
     fwupd
+    ripgrep #find packages
 
     # -- KDE / Plasma integration --
     # kdePackages.kdbusaddons
     # kdePackages.qtstyleplugin-kvantum
 
     # -- Hyperland intergration --
-    rofi-wayland
-    nemo
+    rofi #look things up 
+    mako # Notification Daemom
+    pipewire #audio Driver
+    wireplumber #audio Driver
+
+    qt5-wayland
+    qt6-wayland
+    
     kitty
     playerctl
     swayosd

@@ -46,7 +46,7 @@
               useUserPackages = true;
               users.javi = import ./home.nix;
               backupFileExtension = "backup";
-              # sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+              # sharedModules = [ plasma-manager.homeManagerModules.plasmahttps://github.com/Java-Coffee1/Nix-Config-manager ];
             };
           }
         ];
