@@ -43,11 +43,13 @@ hl.monitor({
 --   hl.exec_cmd("nm-applet")
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
 -- end)
-hl.exec_cmd("swaync")
-hl.exec_cmd("ags run ~/.config/ags/config.tsx")
-hl.exec_cmd("awww-daemon")
-hl.exec_cmd("awww img  ~/.config/hypr/wallpaper1.png")
-hl.exec_cmd("waybar")
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("swaync")
+  hl.exec_cmd("ags run ~/.config/ags/config.tsx")
+  hl.exec_cmd("awww-daemon")
+  hl.exec_cmd("awww img ~/.config/hypr/wallpaper1.png")
+  hl.exec_cmd("waybar")
+end)
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------

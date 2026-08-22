@@ -7,10 +7,6 @@
  * Rofi Version: 1.7.3
  **/
 
-* {
-    font: "JetBrains Mono Nerd Font 10";
-}
-
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun,run,filebrowser";
@@ -24,7 +20,8 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "./config/rofi/colors.rasi"
+@import                          "colors.rasi"
+@import                          "FONTS
 * {
     border-colour:               var(selected);
     handle-colour:               var(selected);
