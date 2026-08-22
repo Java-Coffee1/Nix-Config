@@ -50,15 +50,28 @@
   ############################################
   ## Desktop Environment
   ############################################
-
   services.xserver = {
     enable = true;
     autoRepeatDelay = 200;
     autoRepeatInterval = 35;
   };
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true; # needed for non-Wayland-native apps
+  };
+
+  # Keep ly, or switch to SDDM/GDM with Wayland support — ly works fine with Hyprland
   services.displayManager.ly.enable = true;
 
+  # Needed for portals (screen share, file pickers, etc.)
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
+
+  # swayosd needs its own service for volume/brightness OSD popups
+  services.swayosd.enable = true;
   ############################################
   ## Users & Security
   ############################################
