@@ -41,28 +41,37 @@ in
     htop
     fwupd
     ripgrep #find packages
+    fastfetch
 
     # -- KDE / Plasma integration --
     # kdePackages.kdbusaddons
     # kdePackages.qtstyleplugin-kvantum
 
     # -- Hyperland intergration --
+    swww 
+    zsh
     rofi #look things up 
-    mako # Notification Daemom
+    waybar
+    swaynotificationcenter # Notification Daemom
     pipewire #audio Driver
     wireplumber #audio Driver
 
-    qt5-wayland
-    qt6-wayland
-    
+    quickshell
+    kdePackages.qtwayland
+    kdePackages.qtwayland
+        
     kitty
     playerctl
     swayosd
     wl-clipboard
     grim slurp  
+
+
     # -- Communication --
     element-desktop
-    discord
+    (pkgs.discord.override {
+      withOpenASAR = true;
+    })
     slack
 
     # -- Media / Audio --

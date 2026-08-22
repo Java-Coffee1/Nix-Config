@@ -22,9 +22,9 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "",
-    mode     = "preferred",
+    mode     = "2560x1600@165",
     position = "auto",
-    scale    = "auto",
+    scale    = "1",
 })
 
 
@@ -53,7 +53,7 @@ hl.exec_cmd("ags run ~/.config/ags/config.tsx")
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-
+hl.env (" awww-daemon ~/.config/hypr/wallpaper1.png ")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -87,8 +87,8 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = { colors = {"rgba(6E75A8FF)", "rgba(8D91C7FF)"}, angle = 45 },
+            inactive_border = "rgba(0F1020FF)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
