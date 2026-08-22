@@ -42,14 +42,16 @@ in
     fwupd
 
     # -- KDE / Plasma integration --
-    kdePackages.kdbusaddons
-    kdePackages.qtstyleplugin-kvantum
+    # kdePackages.kdbusaddons
+    # kdePackages.qtstyleplugin-kvantum
 
     # -- Hyperland intergration --
     kitty
     rofi
     mako
     ags
+    nemo
+    wev
     # -- Communication --
     element-desktop
     discord

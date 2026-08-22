@@ -30,7 +30,6 @@
 
   networking.hostName = "nixos-btw"; # Define your hostname.
   networking.networkmanager.enable = true;
-  networking.wireless.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -79,7 +78,7 @@
   security.pam.services = {
     login.fprintAuth = false;
     sudo.fprintAuth = false;
-    kscreenlocker.fprintAuth = true;   # keep it for unlocking the screen
+    # kscreenlocker.fprintAuth = true;   # keep it for unlocking the screen
     polkit-1.fprintAuth = true;
   };
   ############################################
