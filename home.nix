@@ -27,6 +27,12 @@
   home.file.".config/rofi/colors.rasi".source = ./hyprland/rofi/colors.rasi;
   home.file.".config/rofi/fonts.rasi".source = ./hyprland/rofi/fonts.rasi;
 
+  ## waybar
+  home.file.".config/waybar/config.jsonc".source = ./hyprland/waybar/config.jsonc;
+  home.file.".config/waybar/style.css".source = ./hyprland/waybar/style.css;
+  home.file.".config/waybar/onedark.css".source = ./hyprland/waybar/onedark.css;
+
+
 
   ## widget config files 
   # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
