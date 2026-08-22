@@ -24,7 +24,9 @@
 
   ## rofi configuration files
   home.file.".config/rofi/config.rasi".source = ./hyprland/rofi/config.rasi;
-  home.file.".config/rofi/theme.rasi".source = ./hyprland/rofi/theme.rasi;
+  home.file.".config/rofi/colors.rasi".source = ./hyprland/rofi/colors.rasi;
+  home.file.".config/rofi/fonts.rasi".source = ./hyprland/rofi/fonts.rasi;
+
 
   ## widget config files 
   # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;

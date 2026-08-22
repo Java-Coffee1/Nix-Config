@@ -66,6 +66,8 @@ in
     wl-clipboard
     grim slurp  
 
+    # -- fonts -- 
+    nerd-fonts.geist-mono
 
     # -- Communication --
     element-desktop
