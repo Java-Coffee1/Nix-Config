@@ -48,7 +48,7 @@ in
     # kdePackages.qtstyleplugin-kvantum
 
     # -- Hyperland intergration --
-    swww 
+    awww 
     zsh
     rofi #look things up 
     waybar
