@@ -16,6 +16,9 @@
 
   wayland.windowManager.hyprland.systemd.enable = false;
 
+  # swayosd needs its own service for volume/brightness OSD popups
+  services.swayosd.enable = true;
+
   ## rofi configuration files
   home.file.".config/rofi/config.rasi".source = ./hyprland/rofi/config.rasi;
   home.file.".config/rofi/theme.rasi".source = ./hyprland/rofi/theme.rasi;
