@@ -46,6 +46,9 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("dolphin"))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu)) -- opens rofi
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(
+  "sh -c 'cliphist list | rofi -dmenu -display-columns 2 -theme ~/.config/rofi/config.rasi | cliphist decode | wl-copy'"
+))
 -- -- ───────── Quickshell Controls ─────────
 -- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/qs_manager.sh toggle monitors"))
 -- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/reload.sh"))

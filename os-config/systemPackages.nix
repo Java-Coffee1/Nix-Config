@@ -63,6 +63,7 @@ in
     kitty
     playerctl
     swayosd
+    cliphist
     wl-clipboard
     grim slurp  
 

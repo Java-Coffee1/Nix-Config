@@ -49,6 +49,9 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("awww-daemon")
   hl.exec_cmd("awww img ~/.config/hypr/wallpaper1.png")
   hl.exec_cmd("waybar")
+  hl.exec_cmd("swayosd-server")   -- <-- add this
+  hl.exec_cmd("wl-paste --type text --watch cliphist store")
+  hl.exec_cmd("wl-paste --type image --watch cliphist store")
 end)
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----

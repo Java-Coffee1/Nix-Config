@@ -69,7 +69,7 @@
             "wechat": 99
         }
     },
-    "pipewire": {
+    "pluseaudio": {
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-muted": "",
