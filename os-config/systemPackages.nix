@@ -46,12 +46,13 @@ in
     # kdePackages.qtstyleplugin-kvantum
 
     # -- Hyperland intergration --
-    kitty
-    rofi
-    mako
-    ags
+    rofi-wayland
     nemo
-    wev
+    kitty
+    playerctl
+    swayosd
+    wl-clipboard
+    grim slurp  
     # -- Communication --
     element-desktop
     discord
