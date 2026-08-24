@@ -4,7 +4,7 @@
   # imports = [ ./kde/kde-config.nix ];
   home.username = "javi";
   home.homeDirectory = "/home/javi";
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
   home.file."Projects/.keep".text = "";
   programs.git.enable = true;
 
@@ -45,4 +45,11 @@
       btw = "echo I use nixos, btw";
     };
   };
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors;   # or adwaita-icon-theme, capitaine-cursors, etc.
+    name = "Bibata-Modern-Classic";
+    size = 24;
+  };  
 }
