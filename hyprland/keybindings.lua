@@ -13,6 +13,7 @@ require("var") -- Load variables from a separate file (mainMod, terminal, etc.)
 -- NOTE: "drag windows".
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. "+ C", hl.dsp.window.close())
+hl.bind(mainMod .. " + SHIFT + 1", hl.dsp.window.move({ workspace = 1 }))
 
 -- ───────── System & Hardware ─────────
 -- hl.bind("ALT + SHIFT", hl.dsp.exec_cmd("hyprctl switchxkblayout main prev"))
@@ -66,7 +67,7 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(
 
 -- ───────── Workspaces ─────────
 for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key,          hl.dsp.exec_cmd("~/.config/hypr/scripts/qs_manager.sh " .. i))
-    hl.bind(mainMod .. " + SHIFT + " .. key,  hl.dsp.exec_cmd("~/.config/hypr/scripts/qs_manager.sh " .. i .. " move"))
+  local key = i % 10
+  hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
