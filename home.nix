@@ -61,4 +61,16 @@
     platformTheme.name = "qtct";
     style.name = "kvantum";
   };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Orchis-Dark";
+      package = pkgs.orchis-theme;
+    };
+    iconTheme = {
+      name = "Tela-circle"; # Pairs excellently with Orchis
+      package = pkgs.tela-circle-icon-theme;
+    };
+  };
 }
