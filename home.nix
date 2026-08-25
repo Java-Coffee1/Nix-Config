@@ -35,8 +35,8 @@
 
 
   # Kvantum
-  home.file.".config/Kvantum".source = ./hyprland/kvantum/kvconf;
-  home.file.".config/Kvantum/Orchis".source = ./hyprland/Orchis;
+  home.file.".config/Kvantum/kvantum.kvconfig".source = ./hyprland/kvantum/kvantum.kvconfig;
+  home.file.".config/Kvantum/Orchis".source = ./hyprland/kvantum/Orchis;
   ## widget config files 
   # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
 
