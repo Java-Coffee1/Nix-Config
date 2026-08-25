@@ -36,7 +36,7 @@
 
   # Kvantum
   home.file.".config/Kvantum/kvantum.kvconfig".source = ./hyprland/kvantum/kvantum.kvconfig;
-  home.file.".config/Kvantum/Orchis".source = ./hyprland/kvantum/Orchis;
+  home.file.".config/Kvantum/Orchis".source = ./hyprland/kvantum/Orchis;  
   ## widget config files 
   # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
 
@@ -55,22 +55,4 @@
     size = 24;
   };  
 
-  # Kvantum
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-    style.name = "kvantum";
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Orchis-Dark";
-      package = pkgs.orchis-theme;
-    };
-    iconTheme = {
-      name = "Tela-circle"; # Pairs excellently with Orchis
-      package = pkgs.tela-circle-icon-theme;
-    };
-  };
 }
