@@ -67,3 +67,8 @@ hl.window_rule({
     max_size = {1,1},
     opacity = 0.0
 })
+
+
+
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("QT_STYLE_OVERRIDE", "kvantum")

@@ -60,6 +60,7 @@ in
     kdePackages.qtwayland
         
     kdePackages.dolphin #file manager
+    kdePackages.qt6ct
     kdePackages.qtstyleplugin-kvantum # home.nix is where its conf
     kitty
     playerctl
