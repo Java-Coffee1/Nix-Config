@@ -56,16 +56,18 @@ in
     pipewire #audio Driver
     wireplumber #audio Driver
 
-    quickshell
     kdePackages.qtwayland
     kdePackages.qtwayland
         
+    kdePackages.dolphin #file manager
+    kdePackages.qtstyleplugin-kvantum # home.nix is where its conf
     kitty
     playerctl
     swayosd
     cliphist
     wl-clipboard
-    grim slurp  
+    grim 
+    slurp  
 
     # -- fonts -- 
     nerd-fonts.geist-mono
