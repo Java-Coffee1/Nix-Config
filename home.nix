@@ -34,6 +34,8 @@
   home.file.".config/waybar/onedark.css".source = ./hyprland/waybar/onedark.css;
 
 
+  # Kvantum
+  home.file.".config/Kvantum".source = ./hyprland/kvantum/kvconf;
 
   ## widget config files 
   # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
@@ -52,4 +54,11 @@
     name = "Bibata-Modern-Classic";
     size = 24;
   };  
+
+  # Kvantum
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    style.name = "kvantum";
+  };
 }
