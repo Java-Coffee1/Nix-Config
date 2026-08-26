@@ -42,6 +42,7 @@ in
     fwupd
     ripgrep #find packages
     fastfetch
+    unzip 
 
     # -- KDE / Plasma integration --
     # kdePackages.kdbusaddons
@@ -55,6 +56,7 @@ in
     swaynotificationcenter # Notification Daemom
     pipewire #audio Driver
     wireplumber #audio Driver
+  
 
     kdePackages.qtwayland
     kdePackages.qtwayland

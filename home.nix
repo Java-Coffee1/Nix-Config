@@ -1,10 +1,11 @@
-{ inputs, config, pkgs, ... }:
-
+{ config, pkgs, ... }:
 {
-  # imports = [ ./kde/kde-config.nix ];
+  imports = [ ./kde/kde-config.nix ];
+
   home.username = "javi";
   home.homeDirectory = "/home/javi";
-  home.stateVersion = "26.05";
+  home.stateVersion = "25.05";
+
   home.file."Projects/.keep".text = "";
   programs.git.enable = true;
 
@@ -12,50 +13,44 @@
   home.file.".config/hypr/hyprland.lua".source = ./hyprland/hyprland.lua;
   home.file.".config/hypr/keybindings.lua".source = ./hyprland/keybindings.lua;
   home.file.".config/hypr/var.lua".source = ./hyprland/var.lua;
-
   home.file.".config/hypr/windows_and_workspaces.lua".source = ./hyprland/windows_and_workspaces.lua;
-  home.file.".config/hypr/wallpaper1.png".source = ./hyprland/wallpaper/wallpaper1.png;
-
-  home.file.".config/kitty/kitty.conf".source = ./hyprland/kitty/kitty.conf;
-  wayland.windowManager.hyprland.systemd.enable = false;
-
-  # swayosd needs its own service for volume/brightness OSD popups
-  services.swayosd.enable = true;
 
   ## rofi configuration files
   home.file.".config/rofi/config.rasi".source = ./hyprland/rofi/config.rasi;
-  home.file.".config/rofi/colors.rasi".source = ./hyprland/rofi/colors.rasi;
-  home.file.".config/rofi/fonts.rasi".source = ./hyprland/rofi/fonts.rasi;
-  home.file.".config/rofi/onedark.rasi".source = ./hyprland/rofi/onedark.rasi;
 
-  ## waybar
-  home.file.".config/waybar/config.jsonc".source = ./hyprland/waybar/config.jsonc;
-  home.file.".config/waybar/style.css".source = ./hyprland/waybar/style.css;
-  home.file.".config/waybar/onedark.css".source = ./hyprland/waybar/onedark.css;
+  ## Qt app styling (Dolphin, Kate, Konsole, etc.)
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    style.name = "kvantum";
+  };
 
-  ## -- Kvantum 
-  home.file.".config/Kvantum".source = ./hyprland/kvantum;
-  
+  home.packages = with pkgs; [
+    kdePackages.qt6ct
+    libsForQt5.qt5ct
+    kdePackages.qtstyleplugin-kvantum
+    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.tela-circle-icon-theme
+  ];
+
+  home.file.".config/Kvantum/Orchis".source = ./qt-style/Kvantum/Orchis;
+  home.file.".config/Kvantum/kvantum.kvconfig".text = ''
+    [General]
+    theme=OrchisDark
+  '';
+  home.file.".config/color-schemes/OrchisDark.colors".source = ./qt-style/color-schemes/OrchisDark.colors;
+  home.file.".config/kdeglobals".text = ''
+    [Icons]
+    Theme=Tela-circle-dark
+
+    [General]
+    ColorScheme=OrchisDark
+  '';
+
   programs.bash = {
     enable = true;
     shellAliases = {
       btw = "echo I use nixos, btw";
     };
-  };
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.bibata-cursors;   # or adwaita-icon-theme, capitaine-cursors, etc.
-    name = "Bibata-Modern-Classic";
-    size = 24;
-  };  
-
-  nixpkgs.config.qt5 = {
-    enable = true;
-    platformTheme = "qt5ct"; 
-      style = {
-        package = pkgs.utterly-nord-plasma;
-        name = "Utterly Nord Plasma";
-      };
   };
 }
