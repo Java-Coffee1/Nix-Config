@@ -33,14 +33,9 @@
   home.file.".config/waybar/style.css".source = ./hyprland/waybar/style.css;
   home.file.".config/waybar/onedark.css".source = ./hyprland/waybar/onedark.css;
 
-
-  # Kvantum
-  home.file.".config/Kvantum/kvantum.kvconfig".source = ./hyprland/kvantum/kvantum.kvconfig;
-  home.file.".config/Kvantum/Orchis".source = ./hyprland/kvantum/Orchis;  
-  ## widget config files 
-  # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
-
-
+  ## -- Kvantum 
+  home.file.".config/Kvantum".source = ./hyprland/kvantum;
+  
   programs.bash = {
     enable = true;
     shellAliases = {

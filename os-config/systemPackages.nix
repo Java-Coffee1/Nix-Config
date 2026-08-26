@@ -58,15 +58,7 @@ in
 
     kdePackages.qtwayland
     kdePackages.qtwayland
-
-    # -- Dolphin --       
-    kdePackages.dolphin          # The Dolphin file manager
-    kdePackages.ark              # For archiving and zip/tar integration
-    kdePackages.kdegraphics-thumbnailers # For image thumbnail previews
-    kdePackages.ffmpegthumbs                 # For video thumbnail previews
    
-    kdePackages.qt6ct
-    kdePackages.qtstyleplugin-kvantum # home.nix is where its conf
     kitty
     playerctl
     swayosd

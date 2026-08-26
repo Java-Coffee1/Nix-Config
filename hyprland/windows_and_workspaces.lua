@@ -68,7 +68,3 @@ hl.window_rule({
     opacity = 0.0
 })
 
-
-
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
-hl.env("QT_STYLE_OVERRIDE", "kvantum")
