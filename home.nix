@@ -25,14 +25,6 @@
     style.name = "kvantum";
   };
 
-  home.packages = with pkgs; [
-    kdePackages.qt6ct
-    libsForQt5.qt5ct
-    kdePackages.qtstyleplugin-kvantum
-    libsForQt5.qtstyleplugin-kvantum
-    kdePackages.tela-circle-icon-theme
-  ];
-
   home.file.".config/Kvantum/Orchis".source = ./hyprland/qt-style/Kvantum/Orchis;
   home.file.".config/Kvantum/kvantum.kvconfig".text = ''
     [General]
