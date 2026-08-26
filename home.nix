@@ -33,12 +33,12 @@
     kdePackages.tela-circle-icon-theme
   ];
 
-  home.file.".config/Kvantum/Orchis".source = ./qt-style/Kvantum/Orchis;
+  home.file.".config/Kvantum/Orchis".source = ./hyprland/qt-style/Kvantum/Orchis;
   home.file.".config/Kvantum/kvantum.kvconfig".text = ''
     [General]
     theme=OrchisDark
   '';
-  home.file.".config/color-schemes/OrchisDark.colors".source = ./qt-style/color-schemes/OrchisDark.colors;
+  home.file.".config/color-schemes/OrchisDark.colors".source = ./hyprland/qt-style/color-schemes/OrchisDark.colors;
   home.file.".config/kdeglobals".text = ''
     [Icons]
     Theme=Tela-circle-dark
