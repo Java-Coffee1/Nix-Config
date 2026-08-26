@@ -58,7 +58,17 @@ in
 
     kdePackages.qtwayland
     kdePackages.qtwayland
-   
+
+    ## -- hyperland styling 
+    kdePackages.qt6ct
+    libsForQt5.qt5ct
+
+    libsForQt5.qtstyleplugin-kvantum   # Qt5 apps
+    qt6Packages.qtstyleplugin-kvantum  # Qt6 apps (Plasma 6 is Qt6-based)
+
+
+    kdePackages.dolphin
+
     kitty
     playerctl
     swayosd
