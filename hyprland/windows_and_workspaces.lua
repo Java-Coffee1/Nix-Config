@@ -68,3 +68,4 @@ hl.window_rule({
     opacity = 0.0
 })
 
+env = QT_QPA_PLATFORMTHEME,qt6ct
