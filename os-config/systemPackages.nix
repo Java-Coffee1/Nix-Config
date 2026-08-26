@@ -81,7 +81,8 @@ in
 
     # -- fonts -- 
     nerd-fonts.geist-mono
-
+    # -- icons --
+    kdePackages.tela-circle-icon-theme
     # -- Communication --
     element-desktop
     (pkgs.discord.override {
