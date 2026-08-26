@@ -49,7 +49,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("awww-daemon")
   hl.exec_cmd("awww img ~/.config/hypr/wallpaper1.png")
   hl.exec_cmd("waybar")
-  hl.exec_cmd("swayosd-server")   -- <-- add this
+  hl.exec_cmd("swayosd-server")
   hl.exec_cmd("wl-paste --type text --watch cliphist store")
   hl.exec_cmd("wl-paste --type image --watch cliphist store")
 end)
@@ -256,3 +256,4 @@ hl.device({
 require("var") -- Load variables from a separate file 
 require("keybindings") -- Load keybindings from a separate file
 require("windows_and_workspaces") -- Load window and workspace rules from a separate file
+
