@@ -7,22 +7,21 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # plasma-manager = {
-    #   url = "github:nix-community/plasma-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-        
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
-      # plasma-manager,
+      plasma-manager,
       treefmt-nix,
       ...
     }@inputs:
@@ -46,7 +45,7 @@
               useUserPackages = true;
               users.javi = import ./home.nix;
               backupFileExtension = "backup";
-              # sharedModules = [ plasma-manager.homeManagerModules.plasmahttps://github.com/Java-Coffee1/Nix-Config-manager ];
+              sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
             };
           }
         ];
