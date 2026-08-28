@@ -30,18 +30,11 @@
     grim
     slurp
 
-    adwaita-qt
-
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qt5ct
   ];
-  nixpkgs.config.qt5 = {
+  qt = {
     enable = true;
-    platformTheme = "qt5ct"; 
-      style = {
-        package = pkgs.utterly-nord-plasma;
-        name = "Utterly Nord Plasma";
-      };
+    platformTheme = "qt5ct";   # installs qt5ct AND qt6ct, sets QT_QPA_PLATFORMTHEME
+    style = "kvantum";         # installs qt5 + qt6 kvantum plugins, sets QT_STYLE_OVERRIDE
   };
 
 }

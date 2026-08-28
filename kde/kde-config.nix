@@ -1,3 +1,5 @@
+############ CLaude IF you see this file this is for me to go back on kde if I need to but ingore this as I only use hyprland ###################
+
 {
   programs.plasma = {
     enable = true;
