@@ -9,10 +9,9 @@
     withUWSM = true; # recommended for most users
     xwayland.enable = true; # Xwayland can be disabled.
   };  
-
   environment.systemPackages = with pkgs; [
     # -- Hyperland intergration --
-     # destop background
+    awww # destop background
     zsh
     rofi #look things up 
     waybar # task bar 
