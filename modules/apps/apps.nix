@@ -34,30 +34,6 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    # -- Core CLI tools --
-    vim # Do not forget to add an editor to edit configuration.nix! Nano is also installed by default.
-    wget
-    curl
-    htop
-    fwupd
-    ripgrep #find packages
-    fastfetch
-    unzip 
-
-    # -- KDE / Plasma integration --
-    # kdePackages.kdbusaddons
-    # kdePackages.qtstyleplugin-kvantum
-
-
-  
-
-    kdePackages.qtwayland
-    kdePackages.qtwayland
-
-    # -- fonts -- 
-    nerd-fonts.geist-mono
-    # -- icons --
-    tela-circle-icon-theme
     # -- Communication --
     element-desktop
     (pkgs.discord.override {
@@ -72,6 +48,6 @@ in
 
     # -- Development --
     vscode-configured
-    docker
+    # docker
  ];
 }

@@ -15,7 +15,7 @@
     ./os-config/systemPackages.nix
     ./os-config/programs.nix
     ./hardware-configuration.nix
-    ./modules/apps/hyprland.nix
+    ./modules/apps/default.nix
   ];
 
   ############################################
