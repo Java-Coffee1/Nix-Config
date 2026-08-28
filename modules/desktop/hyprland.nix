@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   ############################################
@@ -8,35 +8,40 @@
     enable = true;
     withUWSM = true; # recommended for most users
     xwayland.enable = true; # Xwayland can be disabled.
-  };  
+  };
+
   environment.systemPackages = with pkgs; [
-    # -- Hyperland intergration --
-    awww # destop background
+    # -- Hyprland integration --
+    awww # desktop background
     zsh
-    rofi #look things up 
-    waybar # task bar 
-    swaynotificationcenter # Notification Daemom
-    pipewire #audio Driver
-    wireplumber #audio Driver
+    rofi # look things up
+    waybar # task bar
+    swaynotificationcenter # notification daemon
+    pipewire # audio driver
+    wireplumber # audio driver
 
     kdePackages.dolphin
-
 
     kitty
     playerctl
     swayosd
     cliphist
     wl-clipboard
-    grim 
-    slurp  
-    
+    grim
+    slurp
 
-    ## -- hyperland styling 
-    kdePackages.qt6ct
+    adwaita-qt
+
+    libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
-
-    libsForQt5.qtstyleplugin-kvantum   # Qt5 apps
-    qt6Packages.qtstyleplugin-kvantum  # Qt6 apps (Plasma 6 is Qt6-based)
   ];
+  nixpkgs.config.qt5 = {
+    enable = true;
+    platformTheme = "qt5ct"; 
+      style = {
+        package = pkgs.utterly-nord-plasma;
+        name = "Utterly Nord Plasma";
+      };
+  };
 
 }
