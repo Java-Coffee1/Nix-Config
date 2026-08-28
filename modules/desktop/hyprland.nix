@@ -30,11 +30,19 @@
     grim
     slurp
 
+    papirus-icon-theme        # or colloid-icon-theme — vinceliuice, pairs with Orchis
+    adwaita-icon-theme        # fallback for icons the main theme lacks
+    hicolor-icon-theme
+
   ];
   qt = {
     enable = true;
     platformTheme = "qt5ct";   # installs qt5ct AND qt6ct, sets QT_QPA_PLATFORMTHEME
     style = "kvantum";         # installs qt5 + qt6 kvantum plugins, sets QT_STYLE_OVERRIDE
   };
+  environment.etc."xdg/kdeglobals".text = ''
+    [Icons]
+    Theme=Papirus-Dark
+  '';
 
 }
