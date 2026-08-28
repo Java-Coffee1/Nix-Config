@@ -30,4 +30,5 @@
   ## widget config files 
   # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
 
+  home.file.".config/quickshell".source = ./hyprland/quickshell;
 }
