@@ -29,4 +29,5 @@
   home.file.".config/Kvantum/Orchis".source = ./hyprland/kvantum/Orchis;
   ## widget config files 
   # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
+
 }
