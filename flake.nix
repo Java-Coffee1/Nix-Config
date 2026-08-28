@@ -30,7 +30,7 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+          treefmtEval = treefmt-nix.lib.evalModule pkgs ./modules/apps/treefmt.nix;
         in
         treefmtEval.config.build.wrapper // { inherit (treefmtEval) config; }
       );
