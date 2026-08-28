@@ -49,29 +49,11 @@
     name = "Bibata-Modern-Classic";
     size = 24;
   };  
-
-  # Kvantum
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-    style.name = "kvantum";
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Orchis-Dark";
-      package = pkgs.orchis-theme;
-    };
-    iconTheme = {
-      name = "Tela-circle"; # Pairs excellently with Orchis
-      package = pkgs.tela-circle-icon-theme;
-    };
-  };
   
 
   environment.systemPackages = with pkgs; [
     # -- Hyperland intergration --
+     # destop background
     zsh
     rofi #look things up 
     waybar # task bar 
