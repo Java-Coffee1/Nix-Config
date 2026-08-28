@@ -43,7 +43,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.javi = import ./home.nix;
+              users.javi = import ./modules/home.nix;
               backupFileExtension = "backup";
               sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
             };
