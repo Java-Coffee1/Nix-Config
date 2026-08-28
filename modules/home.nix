@@ -1,7 +1,7 @@
 { inputs, config, pkgs, ... }:
 
 {
-  # imports = [ ./kde/kde-config.nix ];
+  imports = [ ./desktop/hyprland-home.nix ];
   home.username = "javi";
   home.homeDirectory = "/home/javi";
   home.stateVersion = "26.05";
@@ -32,4 +32,13 @@
     platformTheme.name = "qtct";
     style.name = "kvantum";
   };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors;   # or adwaita-icon-theme, capitaine-cursors, etc.
+    name = "Bibata-Modern-Classic";
+    size = 24;
+  };  
+    
 }
