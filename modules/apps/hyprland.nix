@@ -28,5 +28,5 @@
 
     libsForQt5.qtstyleplugin-kvantum   # Qt5 apps
     qt6Packages.qtstyleplugin-kvantum  # Qt6 apps (Plasma 6 is Qt6-based)
-  ]
+  ];
 }
