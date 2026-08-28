@@ -12,10 +12,9 @@
 {
 
   imports = [
-    ./os-config/systemPackages.nix
-    ./os-config/programs.nix
     ./hardware-configuration.nix
     ./modules/apps/default.nix
+    ./modules/desktop/default.nix
   ];
 
   ############################################
