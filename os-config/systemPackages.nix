@@ -48,36 +48,11 @@ in
     # kdePackages.kdbusaddons
     # kdePackages.qtstyleplugin-kvantum
 
-    # -- Hyperland intergration --
-    awww 
-    zsh
-    rofi #look things up 
-    waybar
-    swaynotificationcenter # Notification Daemom
-    pipewire #audio Driver
-    wireplumber #audio Driver
+
   
 
     kdePackages.qtwayland
     kdePackages.qtwayland
-
-    ## -- hyperland styling 
-    kdePackages.qt6ct
-    libsForQt5.qt5ct
-
-    libsForQt5.qtstyleplugin-kvantum   # Qt5 apps
-    qt6Packages.qtstyleplugin-kvantum  # Qt6 apps (Plasma 6 is Qt6-based)
-    kdePackages.tela-circle-icon-theme
-
-    kdePackages.dolphin
-
-    kitty
-    playerctl
-    swayosd
-    cliphist
-    wl-clipboard
-    grim 
-    slurp  
 
     # -- fonts -- 
     nerd-fonts.geist-mono
