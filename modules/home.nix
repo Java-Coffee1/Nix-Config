@@ -1,11 +1,11 @@
 { inputs, config, pkgs, ... }:
 
 {
-  imports = [ ./desktop/hyprland-home.nix ];
+  imports = [./modules/desktop/niri.nix];
   home.username = "javi";
   home.homeDirectory = "/home/javi";
   home.stateVersion = "26.05";
-  home.file."Projects/.keep".text = "";
+  home.file."Projects/.keep".text = "this is project folder";
 
   programs.bash = {
     enable = true;
