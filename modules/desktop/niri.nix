@@ -2,16 +2,23 @@
 
 {
   ############################################
-  ## Hyprland
+  ## Niri
   ############################################
-  programs.hyprland = {
+  programs.niri.enable = true;
+  programs.xwayland.enable = true;
+
+  imports = [
+    inputs.noctalia.nixosModules.default
+  ];
+
+  programs.noctalia = {
     enable = true;
-    withUWSM = true; # recommended for most users
-    xwayland.enable = true; # Xwayland can be disabled.
+    # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
+    recommendedServices.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
-    # -- Hyprland integration --
+    # -- Niri integration --
     zsh
     rofi # look things up
     pipewire # audio driver
@@ -43,13 +50,5 @@
   #   [Icons]
   #   Theme=Papirus-Dark
   # '';
-  imports = [
-    inputs.noctalia.nixosModules.default
-  ];
 
-  programs.noctalia = {
-    enable = true;
-    # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
-    recommendedServices.enable = true;
-  };
 }
