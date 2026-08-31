@@ -1,7 +1,6 @@
 { inputs, config, pkgs, ... }:
 
 {
-  imports = [./modules/desktop/niri.nix];
   home.username = "javi";
   home.homeDirectory = "/home/javi";
   home.stateVersion = "26.05";
@@ -21,5 +20,7 @@
     name = "Bibata-Modern-Classic";
     size = 24;
   };  
+
+  home.file.".config/niri/config.kdl".source = ./desktop/niri/config.kdl;
 
 }
