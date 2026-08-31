@@ -13,7 +13,7 @@
   };
   programs.firefox.preferences = {
     "layout.css.devPixelsPerPx" = "1.1";
-    "ui.textScaleFactor" = 120;
+    "ui.textScaleFactor" = 115;
   };
   programs.firefox.preferencesStatus = "user";
 }

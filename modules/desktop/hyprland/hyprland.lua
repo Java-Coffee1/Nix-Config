@@ -1,20 +1,3 @@
------------------------------
--- HYPRLAND LUA CONFIG FILE --
------------------------------
-
-
--- This is an example Hyprland Lua config file.
--- Refer to the wiki for more information.
--- https://wiki.hypr.land/Configuring/Start/
-
--- Please note not all available settings / options are set here.
--- For a full list, see the wiki
-
--- You can (and should!!) split this configuration into multiple files
--- Create your files separately and then require them like this:
--- require("myColors")
-
-
 ------------------
 ---- MONITORS ----
 ------------------
@@ -27,48 +10,26 @@ hl.monitor({
     scale    = "1",
 })
 
-
-
 -------------------
 ---- AUTOSTART ----
 -------------------
 
--- See https://wiki.hypr.land/Configuring/Basics/Autostart/
-
--- Autostart necessary processes (like notifications daemons, status bars, etc.)
--- Or execute your favorite apps at launch like this:
---
--- hl.on("hyprland.start", function () 
---   hl.exec_cmd(terminal)
---   hl.exec_cmd("nm-applet")
---   hl.exec_cmd("waybar & hyprpaper & firefox")
--- end)
 hl.on("hyprland.start", function ()
   hl.exec_cmd("noctalia")
   hl.exec_cmd("swaync")
-  hl.exec_cmd("ags run ~/.config/ags/config.tsx")
-  hl.exec_cmd("awww-daemon")
-  hl.exec_cmd("awww img ~/.config/hypr/wallpaper1.png")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
---   hl.exec_cmd("waybar")
-  hl.exec_cmd("wl-paste --type text --watch cliphist store")
-  hl.exec_cmd("wl-paste --type image --watch cliphist store")
 end)
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
-
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
------------------------
------ PERMISSIONS -----
------------------------
 
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Permissions/
--- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
--- for security reasons
+-----------------------
+---- LOOK AND FEEL ----
+-----------------------
 
 hl.config({
   general = {
