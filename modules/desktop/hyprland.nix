@@ -13,7 +13,6 @@
   environment.systemPackages = with pkgs; [
     # -- Hyprland integration --
     zsh
-    rofi # look things up
     pipewire # audio driver
     wireplumber # audio driver
 
@@ -27,11 +26,11 @@
     grim
     slurp
 
+    crosspipe
+
     papirus-icon-theme        # or colloid-icon-theme — vinceliuice, pairs with Orchis
     adwaita-icon-theme        # fallback for icons the main theme lacks
     hicolor-icon-theme
-
-    quickshell #ui stuff
 
   ];
   # qt = {
