@@ -41,6 +41,8 @@
     quickshell #ui stuff
 
   ];
+  
+  home.file.".config/niri".source = ./niri/;
   # qt = {
   #   enable = true;
   #   platformTheme = "qt5ct";   # installs qt5ct AND qt6ct, sets QT_QPA_PLATFORMTHEME
