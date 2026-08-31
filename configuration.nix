@@ -56,9 +56,10 @@
     autoRepeatInterval = 35;
   };
 
-  programs.hyprland = {
+  # Enable Sway.
+  programs.sway = {
     enable = true;
-    xwayland.enable = true; # needed for non-Wayland-native apps
+    wrapperFeatures.gtk = true;
   };
 
   # Keep ly, or switch to SDDM/GDM with Wayland support — ly works fine with Hyprland
