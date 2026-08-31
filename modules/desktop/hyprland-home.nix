@@ -31,4 +31,7 @@
   # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
 
   home.file.".config/quickshell".source = ./hyprland/quickshell;
+
+  #noctalia
+  home.file. ".config/noctalia".source = ./hyprland/noctalia;
 }
