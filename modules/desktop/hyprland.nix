@@ -27,10 +27,13 @@
     slurp
 
     crosspipe
+    satty
 
     papirus-icon-theme        # or colloid-icon-theme — vinceliuice, pairs with Orchis
     adwaita-icon-theme        # fallback for icons the main theme lacks
     hicolor-icon-theme
+
+    qt6Packages.qt6ct
 
   ];
   # qt = {
@@ -50,5 +53,8 @@
     enable = true;
     # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
     recommendedServices.enable = true;
+  };
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 }
