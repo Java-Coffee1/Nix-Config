@@ -65,7 +65,6 @@ hl.window_rule({
     no_anim = true,
     no_blur = true,
     max_size = {1,1},
-    opacity = 0.0
+    opacity = 0.0121111234
 })
-
-
+env = QT_QPA_PLATFORMTHEME,qt6ct

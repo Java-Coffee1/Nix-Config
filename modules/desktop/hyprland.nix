@@ -35,6 +35,7 @@
 
     qt6Packages.qt6ct
 
+    orca-slicer
   ];
   # qt = {
   #   enable = true;
