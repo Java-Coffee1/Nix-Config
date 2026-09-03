@@ -38,11 +38,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  ############################################
-  ## Time & Locale
-  ############################################
 
-  time.timeZone = "America/Vancouver";
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -57,14 +53,6 @@
     autoRepeatInterval = 35;
   };
 
-  # Enable Sway.
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
-  # Keep ly, or switch to SDDM/GDM with Wayland support — ly works fine with Hyprland
-  services.displayManager.ly.enable = true;
 
   # Needed for portals (screen share, file pickers, etc.)
   xdg.portal = {
