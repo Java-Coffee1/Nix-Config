@@ -15,6 +15,7 @@
     ./hardware-configuration.nix
     ./modules/apps/default.nix
     ./modules/desktop/default.nix
+    ./modules/framework.nix
   ];
 
   ############################################
@@ -127,4 +128,5 @@
   ############################################
 
   system.stateVersion = "26.05";
+
 }

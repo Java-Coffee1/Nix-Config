@@ -34,8 +34,6 @@
     hicolor-icon-theme
 
     qt6Packages.qt6ct
-
-    orca-slicer
   ];
   # qt = {
   #   enable = true;
@@ -57,5 +55,15 @@
   };
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
+  };
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true; 
+
   };
 }
