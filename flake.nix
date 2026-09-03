@@ -19,7 +19,6 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs =
@@ -28,7 +27,6 @@
       home-manager,
       plasma-manager,
       treefmt-nix,
-      nixos-hardware,
       ...
     }@inputs:
     {
@@ -44,7 +42,6 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          inputs.nixos-hardware.nixosModules.framework-16-7040-amd
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
