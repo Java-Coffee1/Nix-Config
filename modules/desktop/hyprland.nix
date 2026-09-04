@@ -44,6 +44,7 @@
     hicolor-icon-theme
 
     qt6Packages.qt6ct
+    alacritty
   ];
 
   environment.sessionVariables = {
