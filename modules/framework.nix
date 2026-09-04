@@ -17,5 +17,8 @@
   time.timeZone = "America/Vancouver";
 
   services.displayManager.ly.enable = true;
-  
+
+  services.fprintd.enable = false;
+
+
 }

@@ -17,5 +17,8 @@
     ripgrep #find packages
     fastfetch
     unzip 
+    qmk
+
+    obs-studio
   ];
 }
