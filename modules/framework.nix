@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
    ############################################
    ## Framework 16 hardware
@@ -20,5 +20,20 @@
 
   services.fprintd.enable = false;
 
+  ############################################
+  ## SSH
+  ############################################
 
+  environment.systemPackages = [
+    inputs.agenix.packages."nixos-btw".default
+  ];
+  services.openssh.enable = true;
+
+  # let 
+  #   javi = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICq8ju6Hc+YoVJnr7+zN0ne2ydYQHkoDKCJE9K8aYRrX java@ghost"
+  #   userKeys = [ javi ];
+  # in
+  # {
+  #   "secret1.age"
+  # }
 }
