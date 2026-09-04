@@ -1,6 +1,6 @@
 {
   description = "NixOS configuration for javi's machine";
-
+  inputs.agenix.url = "github:ryantm/agenix";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-26.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -29,6 +29,7 @@
       home-manager,
       plasma-manager,
       treefmt-nix,
+      agenix,
       ...
     }@inputs:
     {
@@ -45,6 +46,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
