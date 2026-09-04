@@ -28,8 +28,5 @@
     inputs.agenix.packages.${pkgs.system}.default
   ];
   services.openssh.enable = true;
-  
-  networking.wireguard.interfaces.Home-.privateKeyFile = ./;
-
 }
 
