@@ -3,5 +3,5 @@ let
   userKeys = [ javi ];
 in
 {
-  "secret.age".publicKeys = [javi];
+  "wg-private-fw.age".publicKeys = [javi];
 }
