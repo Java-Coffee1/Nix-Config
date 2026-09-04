@@ -12,3 +12,8 @@ link repo
 ```
 ln -s /your/home/dir/Nix-Config/flake.nix /etc/nixos/flake.nix
 ```
+
+
+age nix 
+
+agenix -e -r wg-private-fw.age put public wg key here 
