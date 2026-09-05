@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [ ./desktop/hyprland-home.nix ];
@@ -17,9 +22,9 @@
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs.bibata-cursors;   # or adwaita-icon-theme, capitaine-cursors, etc.
+    package = pkgs.bibata-cursors; # or adwaita-icon-theme, capitaine-cursors, etc.
     name = "Bibata-Modern-Classic";
     size = 24;
-  };  
+  };
 
 }

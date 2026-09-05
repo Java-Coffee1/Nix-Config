@@ -38,8 +38,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -53,7 +51,6 @@
     autoRepeatInterval = 35;
   };
 
-
   # Needed for portals (screen share, file pickers, etc.)
   xdg.portal = {
     enable = true;
@@ -66,7 +63,11 @@
   # Define a user account. Don't forget to set a password with `passwd`.
   users.users.javi = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" ]; # Enable 'sudo' for the user.
+    extraGroups = [
+      "wheel"
+      "docker"
+      "networkmanager"
+    ]; # Enable 'sudo' for the user.
     packages = with pkgs; [ tree ];
   };
 
@@ -96,7 +97,6 @@
   virtualisation.docker = {
     enable = true;
   };
-  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

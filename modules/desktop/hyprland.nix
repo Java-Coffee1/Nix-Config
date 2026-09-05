@@ -1,9 +1,7 @@
 { inputs, pkgs, ... }:
 
 {
-  imports = [
-    inputs.noctalia.nixosModules.default
-  ];
+  imports = [ inputs.noctalia.nixosModules.default ];
 
   ############################################
   ## Hyprland
