@@ -6,6 +6,7 @@
     ./firefox.nix
     ./git.nix
     ./steam.nix
+    ./wireguard.nix
   ];
   environment.systemPackages = with pkgs; [
     # -- Core CLI tools --
