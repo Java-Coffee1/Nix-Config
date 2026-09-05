@@ -1,9 +1,9 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   imports = [
-   ./fonts.nix 
-   ./hyprland.nix
+    ./fonts.nix
+    ./hyprland.nix
   ];
 
 }

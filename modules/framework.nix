@@ -1,12 +1,16 @@
-{ config, pkgs, lib, inputs, ... }:
 {
-   ############################################
-   ## Framework 16 hardware
-   ############################################
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+{
+  ############################################
+  ## Framework 16 hardware
+  ############################################
 
-  imports = [
-    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-  ];
+  imports = [ inputs.nixos-hardware.nixosModules.framework-16-7040-amd ];
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
   hardware.enableAllFirmware = true;
 
@@ -24,9 +28,6 @@
   ## SSH
   ############################################
 
-  environment.systemPackages = [
-    inputs.agenix.packages.${pkgs.system}.default
-  ];
+  environment.systemPackages = [ inputs.agenix.packages.${pkgs.system}.default ];
   services.openssh.enable = true;
 }
-

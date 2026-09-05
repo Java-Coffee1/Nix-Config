@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -15,11 +15,10 @@
     curl
     htop
     fwupd
-    ripgrep #find packages
+    ripgrep # find packages
     fastfetch
-    unzip 
+    unzip
     qmk
-
 
     obs-studio
   ];
