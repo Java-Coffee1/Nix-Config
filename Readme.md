@@ -13,7 +13,14 @@ link repo
 ln -s /your/home/dir/Nix-Config/flake.nix /etc/nixos/flake.nix
 ```
 
-
-age nix 
-
+## Wireguard
+agenix 
+run this and paste your private key
+```
 agenix -e -r wg-private-fw.age put public wg key here 
+```
+## Install 
+
+```
+sudo nixos-rebuild switch
+```
