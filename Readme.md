@@ -5,6 +5,8 @@ This is my personal dot files for my laptop. I do not recommand installing these
 Install 
 
 Clone the repo in a folder
+
+Also make sure you have nixos installed.
 ```
 git clone github.com/Java-Coffee1/Nix-Config
 ```
