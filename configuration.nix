@@ -16,7 +16,6 @@
     ./modules/apps/default.nix
     ./modules/desktop/default.nix
     ./modules/framework.nix
-    ./wireguard.nix
   ];
 
   ############################################
