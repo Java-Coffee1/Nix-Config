@@ -10,6 +10,8 @@
   home.file.".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
   wayland.windowManager.hyprland.systemd.enable = false;
 
+  home.file.".config/Kvantum".source = ./hyprland/Kvantum;
+
   # swayosd needs its own service for volume/brightness OSD popups
   services.swayosd.enable = true;
 
