@@ -11,6 +11,9 @@
   wayland.windowManager.hyprland.systemd.enable = false;
 
   home.file.".config/Kvantum".source = ./kvantum;
+  home.file.".config/uwsm/env".text = ''
+    export QT_QPA_PLATFORMTHEME=qt6ct
+  '';
 
   # swayosd needs its own service for volume/brightness OSD popups
   services.swayosd.enable = true;
