@@ -46,6 +46,8 @@ in
     (pkgs.discord.override { withOpenASAR = true; })
     slack
 
+    # -- Games --
+    modrinth-app
     # -- Media / Audio --
     ytmdesktop
     easyeffects
