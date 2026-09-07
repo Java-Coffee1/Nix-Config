@@ -11,9 +11,7 @@
   wayland.windowManager.hyprland.systemd.enable = false;
 
   home.file.".config/Kvantum".source = ./kvantum;
-  home.file.".config/uwsm/env".text = ''
-    export QT_QPA_PLATFORMTHEME=qt6ct
-  '';
+
 
   # swayosd needs its own service for volume/brightness OSD popups
   services.swayosd.enable = true;
@@ -23,5 +21,35 @@
 
   #noctalia
   # home.file. ".config/noctalia".source = ./hyprland/noctalia;
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    style.name = "kvantum";
 
+    qt5ctSettings = {
+      Appearance = {
+        style = "kvantum";
+        icon_theme = "Papirus-Dark";
+        custom_palette = false;
+        standard_dialogs = "default";
+      };
+      Fonts = {
+        general = ''"Noto Sans,11"'';
+        fixed = ''"GeistMono Nerd Font Mono,11"'';
+      };
+    };
+
+    qt6ctSettings = {
+      Appearance = {
+        style = "kvantum";
+        icon_theme = "Papirus-Dark";
+        custom_palette = false;
+        standard_dialogs = "default";
+      };
+      Fonts = {
+        general = ''"Noto Sans,11"'';
+        fixed = ''"GeistMono Nerd Font Mono,11"'';
+      };
+    };
+  };
 }
