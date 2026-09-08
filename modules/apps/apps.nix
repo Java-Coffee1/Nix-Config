@@ -48,6 +48,7 @@ in
 
     # -- Games --
     modrinth-app
+    lunar-client
 
     # -- Media / Audio --
     ytmdesktop

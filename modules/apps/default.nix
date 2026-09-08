@@ -19,7 +19,10 @@
     fastfetch
     unzip
     qmk
+    jdk25
 
     obs-studio
-  ];
+    wireshark
+    wireshark-cli
+   ];
 }
