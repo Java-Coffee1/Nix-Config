@@ -18,7 +18,9 @@
       btw = "echo I use nixos, btw";
     };
   };
-
+  programs.zsh.shellAliases = {
+    s = "kitten ssh";
+  };
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;

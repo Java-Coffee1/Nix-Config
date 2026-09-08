@@ -15,7 +15,7 @@
     curl
     htop
     fwupd
-    ripgrep # find packages
+    ripgrep # find packages # use rg
     fastfetch
     unzip
     qmk

@@ -25,6 +25,9 @@
     wireplumber # audio driver
 
     kdePackages.dolphin
+    kdePackages.gwenview
+    kdePackages.kimageformats   # avif, heif, psd, xcf, jxl...
+    qt6.qtimageformats          # webp, tiff, and friends
 
     kitty
     playerctl

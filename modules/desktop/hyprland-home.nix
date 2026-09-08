@@ -12,7 +12,6 @@
 
   home.file.".config/Kvantum".source = ./kvantum;
 
-
   # swayosd needs its own service for volume/brightness OSD popups
   services.swayosd.enable = true;
 
@@ -34,8 +33,8 @@
         standard_dialogs = "default";
       };
       Fonts = {
-        general = ''"Noto Sans,11"'';
-        fixed = ''"GeistMono Nerd Font Mono,11"'';
+        general = ''"Noto Sans,12"'';
+        fixed = ''"GeistMono Nerd Font Mono,12"'';
       };
     };
 
@@ -47,8 +46,8 @@
         standard_dialogs = "default";
       };
       Fonts = {
-        general = ''"Noto Sans,11"'';
-        fixed = ''"GeistMono Nerd Font Mono,11"'';
+        general = ''"Noto Sans,12"'';
+        fixed = ''"GeistMono Nerd Font Mono,12"'';
       };
     };
   };
