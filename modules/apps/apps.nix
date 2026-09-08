@@ -47,6 +47,7 @@ in
     slack
 
     # -- Games --
+    modrinth-app
 
     # -- Media / Audio --
     ytmdesktop
