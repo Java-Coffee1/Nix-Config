@@ -8,6 +8,10 @@
     ./steam.nix
     # ./wireguard.nix
   ];
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark; # default is wireshark-cli (no GUI)
+  };
   environment.systemPackages = with pkgs; [
     # -- Core CLI tools --
     vim # Do not forget to add an editor to edit configuration.nix! Nano is also installed by default.
@@ -22,7 +26,5 @@
     jdk25
 
     obs-studio
-    wireshark
-    wireshark-cli
    ];
 }
