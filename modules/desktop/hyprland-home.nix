@@ -10,13 +10,13 @@
   home.file.".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
   wayland.windowManager.hyprland.systemd.enable = false;
 
-  # home.file.".config/Kvantum".source = ./kvantum;
+  home.file.".config/Kvantum".source = ./kvantum;
 
   # swayosd needs its own service for volume/brightness OSD popups
   services.swayosd.enable = true;
 
   ## widget config files
-  home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
+  # home.file.".config/ags/config.js".source = ./hyprland/ags/config.js;
 
   #noctalia
   # home.file. ".config/noctalia".source = ./hyprland/noctalia;
@@ -28,26 +28,18 @@
     qt5ctSettings = {
       Appearance = {
         style = "kvantum";
-        icon_theme = "Papirus-Dark";
+        icon_theme = "Papirus-Light";
         custom_palette = false;
         standard_dialogs = "default";
-      };
-      Fonts = {
-        general = ''"Noto Sans,12"'';
-        fixed = ''"GeistMono Nerd Font Mono,12"'';
       };
     };
 
     qt6ctSettings = {
       Appearance = {
         style = "kvantum";
-        icon_theme = "Papiruskvantum-Dark";
+        icon_theme = "Papirus-Light";
         custom_palette = false;
         standard_dialogs = "default";
-      };
-      Fonts = {
-        general = ''"Noto Sans,12"'';
-        fixed = ''"GeistMono Nerd Font Mono,12"'';
       };
     };
   };
