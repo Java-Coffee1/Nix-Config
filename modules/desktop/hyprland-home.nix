@@ -28,7 +28,7 @@
     qt5ctSettings = {
       Appearance = {
         style = "kvantum";
-        icon_theme = "Papirus-Light";
+        icon_theme = "Papirus-Dark";
         custom_palette = false;
         standard_dialogs = "default";
       };
@@ -37,7 +37,7 @@
     qt6ctSettings = {
       Appearance = {
         style = "kvantum";
-        icon_theme = "Papirus-Light";
+        icon_theme = "Papirus-Dark";
         custom_palette = false;
         standard_dialogs = "default";
       };
