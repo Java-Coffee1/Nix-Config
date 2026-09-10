@@ -1,5 +1,5 @@
 { config, ... }: {
-  age.secrets.wg-home-lab-env.file = ../../secrets/wg-home-fw.age;
+  age.secrets.wg-home-lab-env.file = ../../secrets/wg-home-lab.age;
 
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [ config.age.secrets.wg-home-lab-env.path ];
