@@ -13,7 +13,7 @@ hl.bind("ALT + Tab", hl.dsp.exec_cmd(ipc .. "window-switcher"))
 hl.bind("PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
-
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(ipc .. "session suspend"))
 -- ───────── Window Management ─────────
 -- NOTE: "drag windows".
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })

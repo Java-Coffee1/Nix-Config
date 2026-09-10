@@ -45,6 +45,7 @@ in
     element-desktop
     (pkgs.discord.override { withOpenASAR = true; })
     slack
+    teams-for-linux
 
     # -- Games --
     modrinth-app
@@ -57,6 +58,7 @@ in
 
     # -- Development --
     vscode-configured
+    tea
     # docker
   ];
   home-manager.users.javi.xdg.configFile."Code/User/settings.json".text = builtins.toJSON {
