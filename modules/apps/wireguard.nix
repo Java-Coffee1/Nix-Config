@@ -1,9 +1,7 @@
 { config, ... }: {
-  age.secrets.wg-home-lab-env.file = ../../secrets/wg-home-lab.age;
+  age.secrets.wg-private-fw.file = ../../secrets/wg-private-fw.age;
 
-  networking.networkmanager.ensureProfiles = {
-    environmentFiles = [ config.age.secrets.wg-home-lab-env.path ];
-
+  networking.networkmanager.ensureProfiles = {    
     profiles.Home-Lab = {
       connection = {
         id = "Home-Lab";
@@ -12,7 +10,7 @@
         autoconnect = "false";
       };
       wireguard = {
-        private-key = "$WG_HOME_LAB_KEY";
+        privateKeyFile = config.age.secrets.wg-private-fw.path;
         mtu = 1420;
       };
       "wireguard-peer.yE/0pzmoshsUAQqjitcYhhiBGtoKokPCPdjgJHbOekU=" = {
