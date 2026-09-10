@@ -24,6 +24,7 @@
     unzip
     qmk
     jdk25
+    python3
 
     obs-studio
   ];

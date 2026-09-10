@@ -15,6 +15,8 @@ let
         ms-python.python
         ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
+        ms-vscode.cpptools
+        platformio.platformio-vscode-ide
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
@@ -59,12 +61,19 @@ in
     # -- Development --
     vscode-configured
     tea
+    gcc
+    gnumake
+    python3
     # docker
   ];
+  # -- PlatformIO --
+  programs.nix-ld.enable = true;
+  services.udev.packages = [ pkgs.platformio-core.udev ];
   home-manager.users.javi.xdg.configFile."Code/User/settings.json".text = builtins.toJSON {
-    "editor.fontSize" = 18;
-    "editor.fontFamily" = "'GeistMono Nerd Font Mono', monospace";
-    "terminal.integrated.fontSize" = 14;
-    "window.zoomLevel" = 1;
+  "editor.fontSize" = 18;
+  "editor.fontFamily" = "'GeistMono Nerd Font Mono', monospace";
+  "terminal.integrated.fontSize" = 14;
+  "window.zoomLevel" = 1;
+  "platformio-ide.useBuiltinPython" = false;
   };
 }
