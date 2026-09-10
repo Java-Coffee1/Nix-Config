@@ -26,5 +26,5 @@
     jdk25
 
     obs-studio
-   ];
+  ];
 }

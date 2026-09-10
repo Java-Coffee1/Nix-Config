@@ -6,7 +6,7 @@ let
   hostKeys = [ hostkey ];
 in
 {
-  "wg-home-lab.age".publicKeys = [
+  "wg-home-fw.age".publicKeys = [
     javi
     hostkey
   ];
