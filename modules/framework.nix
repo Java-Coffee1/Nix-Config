@@ -31,4 +31,13 @@
   environment.systemPackages = [ inputs.agenix.packages.${pkgs.system}.default ];
   services.openssh.enable = true;
 
+  ############################################
+  ## Sleep
+  ############################################
+
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    HandleLidSwitchExternalPower = "suspend";
+    HandleLidSwitchDocked = "suspend";
+  };
 }

@@ -6,7 +6,7 @@
     ./firefox.nix
     ./git.nix
     ./steam.nix
-    # ./wireguard.nix
+    ./wireguard.nix
   ];
   programs.wireshark = {
     enable = true;
