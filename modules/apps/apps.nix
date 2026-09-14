@@ -17,6 +17,11 @@ let
         ms-vscode-remote.remote-ssh
         ms-vscode.cpptools
         platformio.platformio-vscode-ide
+        anthropic.claude-code
+        redhat.java
+        vscjava.vscode-java-debug
+        vscjava.vscode-java-test
+        vscjava.vscode-java-dependency
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
@@ -43,6 +48,21 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
+    # -- Core CLI tools --
+    vim # Do not forget to add an editor to edit configuration.nix! Nano is also installed by default.
+    wget
+    curl
+    htop
+    fwupd
+    ripgrep # find packages # use rg
+    fastfetch
+    unzip
+    qmk
+    jdk25
+    python3
+
+    obs-studio
+
     # -- Communication --
     element-desktop
     (pkgs.discord.override { withOpenASAR = true; })
@@ -60,6 +80,7 @@ in
 
     # -- Development --
     vscode-configured
+    claude-code
     tea
     gcc
     gnumake

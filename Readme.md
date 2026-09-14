@@ -26,3 +26,5 @@ agenix -e -r wg-private-fw.age put public wg key here
 ```
 sudo nixos-rebuild switch
 ```
+
+sudo nix-collect-garbage -d
