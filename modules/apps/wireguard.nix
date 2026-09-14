@@ -1,4 +1,9 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark; # default is wireshark-cli (no GUI)
+  };
+  
   age.secrets.wg-private-fw.file = ../../secrets/wg-private-fw.age;
 
   networking.networkmanager.ensureProfiles = {
@@ -19,7 +24,7 @@
         endpoint = "wg.javamurray.com:51820";
         preshared-key = "z9Y2Dns4t4zcsPBsdJdoAxDttIaOKS+N/hHiONreMBA=";
         preshared-key-flags = 0;
-        allowed-ips = "10.1.0.0/16;10.8.0.0/24;10.25.25.0/24;";
+        allowed-ips = "0.0.0.0/0;::/0;";
         persistent-keepalive = 30;
       };
       ipv4 = {
