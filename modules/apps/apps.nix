@@ -70,13 +70,14 @@ in
     teams-for-linux
 
     # -- Games --
-    modrinth-app
+    # modrinth-app
     lunar-client
 
     # -- Media / Audio --
     ytmdesktop
     easyeffects
     orca-slicer
+    bambu-studio
 
     # -- Development --
     vscode-configured
@@ -85,6 +86,7 @@ in
     gcc
     gnumake
     python3
+    platformio
     # docker
   ];
   # -- PlatformIO --
