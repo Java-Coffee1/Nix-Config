@@ -93,6 +93,10 @@
     "nix-command"
     "flakes"
   ];
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
   nixpkgs.config.allowUnfree = true;
 
   virtualisation.docker = {
