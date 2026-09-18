@@ -45,8 +45,27 @@ let
         }
       ];
   };
+
+  # -- EzzStudio (AppImage) --
+  ezzstudio =
+    let
+      pname = "ezzstudio";
+      version = "1.0.0";
+      src = ./appimages/EzzStudio-0.29.0.AppImage;
+      contents = pkgs.appimageTools.extract { inherit pname version src; };
+    in
+    pkgs.appimageTools.wrapType2 {
+      inherit pname version src;
+      extraInstallCommands = ''
+        install -m 444 -D ${contents}/ezzstudio.desktop $out/share/applications/ezzstudio.desktop
+        install -m 444 -D ${contents}/ezzstudio.png $out/share/icons/hicolor/512x512/apps/ezzstudio.png
+        substituteInPlace $out/share/applications/ezzstudio.desktop \
+        --replace-fail 'Exec=AppRun' 'Exec=ezzstudio'
+      '';
+    };
 in
 {
+  services.flatpak.enable = true;
   environment.systemPackages = with pkgs; [
     # -- Core CLI tools --
     vim # Do not forget to add an editor to edit configuration.nix! Nano is also installed by default.
@@ -77,7 +96,7 @@ in
     ytmdesktop
     easyeffects
     orca-slicer
-    bambu-studio
+    ezzstudio
 
     # -- Development --
     vscode-configured
@@ -93,10 +112,10 @@ in
   programs.nix-ld.enable = true;
   services.udev.packages = [ pkgs.platformio-core.udev ];
   home-manager.users.javi.xdg.configFile."Code/User/settings.json".text = builtins.toJSON {
-  "editor.fontSize" = 18;
-  "editor.fontFamily" = "'GeistMono Nerd Font Mono', monospace";
-  "terminal.integrated.fontSize" = 14;
-  "window.zoomLevel" = 1;
-  "platformio-ide.useBuiltinPython" = false;
+    "editor.fontSize" = 18;
+    "editor.fontFamily" = "'GeistMono Nerd Font Mono', monospace";
+    "terminal.integrated.fontSize" = 14;
+    "window.zoomLevel" = 1;
+    "platformio-ide.useBuiltinPython" = false;
   };
 }

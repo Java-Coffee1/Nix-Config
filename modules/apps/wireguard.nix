@@ -3,7 +3,7 @@
     enable = true;
     package = pkgs.wireshark; # default is wireshark-cli (no GUI)
   };
-  
+
   age.secrets.wg-private-fw.file = ../../secrets/wg-private-fw.age;
 
   networking.networkmanager.ensureProfiles = {
