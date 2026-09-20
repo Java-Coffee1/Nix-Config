@@ -28,3 +28,11 @@ sudo nixos-rebuild switch
 ```
 
 sudo nix-collect-garbage -d
+
+## Install more info 
+this is for my laptop 
+```
+sudo nixos-rebuild switch --flake .#nixos-btw
+```
+this is for a remote 
+nixos-rebuild switch --flake .#server1 --target-host javi@server1 --sudo
