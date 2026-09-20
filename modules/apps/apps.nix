@@ -45,24 +45,6 @@ let
         }
       ];
   };
-
-  # -- EzzStudio (AppImage) --
-  ezzstudio =
-    let
-      pname = "ezzstudio";
-      version = "1.0.0";
-      src = ./appimages/EzzStudio-0.29.0.AppImage;
-      contents = pkgs.appimageTools.extract { inherit pname version src; };
-    in
-    pkgs.appimageTools.wrapType2 {
-      inherit pname version src;
-      extraInstallCommands = ''
-        install -m 444 -D ${contents}/ezzstudio.desktop $out/share/applications/ezzstudio.desktop
-        install -m 444 -D ${contents}/ezzstudio.png $out/share/icons/hicolor/512x512/apps/ezzstudio.png
-        substituteInPlace $out/share/applications/ezzstudio.desktop \
-        --replace-fail 'Exec=AppRun' 'Exec=ezzstudio'
-      '';
-    };
 in
 {
   services.flatpak.enable = true;
@@ -79,6 +61,7 @@ in
     qmk
     jdk25
     python3
+    busybox
 
     obs-studio
 
@@ -96,7 +79,7 @@ in
     ytmdesktop
     easyeffects
     orca-slicer
-    ezzstudio
+    reaper
 
     # -- Development --
     vscode-configured
