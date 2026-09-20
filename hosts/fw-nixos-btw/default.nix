@@ -1,122 +1,122 @@
 {
-config,
-lib,
-pkgs,
-...
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 
 {
 
-imports = [
-./hardware-configuration.nix
-../../modules/apps/default.nix
-../../modules/desktop/default.nix
-../../modules/framework.nix
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/apps/default.nix
+    ../../modules/desktop/default.nix
+    ../../modules/framework.nix
   ];
 
-############################################
-## Boot
-############################################
+  ############################################
+  ## Boot
+  ############################################
 
-boot.loader.systemd-boot.enable = true;
-boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-############################################
-## Networking
-############################################
+  ############################################
+  ## Networking
+  ############################################
 
-networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 
-# Open ports in the firewall.
-# networking.firewall.allowedTCPPorts = [ ... ];
-# networking.firewall.allowedUDPPorts = [ ... ];
-# Or disable the firewall altogether.
-# networking.firewall.enable = false;
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
-# Configure keymap in X11
-# services.xserver.xkb.layout = "us";
-# services.xserver.xkb.options = "eurosign:e,caps:escape";
+  # Configure keymap in X11
+  # services.xserver.xkb.layout = "us";
+  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-############################################
-## Desktop Environment
-############################################
-services.xserver = {
-enable = true;
-autoRepeatDelay = 200;
-autoRepeatInterval = 35;
+  ############################################
+  ## Desktop Environment
+  ############################################
+  services.xserver = {
+    enable = true;
+    autoRepeatDelay = 200;
+    autoRepeatInterval = 35;
   };
 
-# Needed for portals (screen share, file pickers, etc.)
-xdg.portal = {
-enable = true;
-extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  # Needed for portals (screen share, file pickers, etc.)
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
-############################################
-## Users & Security
-############################################
+  ############################################
+  ## Users & Security
+  ############################################
 
-# Define a user account. Don't forget to set a password with `passwd`.
-users.users.javi = {
-isNormalUser = true;
-extraGroups = [
-"wheel"
-"docker"
-"networkmanager"
-"wireshark"
+  # Define a user account. Don't forget to set a password with `passwd`.
+  users.users.javi = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "docker"
+      "networkmanager"
+      "wireshark"
     ]; # Enable 'sudo' for the user.
-packages = with pkgs; [ tree ];
+    packages = with pkgs; [ tree ];
   };
 
-security.sudo.wheelNeedsPassword = false;
-security.pam.services = {
-login.fprintAuth = false;
-sudo.fprintAuth = false;
+  security.sudo.wheelNeedsPassword = false;
+  security.pam.services = {
+    login.fprintAuth = false;
+    sudo.fprintAuth = false;
   };
 
-services.gnome.gnome-keyring.enable = true;
-############################################
-## Fonts
-############################################
+  services.gnome.gnome-keyring.enable = true;
+  ############################################
+  ## Fonts
+  ############################################
 
-fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
-############################################
-## Nix Settings
-############################################
+  ############################################
+  ## Nix Settings
+  ############################################
 
-nix.settings.experimental-features = [
-"nix-command"
-"flakes"
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
   ];
-programs.appimage = {
-enable = true;
-binfmt = true;
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
   };
-nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
-virtualisation.docker = {
-enable = true;
+  virtualisation.docker = {
+    enable = true;
   };
 
-# Some programs need SUID wrappers, can be configured further or are
-# started in user sessions.
-# programs.mtr.enable = true;
-# programs.gnupg.agent = {
-#   enable = true;
-#   enableSSHSupport = true;
-# };
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
-############################################
-## Services
-############################################
+  ############################################
+  ## Services
+  ############################################
 
-# Enable the OpenSSH daemon.
-services.openssh.enable = true;
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
 
-############################################
-## System State Version
-############################################
+  ############################################
+  ## System State Version
+  ############################################
 
-system.stateVersion = "26.05";
+  system.stateVersion = "26.05";
 
 }
