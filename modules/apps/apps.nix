@@ -45,6 +45,8 @@ let
         }
       ];
   };
+in
+{
   environment.systemPackages = with pkgs; [
     # -- Core CLI tools --
     vim # Do not forget to add an editor to edit configuration.nix! Nano is also installed by default.
@@ -58,6 +60,7 @@ let
     qmk
     jdk25
     python3
+    busybox
 
     obs-studio
 
@@ -75,7 +78,7 @@ let
     ytmdesktop
     easyeffects
     orca-slicer
-    ezzstudio
+    reaper
 
     # -- Development --
     vscode-configured

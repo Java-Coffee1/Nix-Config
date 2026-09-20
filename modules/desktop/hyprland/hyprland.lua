@@ -238,3 +238,12 @@ require("var") -- Load variables from a separate file
 require("keybindings") -- Load keybindings from a separate file
 require("windows_and_workspaces") -- Load window and workspace rules from a separate file
 
+----------------
+---- CURSOR ----
+----------------
+
+hl.config({
+    cursor = {
+        no_hardware_cursors = 1, -- software cursor so it shows up in screen shares
+    },
+})
