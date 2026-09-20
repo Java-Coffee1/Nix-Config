@@ -5,39 +5,33 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     agenix.url = "github:ryantm/agenix";
 
-    home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
+      # desktop ui
       url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wallpapers = {
+      url = "git+ssh://git@github.com/Java-Coffee1/wallpaper.git";
+      flake = false;
     };
   };
 
   outputs =
     {
       nixpkgs,
-      home-manager,
       treefmt-nix,
       agenix,
       ...
     }@inputs:
     let
-      homeManagerModule = {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          extraSpecialArgs = { inherit inputs; };
-          users.javi = import ./modules/home.nix;
-          backupFileExtension = "backup";
-        };
-      };
-
       mkHost =
         {
           name,
@@ -69,8 +63,8 @@
         fw-nixos-btw = mkHost {
           name = "fw-nixos-btw";
           modules = [
-            home-manager.nixosModules.home-manager
-            homeManagerModule
+            inputs.hjem.nixosModules.default
+            ./home/javi/home.nix
           ];
         };
 

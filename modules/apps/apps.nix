@@ -94,7 +94,7 @@ in
   # -- PlatformIO --
   programs.nix-ld.enable = true;
   services.udev.packages = [ pkgs.platformio-core.udev ];
-  home-manager.users.javi.xdg.configFile."Code/User/settings.json".text = builtins.toJSON {
+  hjem.users.javi.files.".config/Code/User/settings.json".text = builtins.toJSON {
     "editor.fontSize" = 18;
     "editor.fontFamily" = "'GeistMono Nerd Font Mono', monospace";
     "terminal.integrated.fontSize" = 14;
