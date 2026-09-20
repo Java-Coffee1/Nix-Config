@@ -45,8 +45,6 @@ let
         }
       ];
   };
-in
-{
   environment.systemPackages = with pkgs; [
     # -- Core CLI tools --
     vim # Do not forget to add an editor to edit configuration.nix! Nano is also installed by default.
@@ -77,7 +75,7 @@ in
     ytmdesktop
     easyeffects
     orca-slicer
-    bambu-studio
+    ezzstudio
 
     # -- Development --
     vscode-configured
@@ -93,10 +91,10 @@ in
   programs.nix-ld.enable = true;
   services.udev.packages = [ pkgs.platformio-core.udev ];
   home-manager.users.javi.xdg.configFile."Code/User/settings.json".text = builtins.toJSON {
-  "editor.fontSize" = 18;
-  "editor.fontFamily" = "'GeistMono Nerd Font Mono', monospace";
-  "terminal.integrated.fontSize" = 14;
-  "window.zoomLevel" = 1;
-  "platformio-ide.useBuiltinPython" = false;
+    "editor.fontSize" = 18;
+    "editor.fontFamily" = "'GeistMono Nerd Font Mono', monospace";
+    "terminal.integrated.fontSize" = 14;
+    "window.zoomLevel" = 1;
+    "platformio-ide.useBuiltinPython" = false;
   };
 }
