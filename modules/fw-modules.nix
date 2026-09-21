@@ -3,16 +3,16 @@
 {
   imports = [
     ./apps/firefox.nix
-    ./steam.nix
-    ./vs-code.nix
-  ]
+    ./apps/steam.nix
+    ./apps/vs-code.nix
+  ];
   environment.systemPackages = with pkgs; [
     fwupd
     # -- Core CLI tools --
     qmk
     jdk25
     python3
-  
+
     obs-studio
 
     # -- Communication --

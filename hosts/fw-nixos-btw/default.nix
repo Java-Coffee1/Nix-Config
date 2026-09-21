@@ -11,8 +11,8 @@
   imports = [
     ./hardware-configuration.nix
     ./wireguard.nix
-    ../../modules/apps/default.nix
-    ../../modules/framework.nix
+    ../../modules/default.nix
+    ../../modules/fw-modules.nix
     inputs.noctalia.nixosModules.default
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
   ];
