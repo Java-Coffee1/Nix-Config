@@ -4,6 +4,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/default.nix
+    ../../modules/lab/traefik.nix
+
   ];
 
   #######################
@@ -23,7 +25,6 @@
     "flakes"
   ];
   nix.settings.trusted-users = [
-    
     "root"
     "@wheel"
   ];
@@ -101,4 +102,11 @@
   virtualisation.docker = {
     enable = true;
   };
+  ############################################
+  ## Storage
+  ############################################
+  systemd.tmpfiles.rules = [
+    "d /homelab 0755 root javi -"
+    "d /homelab/traefik 0750 traefik traefik -"
+  ];
 }

@@ -45,47 +45,9 @@ nix flake check
 
 nixos-rebuild dry-build --flake .#nixos-btw
 
-folder strut 
-```
-Nix-Config/
-├── flake.nix
-├── flake.lock
-│
-├── hosts/                          # one folder per machine
-│   ├── fw-nixos-btw/
-│   │   ├── default.nix             # imports + host-specific bits
-│   │   └── hardware-configuration.nix
-│   ├── homelab-nixos-btw/
-│   │   ├── default.nix
-│   │   └── hardware-configuration.nix
-│   └── pi/
-│       ├── default.nix
-│       └── hardware-configuration.nix
-│
-├── modules/                        # NixOS layer — services, system state
-│   ├── core.nix                    # nix settings, locale, users, ssh
-│   ├── desktop/
-│   │   ├── hyprland.nix
-│   │   └── audio.nix
-│   ├── apps/
-│   │   ├── vscode.nix
-│   │   └── treefmt.nix
-│   └── server/
-│       ├── docker.nix
-│       └── wireguard.nix
-│
-├── home/                           # $HOME layer — Hjem file entries
-│   └── javi/
-│       ├── common.nix              # zsh, git, tmux — every host
-│       ├── desktop.nix             # hyprland.lua, kitty.conf, quickshell
-│       └── dotfiles/               # the actual files, verbatim
-│           ├── kitty.conf
-│           ├── hypr/
-│           │   ├── hyprland.lua
-│           │   └── keybindings.lua
-│           └── zsh/.zshrc
-│
-└── secrets/
-    ├── secrets.nix
-    └── wg-private-fw.age
+##
+update 
+nix flake update
 
+then
+ nixos-rebuild switch --sudo 
