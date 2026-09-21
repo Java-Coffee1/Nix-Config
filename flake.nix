@@ -54,7 +54,7 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          treefmtEval = treefmt-nix.lib.evalModule pkgs ./modules/apps/treefmt.nix;
+          treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
         in
         treefmtEval.config.build.wrapper // { inherit (treefmtEval) config; }
       );
@@ -68,12 +68,12 @@
           ];
         };
 
-        homelab-nixos-btw = mkHost { name = "homelab-nixos-btw"; };
-
-        pi = mkHost {
-          name = "pi";
-          system = "aarch64-linux";
-          modules = [ inputs.nixos-hardware.nixosModules.raspberry-pi-4 ];
+        homelab-nixos-btw = mkHost {
+          name = "homelab-nixos-btw";
+          modules = [
+            inputs.hjem.nixosModules.default
+            ./home/javi/home.nix
+          ];
         };
       };
     };
