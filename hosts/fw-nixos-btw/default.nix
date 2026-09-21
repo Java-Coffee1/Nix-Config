@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -9,17 +10,54 @@
 
   imports = [
     ./hardware-configuration.nix
+    ./wireguard.nix
     ../../modules/apps/default.nix
-    ../../modules/desktop/default.nix
     ../../modules/framework.nix
+    inputs.noctalia.nixosModules.default
+    inputs.nixos-hardware.nixosModules.framework-16-7040-amd
   ];
 
   ############################################
-  ## Boot
+  ## System
+  ############################################
+
+  system.stateVersion = "26.05";
+
+  javi.isGui = true;
+
+  time.timeZone = "America/Vancouver";
+
+  ############################################
+  ## Nix Settings
+  ############################################
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  nixpkgs.config.allowUnfree = true;
+
+  ############################################
+  ## Boot & Kernel
   ############################################
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
+
+  ############################################
+  ## Framework 16 Hardware
+  ############################################
+
+  hardware.enableAllFirmware = true;
+
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    HandleLidSwitchExternalPower = "suspend";
+    HandleLidSwitchDocked = "suspend";
+  };
 
   ############################################
   ## Networking
@@ -27,30 +65,10 @@
 
   networking.networkmanager.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  services.avahi.enable = true;
 
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+  services.openssh.enable = true;
 
-  ############################################
-  ## Desktop Environment
-  ############################################
-  services.xserver = {
-    enable = true;
-    autoRepeatDelay = 200;
-    autoRepeatInterval = 35;
-  };
-
-  # Needed for portals (screen share, file pickers, etc.)
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-  };
   ############################################
   ## Users & Security
   ############################################
@@ -68,55 +86,89 @@
   };
 
   security.sudo.wheelNeedsPassword = false;
+
+  # Fingerprint reader disabled
+  services.fprintd.enable = false;
   security.pam.services = {
     login.fprintAuth = false;
     sudo.fprintAuth = false;
   };
 
   services.gnome.gnome-keyring.enable = true;
+
   ############################################
-  ## Fonts
+  ## Desktop Environment
   ############################################
+
+  services.displayManager.ly.enable = true;
+
+  services.xserver = {
+    enable = true;
+    autoRepeatDelay = 200;
+    autoRepeatInterval = 35;
+  };
+
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true; # recommended for most users
+    xwayland.enable = true; # Xwayland can be disabled.
+  };
+
+  programs.noctalia = {
+    enable = true;
+    # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
+    recommendedServices.enable = true;
+  };
+
+  # Needed for portals (screen share, file pickers, etc.)
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   ############################################
-  ## Nix Settings
+  ## Audio
   ############################################
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  security.rtkit.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+    raopOpenFirewall = true;
+
+    extraConfig.pipewire."10-airplay" = {
+      "context.modules" = [
+        {
+          name = "libpipewire-module-raop-discover";
+
+          # increase the buffer size if you get dropouts/glitches
+          # args = {
+          #   "raop.latency.ms" = 500;
+          # };
+        }
+      ];
+    };
+  };
+
+  ############################################
+  ## Apps & Virtualisation
+  ############################################
+
+  environment.systemPackages = [ inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+
   programs.appimage = {
     enable = true;
     binfmt = true;
   };
-  nixpkgs.config.allowUnfree = true;
 
   virtualisation.docker = {
     enable = true;
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  ############################################
-  ## Services
-  ############################################
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  ############################################
-  ## System State Version
-  ############################################
-
-  system.stateVersion = "26.05";
-
+  services.flatpak.enable = true;
 }

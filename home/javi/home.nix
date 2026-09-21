@@ -2,10 +2,12 @@
   inputs,
   config,
   pkgs,
+  lib,
   ...
 }:
 
 {
+  imports = [ ./javi.nix ];
   programs.bash.shellAliases = {
     btw = "echo I use nixos, btw";
   };
@@ -25,7 +27,7 @@
 
     packages = [ pkgs.bibata-cursors ];
 
-    files = {
+    files = lib.mkIf config.javi.isGui {
       ## Hyprland configuration files
       ".config/hypr/hyprland.lua".source = ./dotfiles/hyprland/hyprland.lua;
       ".config/hypr/keybindings.lua".source = ./dotfiles/hyprland/keybindings.lua;
