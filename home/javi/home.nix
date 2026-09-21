@@ -100,7 +100,7 @@
             on-timeout = systemctl suspend
         }
       '';
-    };
+    }; # end of files
 
     systemd.services.hypridle = {
       description = "Hypridle idle daemon";

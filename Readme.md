@@ -36,7 +36,7 @@ nixos-rebuild switch --flake .#nixos-btw --sudo
 ```
 this is for a remote 
 ```
-nixos-rebuild switch --flake .#server1 --target-host javi@server1 --sudo
+nixos-rebuild build --flake .#homelab-nixos-btw --target-host javi@10.10.1.170 --sudo
 ```
 
 ## Testing
