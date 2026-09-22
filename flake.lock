@@ -87,14 +87,18 @@
     "javamurraywebsite": {
       "flake": false,
       "locked": {
-        "path": "git+ssh:/git@github.com:Java-Coffee1/javamurraywebsite.git",
-        "type": "path"
+        "lastModified": 1783023003,
+        "narHash": "sha256-gCC0CtaFVECMTz22l8MByZCanbldV8oJ1f4zNW8K1/4=",
+        "ref": "refs/heads/main",
+        "rev": "9957d745d06f7059f307f3b9518e8da90c156380",
+        "revCount": 10,
+        "type": "git",
+        "url": "ssh://git@github.com/Java-Coffee1/javamurraywebsite.git"
       },
       "original": {
-        "path": "git+ssh:/git@github.com:Java-Coffee1/javamurraywebsite.git",
-        "type": "path"
-      },
-      "parent": []
+        "type": "git",
+        "url": "ssh://git@github.com/Java-Coffee1/javamurraywebsite.git"
+      }
     },
     "nixos-hardware": {
       "inputs": {

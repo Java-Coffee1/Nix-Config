@@ -23,7 +23,7 @@
       flake = false;
     };
     javamurraywebsite = {
-      url = "git+ssh://git@github.com:Java-Coffee1/javamurraywebsite.git";
+      url = "git+ssh://git@github.com/Java-Coffee1/javamurraywebsite.git";
       flake = false;
     };
   };

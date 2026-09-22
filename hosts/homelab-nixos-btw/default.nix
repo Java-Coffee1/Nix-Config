@@ -90,8 +90,9 @@
   };
 
   users.groups.homelab-admin = { };
-
+  
   users.users.traefik.extraGroups = [ "homelab-admin" ];
+  users.users.nginx.extraGroups = [ "homelab-admin" ];
 
   security.sudo.wheelNeedsPassword = false;
 

@@ -10,7 +10,7 @@
   services.traefik.staticConfigOptions = {
     entryPoints = {
       http-web = {
-        address = ":80";
+        address = ":81";
         asDefault = true;
         http.redirections.entryPoint = {
           to = "https-web";
@@ -18,7 +18,7 @@
         };
       };
       https-web = {
-        address = ":443";
+        address = ":444";
         asDefault = true;
         http.tls.certResolver = "letsencrypt";
       };
@@ -44,10 +44,10 @@
     api.dashboard = true;
     # Access the Traefik dashboard on <Traefik IP>:8080 of your server
     api.insecure = true;
-
-    dynamicConfigOptions = {
-      http.routers = { };
-      http.services = { };
-    };
   };
+
+  networking.firewall.allowedTCPPorts = [
+    81
+    444
+  ];
 }

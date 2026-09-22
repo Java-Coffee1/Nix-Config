@@ -8,11 +8,12 @@
 
 {
   imports = [ ./javi.nix ];
-  programs.bash.shellAliases = {
-    btw = "echo I use nixos, btw";
-  };
-  programs.zsh.shellAliases = {
+
+  environment.shellAliases = {
     s = "kitten ssh";
+    lab-build = "cd ~/Nix-Config && nixos-rebuild build --flake .#homelab-nixos-btw --target-host javi@10.10.1.170 --sudo";
+    lab-switch = "cd ~/Nix-Config && nixos-rebuild switch --flake .#homelab-nixos-btw --target-host javi@10.10.1.170 --sudo";
+    btw = "echo I use nixos, btw";
   };
 
   environment.sessionVariables = {
