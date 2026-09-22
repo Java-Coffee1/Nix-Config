@@ -44,6 +44,15 @@ in
       host = "outline.javamurray.com";
       url = "http://10.10.1.150:4000";
     })
+    {
+      http.routers.traefik-dashboard = {
+        rule = "Host(`traefik.javamurray.com`)";
+        entryPoints = [ "https-web" ];
+        service = "api@internal";
+        middlewares = authentik;
+        tls.certResolver = "letsencrypt";
+      };
+    }
     # (mkApp "copy-party" {
     #   host = "fs.javamurray.com";
     #   url = "http://oauth2-proxy:4180";
@@ -93,6 +102,10 @@ in
       host = "qbit.javamurray.com";
       url = "http://10.10.1.107:8085";
       middlewares = authentik;
+    })
+    (mkApp "Immich" {
+      host = "photos.javamurray.com";
+      url = "http://10.10.1.150:2283";
     })
     # (mkApp "Mainsail" {
     #   host = "mainsail.javamurray.com";

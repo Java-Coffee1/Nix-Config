@@ -11,6 +11,8 @@
     ../../modules/default.nix
     ../../modules/lab/traefik.nix
     ../../modules/lab/website.nix
+    ../../modules/lab/vaultwarden.nix
+
   ];
 
   #######################
@@ -51,6 +53,7 @@
   services.avahi.enable = true;
 
   services.openssh.enable = true;
+  services.openssh.settings.PasswordAuthentication = false;
 
   networking = {
     useDHCP = false; # Disable global DHCP

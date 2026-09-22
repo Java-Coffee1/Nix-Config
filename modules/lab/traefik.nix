@@ -40,15 +40,10 @@
       httpChallenge.entryPoint = "http-web";
     };
 
-    certificatesResolvers.gcloud.acme = {
-      email = "julianmurray4152@gmail.com";
-      storage = "${config.services.traefik.dataDir}/acme-gcloud.json";
-      dnsChallenge.provider = "cloudflare";
-    };
-
     api.dashboard = true;
-    # Access the Traefik dashboard on <Traefik IP>:8080 of your server
-    api.insecure = true;
+    # Dashboard is exposed via the authentik-protected router at traefik.javamurray.com,
+    # so the insecure/unauthenticated :8080 endpoint stays off.
+    api.insecure = false;
   };
 
   networking.firewall.allowedTCPPorts = [
