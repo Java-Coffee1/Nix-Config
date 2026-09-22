@@ -10,7 +10,7 @@
     ./hardware-configuration.nix
     ../../modules/default.nix
     ../../modules/lab/traefik.nix
-
+    ../../modules/lab/website.nix
   ];
 
   #######################
