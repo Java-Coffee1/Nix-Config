@@ -130,6 +130,14 @@
 
   programs.zsh.enable = true;
   users.users.javi.shell = pkgs.zsh;
+
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      ids = [ "*" ];
+      settings.main = { };
+    };
+  };
   ############################################
   ## Audio
   ############################################
