@@ -84,6 +84,18 @@
         "type": "github"
       }
     },
+    "javamurraywebsite": {
+      "flake": false,
+      "locked": {
+        "path": "git+ssh:/git@github.com:Java-Coffee1/javamurraywebsite.git",
+        "type": "path"
+      },
+      "original": {
+        "path": "git+ssh:/git@github.com:Java-Coffee1/javamurraywebsite.git",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nixos-hardware": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -170,6 +182,7 @@
       "inputs": {
         "agenix": "agenix",
         "hjem": "hjem",
+        "javamurraywebsite": "javamurraywebsite",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "noctalia": "noctalia",
