@@ -13,6 +13,7 @@
     s = "kitten ssh";
     lab-build = "cd ~/Nix-Config && nixos-rebuild build --flake .#homelab-nixos-btw --target-host javi@10.10.1.170 --sudo";
     lab-switch = "cd ~/Nix-Config && nixos-rebuild switch --flake .#homelab-nixos-btw --target-host javi@10.10.1.170 --sudo";
+    lab = "ssh -p 2600 javi@ssh.javamurray.com";
     btw = "echo I use nixos, btw";
   };
 
