@@ -128,6 +128,8 @@
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
+  programs.zsh.enable = true;
+  users.users.javi.shell = pkgs.zsh;
   ############################################
   ## Audio
   ############################################
