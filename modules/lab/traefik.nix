@@ -1,6 +1,11 @@
 { config, ... }:
 
 {
+  imports = [
+    ./traefik-config/middlewares.nix
+    ./traefik-config/routes.nix
+    ./traefik-config/tcp.nix
+  ];
   services.traefik.dataDir = "/homelab/traefik";
 
   age.secrets.cf_api_token.file = ../../secrets/cf_api_token.age;
