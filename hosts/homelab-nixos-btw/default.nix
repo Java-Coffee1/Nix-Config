@@ -11,7 +11,7 @@
     ../../modules/default.nix
     ../../modules/lab/traefik.nix
     ../../modules/lab/website.nix
-    ../../modules/lab/vaultwarden.nix
+    ../../modules/lab/virtualization/vaultwarden.nix
 
   ];
 
