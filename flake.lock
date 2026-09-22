@@ -43,6 +43,22 @@
         "type": "github"
       }
     },
+    "government_crow_website": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784964176,
+        "narHash": "sha256-cOrAo/8vRsyF4u0X2QU8bXMQI2vsjWc9+20yIf1mI0s=",
+        "ref": "refs/heads/main",
+        "rev": "213efdc5a753e14559e74834018d907865d938bb",
+        "revCount": 7,
+        "type": "git",
+        "url": "ssh://git@github.com/Java-Coffee1/government_crow_website.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/Java-Coffee1/government_crow_website.git"
+      }
+    },
     "hjem": {
       "inputs": {
         "nixpkgs": [
@@ -185,6 +201,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "government_crow_website": "government_crow_website",
         "hjem": "hjem",
         "javamurraywebsite": "javamurraywebsite",
         "nixos-hardware": "nixos-hardware",

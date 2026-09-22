@@ -46,7 +46,7 @@ in
     })
     {
       http.routers.traefik-dashboard = {
-        rule = "Host(`traefik.javamurray.com`)";
+        rule = "Host(`traefik.jv.ax`)";
         entryPoints = [ "https-web" ];
         service = "api@internal";
         middlewares = authentik;

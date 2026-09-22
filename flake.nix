@@ -26,6 +26,10 @@
       url = "git+ssh://git@github.com/Java-Coffee1/javamurraywebsite.git";
       flake = false;
     };
+    government_crow_website = {
+      url = "git+ssh://git@github.com/Java-Coffee1/government_crow_website.git";
+      flake = false;
+    };
   };
 
   outputs =

@@ -11,8 +11,8 @@
 
   environment.shellAliases = {
     s = "kitten ssh";
-    lab-build = "cd ~/Nix-Config && nixos-rebuild build --flake .#homelab-nixos-btw --target-host javi@10.10.1.170 --sudo";
-    lab-switch = "cd ~/Nix-Config && nixos-rebuild switch --flake .#homelab-nixos-btw --target-host javi@10.10.1.170 --sudo";
+    lab-build = "cd ~/Nix-Config && NIX_SSHOPTS='-p 2600' nixos-rebuild build --flake .#homelab-nixos-btw --target-host javi@ssh.javamurray.com --sudo";
+    lab-switch = "cd ~/Nix-Config && NIX_SSHOPTS='-p 2600' nixos-rebuild switch --flake .#homelab-nixos-btw --target-host javi@ssh.javamurray.com --sudo";
     lab = "ssh -p 2600 javi@ssh.javamurray.com";
     btw = "echo I use nixos, btw";
   };
