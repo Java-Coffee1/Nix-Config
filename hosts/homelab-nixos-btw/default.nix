@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -79,9 +84,15 @@
       "wheel"
       "docker"
       "networkmanager"
+      "homelab-admin"
     ]; # Enable 'sudo' for the user.
     packages = with pkgs; [ tree ];
   };
+
+  users.groups.homelab-admin = { };
+
+  users.users.traefik.extraGroups = [ "homelab-admin" ];
+
   security.sudo.wheelNeedsPassword = false;
 
   users.users.javi.openssh.authorizedKeys.keys = [
@@ -105,8 +116,21 @@
   ############################################
   ## Storage
   ############################################
-  systemd.tmpfiles.rules = [
-    "d /homelab 0755 root javi -"
-    "d /homelab/traefik 0750 traefik traefik -"
-  ];
+  systemd.tmpfiles.settings."00-homelab"."/homelab".d = {
+    user = "root";
+    group = "homelab-admin";
+    mode = "770";
+    #user read/write/delete
+    #group read/write/delete
+    #everbody else nothing
+  };
+
+  systemd.tmpfiles.settings."00-homelab"."/homelab/traefik".d = {
+    user = "traefik";
+    group = "homelab-admin";
+    mode = "770";
+    #user read/write/delete
+    #group read/write/delete
+    #everbody else nothing
+  };
 }

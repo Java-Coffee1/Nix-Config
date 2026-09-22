@@ -35,6 +35,12 @@
       httpChallenge.entryPoint = "http-web";
     };
 
+    certificatesResolvers.gcloud.acme = {
+      email = "julianmurray4152@gmail.com";
+      storage = "${config.services.traefik.dataDir}/acme-gcloud.json";
+      dnsChallenge.provider = "cloudflare";
+    };
+
     api.dashboard = true;
     # Access the Traefik dashboard on <Traefik IP>:8080 of your server
     api.insecure = true;
