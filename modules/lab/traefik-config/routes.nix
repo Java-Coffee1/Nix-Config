@@ -40,10 +40,6 @@ in
         permanent = true;
       };
     }
-    (mkApp "outline" {
-      host = "outline.javamurray.com";
-      url = "http://10.10.1.150:4000";
-    })
     {
       http.routers.traefik-dashboard = {
         rule = "Host(`traefik.jv.ax`)";

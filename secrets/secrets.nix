@@ -31,4 +31,16 @@ in
     javi
     hostkey-homelab
   ];
+  "outline-oidc.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
+  "outline-utils-secret.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
+  "outline-secret-key.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
 }

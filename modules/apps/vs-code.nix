@@ -7,6 +7,7 @@ let
       [
         jnoortheen.nix-ide
         ms-python.python
+        ms-python.vscode-pylance
         ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
         ms-vscode.cpptools
@@ -50,6 +51,7 @@ in
     gnumake
     python3
     platformio
+    nixd
   ];
   # -- PlatformIO --
   programs.nix-ld.enable = true;
@@ -60,5 +62,9 @@ in
     "terminal.integrated.fontSize" = 14;
     "window.zoomLevel" = 1;
     "platformio-ide.useBuiltinPython" = false;
+    "python.languageServer" = "Pylance";
+    "C_Cpp.intelliSenseEngine" = "default";
+    "nix.enableLanguageServer" = true;
+    "nix.serverPath" = "nixd";
   };
 }

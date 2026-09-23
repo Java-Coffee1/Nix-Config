@@ -14,7 +14,7 @@
     ../../modules/lab/postgress.nix
     ../../modules/lab/authentik.nix
     ../../modules/lab/virtualization/vaultwarden.nix
-
+    ../../modules/lab/outline.nix
   ];
 
   #######################
@@ -94,16 +94,15 @@
     packages = with pkgs; [ tree ];
   };
 
+  users.users.javi.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICq8ju6Hc+YoVJnr7+zN0ne2ydYQHkoDKCJE9K8aYRrX java@ghost"
+  ];
   users.groups.homelab-admin = { };
 
   users.users.traefik.extraGroups = [ "homelab-admin" ];
   users.users.nginx.extraGroups = [ "homelab-admin" ];
 
   security.sudo.wheelNeedsPassword = false;
-
-  users.users.javi.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICq8ju6Hc+YoVJnr7+zN0ne2ydYQHkoDKCJE9K8aYRrX java@ghost"
-  ];
 
   ########################
   ## Keyboard
@@ -153,9 +152,9 @@
     mode = "750";
   };
 
-  # fileSystems."/homelab/nfs/postgresql_database_homelab" = {
-  #   device = "10.30.30.101:/mnt/DataDumpster/postgresql-docker";
-  #   fsType = "nfs";
-  #   options = [ "defaults" ];
-  # };
+  fileSystems."/homelab/nfs/cloud-data-dump" = {
+    device = "10.30.30.101:/mnt/DataDumpster/cloud-data-dump/";
+    fsType = "nfs";
+    options = [ "defaults" ];
+  };
 }
