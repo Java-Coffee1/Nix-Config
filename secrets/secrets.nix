@@ -23,4 +23,12 @@ in
     javi
     hostkey-homelab
   ];
+  "postgres-password.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
+  "authentik-env.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
 }
