@@ -66,11 +66,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789958605,
-        "narHash": "sha256-J/Rh2uL5gG3g1KU4z4QdyOqJ6d5HIy/fc/94Yn1fBVc=",
+        "lastModified": 1790081753,
+        "narHash": "sha256-tycoVCB2KSVdy9ERT1lJGHdP9Hf4FHanaEY25hUxylw=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "b7db95216a7160391cdd0a2d49c7332963733311",
+        "rev": "cef02450f2c18a7e2b9297ea8d366f9a597254f7",
         "type": "github"
       },
       "original": {
@@ -185,11 +185,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790028198,
-        "narHash": "sha256-JKSjpqxdYNgUCbJChm+3rkz5lentMk/bEcZgk7Byqj0=",
+        "lastModified": 1790104132,
+        "narHash": "sha256-yvcudrhnWvWSFS2ujWxAJ7CVdgdiZs2BDGbgn38p1l0=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "e7acd065406bdac81b631e1a336611bfcfaca711",
+        "rev": "61aa22730c434500fd3f2048eba47658b1f20aad",
         "type": "github"
       },
       "original": {
@@ -249,11 +249,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1789923266,
-        "narHash": "sha256-T5XnsNv/fGAI6hFb1by1wzu4NIXkrtbHBRIWNdVvSHM=",
+        "lastModified": 1790105066,
+        "narHash": "sha256-ArEi83tWiLRpvrLTl9gwtNqWfnH4QTdWP69uAlIsPao=",
         "ref": "refs/heads/main",
-        "rev": "455a3c158d5dbb82f306eb5b05ea6cbc06e44ba9",
-        "revCount": 2,
+        "rev": "c05c093ed106458f546e9b430907fa893a70b3a6",
+        "revCount": 3,
         "type": "git",
         "url": "ssh://git@github.com/Java-Coffee1/wallpaper.git"
       },
