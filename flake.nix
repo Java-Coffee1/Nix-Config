@@ -30,7 +30,10 @@
       url = "git+ssh://git@github.com/Java-Coffee1/government_crow_website.git";
       flake = false;
     };
-  };
+    authentiknix = {
+      url = "github:nix-community/authentik-nix";
+    };
+  };# end of inputs 
 
   outputs =
     {

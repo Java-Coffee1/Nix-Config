@@ -26,7 +26,10 @@
     lunar-client
 
     # -- Media / Audio --
-    ytmdesktop
+    # electron pinned to 42 (nixpkgs' default `electron` is 43, which breaks
+    # ytmdesktop's preload bridge and makes it self-quit a few seconds after
+    # opening; upstream wants ^40.4.0 but 40/41 are EOL/insecure in nixpkgs)
+    (pkgs.ytmdesktop.override { electron = pkgs.electron_42; })
     easyeffects
     orca-slicer
     reaper

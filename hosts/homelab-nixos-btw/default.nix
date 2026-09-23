@@ -11,6 +11,8 @@
     ../../modules/default.nix
     ../../modules/lab/traefik.nix
     ../../modules/lab/website.nix
+    ../../modules/lab/postgress.nix
+    ../../modules/lab/authentik.nix
     ../../modules/lab/virtualization/vaultwarden.nix
 
   ];
@@ -123,7 +125,7 @@
   systemd.tmpfiles.settings."00-homelab"."/homelab".d = {
     user = "root";
     group = "homelab-admin";
-    mode = "770";
+    mode = "775";
     #user read/write/delete
     #group read/write/delete
     #everbody else nothing
@@ -132,9 +134,28 @@
   systemd.tmpfiles.settings."00-homelab"."/homelab/traefik".d = {
     user = "traefik";
     group = "homelab-admin";
-    mode = "770";
+    mode = "775";
     #user read/write/delete
     #group read/write/delete
     #everbody else nothing
   };
+  systemd.tmpfiles.settings."00-homelab"."/homelab/local-database/".d = {
+    user = "root";
+    group = "homelab-admin";
+    mode = "775";
+    #user read/write/delete
+    #group read/write/delete
+    #everbody else nothing
+  };
+  systemd.tmpfiles.settings."00-homelab"."/homelab/local-database/postgresql".d = {
+    user = "postgres";
+    group = "homelab-admin";
+    mode = "750";
+  };
+
+  # fileSystems."/homelab/nfs/postgresql_database_homelab" = {
+  #   device = "10.30.30.101:/mnt/DataDumpster/postgresql-docker";
+  #   fsType = "nfs";
+  #   options = [ "defaults" ];
+  # };
 }

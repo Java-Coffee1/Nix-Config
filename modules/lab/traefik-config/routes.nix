@@ -24,10 +24,10 @@ let
 in
 {
   services.traefik.dynamicConfigOptions = lib.mkMerge [
-    (mkApp "authentik" {
-      host = "auth.javamurray.com";
-      url = "http://10.10.1.150:9000";
-    })
+    # (mkApp "authentik" {
+    #   host = "auth.javamurray.com";
+    #   url = "http://10.10.1.150:9000";
+    # })
     (mkApp "authentik-redirect" {
       host = "authentik.javamurray.com";
       url = "http://127.0.0.1"; # noop, the redirect middleware answers
