@@ -33,7 +33,7 @@
     authentiknix = {
       url = "github:nix-community/authentik-nix";
     };
-  };# end of inputs 
+  }; # end of inputs
 
   outputs =
     {

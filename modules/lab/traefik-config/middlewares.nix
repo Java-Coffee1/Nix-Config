@@ -2,7 +2,7 @@
   services.traefik.dynamicConfigOptions.http.middlewares = {
     # https://github.com/goauthentik/authentik/issues/2366
     middlewares-authentik.forwardAuth = {
-      address = "http://10.10.1.150:9000/outpost.goauthentik.io/auth/traefik";
+      address = "http://127.0.0.1:9000/outpost.goauthentik.io/auth/traefik";
       trustForwardHeader = true;
       authResponseHeaders = [
         "X-authentik-username"
