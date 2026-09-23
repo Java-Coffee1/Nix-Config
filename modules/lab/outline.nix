@@ -1,5 +1,18 @@
-{ config, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+let
+  unstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config.allowUnfree = true;
+  };
+in 
+{
   services.outline = {
+    package = unstable.outline;
     enable = true;
     publicUrl = "https://outline.javamurray.com";
     port = 3000;
