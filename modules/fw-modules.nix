@@ -5,6 +5,7 @@
     ./apps/firefox.nix
     ./apps/steam.nix
     ./apps/vs-code.nix
+    ./apps/eez-studio.nix
   ];
   environment.systemPackages = with pkgs; [
     fwupd

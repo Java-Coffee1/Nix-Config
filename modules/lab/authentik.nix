@@ -46,8 +46,8 @@
   };
 
   systemd.tmpfiles.settings."00-homelab"."/homelab/authentik".d = {
-    user = "root";
-    group = "root";
+    user = "authentik";
+    group = "authentik";
     mode = "700";
   };
 }
