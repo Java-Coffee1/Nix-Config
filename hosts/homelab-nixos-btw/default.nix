@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -120,9 +117,6 @@
   ############################################
   ## Storage
   ############################################
-  systemd.tmpfiles.rules = [
-    "L+ /homelab/lazy-scripts - - - - ${../../lazy-scripts}"
-  ];
   systemd.tmpfiles.settings."00-homelab"."/homelab".d = {
     user = "root";
     group = "homelab-admin";
@@ -159,5 +153,5 @@
     fsType = "nfs";
     options = [ "defaults" ];
   };
-  
+
 }
