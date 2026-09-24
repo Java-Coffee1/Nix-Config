@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -122,6 +120,9 @@
   ############################################
   ## Storage
   ############################################
+  systemd.tmpfiles.rules = [
+    "L+ /homelab/lazy-scripts - - - - ${../../lazy-scripts}"
+  ];
   systemd.tmpfiles.settings."00-homelab"."/homelab".d = {
     user = "root";
     group = "homelab-admin";
@@ -153,9 +154,10 @@
     mode = "750";
   };
 
-  fileSystems."/homelab/nfs/cloud-data-dump" = {
-    device = "10.30.30.101:/mnt/DataDumpster/cloud-data-dump/";
+  fileSystems."/homelab/nfs/data-dumpster" = {
+    device = "10.30.30.101:/mnt/DataDumpster/data-dumpster";
     fsType = "nfs";
     options = [ "defaults" ];
   };
+  
 }
