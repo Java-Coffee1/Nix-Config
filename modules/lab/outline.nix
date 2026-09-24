@@ -9,7 +9,7 @@ let
     inherit (pkgs.stdenv.hostPlatform) system;
     config.allowUnfree = true;
   };
-in 
+in
 {
   services.outline = {
     package = unstable.outline;
