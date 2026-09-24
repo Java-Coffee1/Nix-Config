@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, ... }:
 # these is a module that let me choose between things when it comes to is GUI and no Gui do not add anything else here.
 {
   options.javi = {

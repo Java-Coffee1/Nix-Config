@@ -1,3 +1,8 @@
 { ... }:
 
-{ imports = [ ./lab/postgres-backup.nix ]; }
+{
+  imports = [
+    ./lab/postgres-backup.nix
+    ./lab/outline-databackup.nix
+  ];
+}
