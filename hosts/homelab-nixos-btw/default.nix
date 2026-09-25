@@ -10,6 +10,7 @@
     ../../modules/lab/authentik.nix
     ../../modules/lab/virtualization/vaultwarden.nix
     ../../modules/lab/outline.nix
+    ../../modules/lab/jellyfin.nix
   ];
 
   #######################
@@ -155,6 +156,12 @@
 
   fileSystems."/homelab/nfs/data-dumpster" = {
     device = "10.30.30.101:/mnt/DataDumpster/data-dumpster";
+    fsType = "nfs";
+    options = [ "defaults" ];
+  };
+
+  fileSystems."/homelab/nfs/linux-isos" = {
+    device = "10.30.30.101:/mnt/DataDumpster/Linux_Isos";
     fsType = "nfs";
     options = [ "defaults" ];
   };
