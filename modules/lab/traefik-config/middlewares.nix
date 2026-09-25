@@ -67,11 +67,6 @@
       customFrameOptionsValue = "allow-from https://jelly.javamurray.com";
     };
 
-    # HTTP to HTTPS redirect middleware
-    jellyfin-https-redirect.redirectScheme = {
-      scheme = "https";
-      permanent = false;
-    };
     # redirect bare domain to www (works for any domain)
     redirect-to-www.redirectRegex = {
       regex = "^https?://([^/.]+\\.[^/.]+)/(.*)";
