@@ -55,6 +55,7 @@ in
   ];
   # -- PlatformIO --
   programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = [ pkgs.libusb1 ]; # needed by OpenOCD for PIO debugging
   services.udev.packages = [ pkgs.platformio-core.udev ];
   hjem.users.javi.files.".config/Code/User/settings.json".text = builtins.toJSON {
     "editor.fontSize" = 18;
