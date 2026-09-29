@@ -34,6 +34,10 @@
     authentiknix = {
       url = "github:nix-community/authentik-nix";
     };
+    declarative-jellyfin = {
+      url = "github:Sveske-Juice/declarative-jellyfin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   }; # end of inputs
 
   outputs =

@@ -32,9 +32,9 @@
       "middlewares-compress"
     ];
 
-    docsarg-redirect.redirectRegex = {
-      regex = "^https?://docs-arg.javamurray.com/?(.*)";
-      replacement = "https://outline.javamurray.com/s/eaf89668-59ed-4c1f-aaa5-89a26a82c497";
+    rickroll.redirectRegex = {
+      regex = "^https?://jv.ax/?(.*)";
+      replacement = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
       permanent = true;
     };
 

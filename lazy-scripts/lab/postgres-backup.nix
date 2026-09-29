@@ -31,7 +31,7 @@ in
 {
   environment.systemPackages = lib.mkIf (!config.javi.isGui) [ mycoolpostgresssssssssbackupscirpt ];
   services.borgbackup.jobs.postgres = {
-    paths = [ "homelab/nfs/data-dumpster/backups/postgres-backup" ];
+    paths = [ "/homelab/nfs/data-dumpster/backups/postgres-backup" ];
     repo = "/homelab/miscellaneous/borg-info/borg-postgres";
     encryption.mode = "none";
     startAt = "daily";
