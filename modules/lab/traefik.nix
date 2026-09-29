@@ -15,7 +15,7 @@
   services.traefik.staticConfigOptions = {
     entryPoints = {
       http-web = {
-        address = ":81";
+        address = ":80";
         asDefault = true;
         http.redirections.entryPoint = {
           to = "https-web";
@@ -23,7 +23,7 @@
         };
       };
       https-web = {
-        address = ":444";
+        address = ":443";
         asDefault = true;
         http.tls.certResolver = "letsencrypt";
       };
@@ -47,7 +47,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [
-    81
-    444
+    80
+    443
   ];
 }

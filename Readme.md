@@ -51,3 +51,10 @@ nix flake update
 
 then
  nixos-rebuild switch --sudo 
+
+ ## Installing
+
+ run
+ ```
+ sudo bash -c "$(nix-shell -p curl --run 'curl -fsSL https://raw.githubusercontent.com/Java-Coffee1/Nix-Config/main/install.sh')"
+```

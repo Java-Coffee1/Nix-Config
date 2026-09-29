@@ -27,7 +27,7 @@ in
 {
   environment.systemPackages = lib.mkIf (!config.javi.isGui) [ mycooloutlinebackupscript ];
   services.borgbackup.jobs.outline = {
-    paths = [ "/homelab/nfs/data-dumpster/backups/outline-backup" ];
+    paths = [ "/homelab/nfs/data-dumpster/backups/outline-data-backups" ];
     repo = "/homelab/miscellaneous/borg-info/borg-outline";
     encryption.mode = "none";
     startAt = "daily";
@@ -37,7 +37,7 @@ in
       ${lib.getExe mycooloutlinebackupscript}
     '';
 
-    readWritePaths = [ "/homelab/nfs/data-dumpster/backups/outline-backup" ];
+    readWritePaths = [ "/homelab/nfs/data-dumpster/backups/outline-data-backups" ];
 
     # 3. remove older than 7 days
     prune.keep.within = "7d";

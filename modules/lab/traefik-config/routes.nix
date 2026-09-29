@@ -66,11 +66,11 @@ in
     #   host = "ai.javamurray.com";
     #   url = "http://open-webui:8080";
     # })
-    # (mkApp "docsarg" {
-    #   host = "docs-arg.javamurray.com";
-    #   url = "http://127.0.0.1"; # noop, the redirect middleware answers
-    #   middlewares = [ "docsarg-redirect" ];
-    # })
+    (mkApp "rickroll" {
+      host = "jv.ax";
+      url = "http://127.0.0.1"; # noop, the redirect middleware answers
+      middlewares = [ "rickroll" ];
+    })
     # (mkApp "ConvertX" {
     #   host = "convert.javamurray.com";
     #   url = "http://convertx:3000";
