@@ -58,3 +58,5 @@ then
  ```
  sudo bash -c "$(nix-shell -p curl --run 'curl -fsSL https://raw.githubusercontent.com/Java-Coffee1/Nix-Config/main/install.sh')"
 ```
+
+or clone this repo and then do ./install.sh
