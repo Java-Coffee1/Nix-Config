@@ -76,13 +76,20 @@ in
 
   services.traefik.dynamicConfigOptions = {
     http.routers.jellyfin = {
-      rule = "Host(`jelly.javamurray.com`)";
+      rule = "Host(`jelly.jv.ax`)";
       entryPoints = [ "https-web" ];
       service = "jellyfin";
       tls.certResolver = "letsencrypt";
     };
     http.routers.jellyfin-old = {
-      rule = "Host(`${domain}`)";
+      rule = "Host(`jelly.javamurray.com`)";
+      entryPoints = [ "https-web" ];
+      service = "jellyfin";
+      middlewares = [ "jellyfin-redirect" ];
+      tls.certResolver = "letsencrypt";
+    };
+    http.routers.jellyfin-old2 = {
+      rule = "Host(`j.jv.ax`)";
       entryPoints = [ "https-web" ];
       service = "jellyfin";
       middlewares = [ "jellyfin-redirect" ];
@@ -90,7 +97,7 @@ in
     };
     http.middlewares.jellyfin-redirect.redirectRegex = {
       regex = "^https://[^/]+/(.*)";
-      replacement = "https://jelly.javamurray.com/\${1}";
+      replacement = "https://jelly.jv.ax/\${1}";
       permanent = true;
     };
     http.services.jellyfin.loadBalancer.servers = [ { url = "http://127.0.0.1:2402"; } ];
