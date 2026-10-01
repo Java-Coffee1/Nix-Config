@@ -11,6 +11,7 @@
     ../../modules/lab/virtualization/vaultwarden.nix
     ../../modules/lab/outline.nix
     ../../modules/lab/jellyfin.nix
+    ../../modules/lab/copyparty.nix
   ];
 
   #######################

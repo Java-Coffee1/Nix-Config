@@ -47,4 +47,12 @@ in
     javi
     hostkey-homelab
   ];
+  "copyparty-oauth-client.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
+  "copyparty-oauth-cookie.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
 }

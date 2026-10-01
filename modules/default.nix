@@ -16,5 +16,6 @@
     unzip
     busybox
     python3
+    dig
   ];
 }
