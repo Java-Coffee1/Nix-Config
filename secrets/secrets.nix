@@ -31,6 +31,10 @@ in
     javi
     hostkey-homelab
   ];
+  "authentik-ldap-env.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
   "outline-oidc.age".publicKeys = [
     javi
     hostkey-homelab

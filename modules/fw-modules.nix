@@ -1,5 +1,10 @@
-{ pkgs, ... }:
-
+{ pkgs, inputs, ... }:
+let
+  unstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [
     ./apps/firefox.nix
@@ -32,9 +37,9 @@
     # opening; upstream wants ^40.4.0 but 40/41 are EOL/insecure in nixpkgs)
     (pkgs.ytmdesktop.override { electron = pkgs.electron_42; })
     easyeffects
-    orca-slicer
+    unstable.orca-slicer
     reaper
-    # docker
+    blender # docker
 
     # -- Hyprland integration --
     zsh

@@ -2,6 +2,7 @@
 
 {
   age.secrets.authentik-env.file = ../../secrets/authentik-env.age;
+  age.secrets.authentik-ldap-env.file = ../../secrets/authentik-ldap-env.age;
   imports = [ inputs.authentiknix.nixosModules.default ];
   services.authentik = {
     enable = true;
@@ -27,6 +28,10 @@
       avatars = "initials";
     };
   };
+  services.authentik-ldap = {
+    enable = true;
+    environmentFile = config.age.secrets.authentik-ldap-env.path;
+  };
   services.traefik.dynamicConfigOptions = {
     http = {
       routers.authentik = {
@@ -49,5 +54,14 @@
     user = "authentik";
     group = "authentik";
     mode = "700";
+  };
+
+  systemd.services.authentik-ldap.environment = {
+    # Bind to loopback only — Jellyfin is the only consumer and it's on this
+    # same host. Not exposed via Traefik; firewall doesn't open it either.
+    AUTHENTIK_LISTEN__LDAP = "127.0.0.1:3389";
+    # Not a secret, so it doesn't need to live in the agenix-encrypted
+    # environmentFile alongside AUTHENTIK_TOKEN — same backend Traefik proxies to.
+    AUTHENTIK_HOST = "http://127.0.0.1:9000";
   };
 }

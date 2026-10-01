@@ -11,12 +11,12 @@
 
   environment.shellAliases = {
     s = "kitten ssh";
-    lab-build = "cd ~/Nix-Config && NIX_SSHOPTS='-p 2600' nixos-rebuild build --flake .#homelab-nixos-btw --target-host javi@ssh.javamurray.com --sudo";
-    lab-switch = "cd ~/Nix-Config && NIX_SSHOPTS='-p 2600' nixos-rebuild switch --flake .#homelab-nixos-btw --target-host javi@ssh.javamurray.com --sudo";
-    lab = "ssh -p 2600 javi@ssh.javamurray.com";
+    fw-switch = "nh os switch ~/Nix-Config -H fw-nixos-btw";
+    lab-build = "NIX_SSHOPTS='-p 2600' nh os build ~/Nix-Config -H homelab-nixos-btw --target-host javi@ssh.javamurray.com";
+    lab-switch = "NIX_SSHOPTS='-p 2600' nh os switch ~/Nix-Config -H homelab-nixos-btw --target-host javi@ssh.javamurray.com --elevation-strategy passwordless";
+    lab = "ssh -p 2600 -t javi@ssh.javamurray.com 'cd /homelab && exec \$SHELL -l'";
     btw = "echo I use nixos, btw";
   };
-
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
     XCURSOR_THEME = "Bibata-Modern-Classic";
