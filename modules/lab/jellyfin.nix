@@ -2,6 +2,11 @@
 
 let
   domain = "jelly.jv.ax";
+  # unstable = import inputs.nixpkgs-unstable {
+  #   inherit (pkgs.stdenv.hostPlatform) system;
+  #   config.allowUnfree = true;
+  # };
+
 in
 {
   imports = [ inputs.declarative-jellyfin.nixosModules.default ];
@@ -14,26 +19,23 @@ in
   # environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
   hardware.graphics = {
     enable = true;
-
-    # extraPackages = with pkgs;[
-    #   intel-vaapi-driver
-    #   libva-vdpau-driver
-    # ];
-    # set when I add this in
   };
 
   services.declarative-jellyfin = {
+    # package = unstable.jellyfin;
     enable = true;
     dataDir = "/homelab/jellyfin";
     cacheDir = "/homelab/jellyfin/cache";
     # configDir and logDir default to dataDir/config and dataDir/log
 
-    # Same /var/lib/jellyfin trap as metadataPath below: this defaults there
-    # regardless of dataDir, jellyfin (uid 991) can't create anything under
-    # root-owned /var/lib, and jellyfin-init's backup step crashes on it
-    # right after every migration run — which is what was forcing a crash
-    # loop stuck in the --nowebclient migration phase (hence the API/Swagger
-    # redirect instead of the actual web client).
+    users.nixadmin = {
+      hashedPassword = "$PBKDF2-SHA512$iterations=210000$C5E9E9D8D92FBAF63722CDB3C17656CB$4760E47DC2A82EE670F47741613EB38D322785DD5C79D34EC03C4674295A9EE0AE73D0B57FB39F887EF4D0E043EEC2118AEB50131C54C12D25503014DB628E90";
+      permissions = {
+        isAdministrator = true;
+        isHidden = true;
+      };
+    };
+
     backupDir = "/homelab/jellyfin/backups";
 
     # replaces the hand-rolled network.xml: nix is now the source of truth
@@ -45,11 +47,6 @@ in
     };
 
     system = {
-      # Module defaults this to /var/lib/jellyfin/metadata regardless of
-      # dataDir above — jellyfin (uid 991) can't create that under
-      # root-owned /var/lib, and the unit has no StateDirectory= to do it
-      # for it, so startup crashes with UnauthorizedAccessException. Keep it
-      # under the same tree as everything else on this host.
       metadataPath = "/homelab/jellyfin/metadata";
       serverName = "media-dumpsterfire";
       corsHosts = [ domain ];
@@ -63,18 +60,23 @@ in
     libraries.Movies = {
       automaticallyAddToCollection = true;
       contentType = "movies";
-      pathInfos = [ "/homelab/nfs" ];
+      pathInfos = [ "/homelab/nfs/linux-isos/movies" ];
     };
     libraries.Shows = {
       automaticallyAddToCollection = true;
       contentType = "tvshows";
-      pathInfos = [ "/homelab/nfs" ];
+      pathInfos = [ "/homelab/nfs/linux-isos/shows" ];
+    };
+    libraries.Audio-Books = {
+      automaticallyAddToCollection = true;
+      contentType = "tvshows";
+      pathInfos = [ "/homelab/nfs/linux-isos/audio_books" ];
     };
   };
 
   services.traefik.dynamicConfigOptions = {
     http.routers.jellyfin = {
-      rule = "Host(`${domain}`)";
+      rule = "Host(`${domain}`) || Host(`jelly.javamurray.com`)";
       entryPoints = [ "https-web" ];
       service = "jellyfin";
       tls.certResolver = "letsencrypt";
