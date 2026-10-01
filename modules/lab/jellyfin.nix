@@ -1,11 +1,11 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 let
   domain = "jelly.jv.ax";
-  # unstable = import inputs.nixpkgs-unstable {
-  #   inherit (pkgs.stdenv.hostPlatform) system;
-  #   config.allowUnfree = true;
-  # };
+  unstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config.allowUnfree = true;
+  };
 
 in
 {
@@ -22,19 +22,19 @@ in
   };
 
   services.declarative-jellyfin = {
-    # package = unstable.jellyfin;
+    package = unstable.jellyfin;
     enable = true;
     dataDir = "/homelab/jellyfin";
     cacheDir = "/homelab/jellyfin/cache";
     # configDir and logDir default to dataDir/config and dataDir/log
 
-    users.nixadmin = {
-      hashedPassword = "$PBKDF2-SHA512$iterations=210000$C5E9E9D8D92FBAF63722CDB3C17656CB$4760E47DC2A82EE670F47741613EB38D322785DD5C79D34EC03C4674295A9EE0AE73D0B57FB39F887EF4D0E043EEC2118AEB50131C54C12D25503014DB628E90";
-      permissions = {
-        isAdministrator = true;
-        isHidden = true;
-      };
-    };
+    # users.nixadmin = {
+    #   hashedPassword = "$PBKDF2-SHA512$iterations=210000$C5E9E9D8D92FBAF63722CDB3C17656CB$4760E47DC2A82EE670F47741613EB38D322785DD5C79D34EC03C4674295A9EE0AE73D0B57FB39F887EF4D0E043EEC2118AEB50131C54C12D25503014DB628E90";
+    #   permissions = {
+    #     isAdministrator = true;
+    #     isHidden = true;
+    #   };
+    # };
 
     backupDir = "/homelab/jellyfin/backups";
 
@@ -76,10 +76,22 @@ in
 
   services.traefik.dynamicConfigOptions = {
     http.routers.jellyfin = {
-      rule = "Host(`${domain}`) || Host(`jelly.javamurray.com`)";
+      rule = "Host(`jelly.javamurray.com`)";
       entryPoints = [ "https-web" ];
       service = "jellyfin";
       tls.certResolver = "letsencrypt";
+    };
+    http.routers.jellyfin-old = {
+      rule = "Host(`${domain}`)";
+      entryPoints = [ "https-web" ];
+      service = "jellyfin";
+      middlewares = [ "jellyfin-redirect" ];
+      tls.certResolver = "letsencrypt";
+    };
+    http.middlewares.jellyfin-redirect.redirectRegex = {
+      regex = "^https://[^/]+/(.*)";
+      replacement = "https://jelly.javamurray.com/\${1}";
+      permanent = true;
     };
     http.services.jellyfin.loadBalancer.servers = [ { url = "http://127.0.0.1:2402"; } ];
   };
