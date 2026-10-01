@@ -148,12 +148,16 @@
     group = "homelab-admin";
     mode = "750";
   };
+  systemd.tmpfiles.settings."00-homelab"."/homelab/jellyfin".d = {
+    user = "jellyfin";
+    group = "homelab-admin";
+    mode = "750";
+  };
   systemd.tmpfiles.settings."00-homelab"."/homelab/miscellaneous/borg-info".d = {
     user = "root";
     group = "homelab-admin";
     mode = "750";
   };
-
   fileSystems."/homelab/nfs/data-dumpster" = {
     device = "10.30.30.101:/mnt/DataDumpster/data-dumpster";
     fsType = "nfs";

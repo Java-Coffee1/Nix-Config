@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs-unstable-outline.url = "nixpkgs/6774f7bc253789b113a4f39285dc0fa100abeacc"; # just a temp fix for outline, until it gets merged into nixpkgs-unstable
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     agenix.url = "github:ryantm/agenix";
 
