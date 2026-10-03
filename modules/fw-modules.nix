@@ -47,9 +47,17 @@ in
     wireplumber # audio driver
 
     kdePackages.dolphin
+    kdePackages.ark # archive extraction/creation context-menu actions in dolphin
     kdePackages.gwenview
     kdePackages.kimageformats # avif, heif, psd, xcf, jxl...
     qt6.qtimageformats # webp, tiff, and friends
+
+    # -- archive backends used by ark --
+    unzip
+    zip
+    p7zip
+    unrar
+    libarchive
 
     kitty
     playerctl

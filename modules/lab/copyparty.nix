@@ -1,23 +1,9 @@
 { config, inputs, ... }:
-let
-  nas = "10.30.30.101:/mnt/DataDumpster";
-  nfs = device: {
-    inherit device;
-    fsType = "nfs";
-    options = [ "nfsvers=4" ];
-  };
-  mounts = {
-    "/homelab/nfs/copyparty/user-data" = nfs "${nas}/cloud-data-dump/user-data";
-    "/homelab/nfs/copyparty/user-photos" = nfs "${nas}/cloud-data-dump/user-photos";
-    "/homelab/nfs/copyparty/chaosbox" = nfs "${nas}/cloud-data-dump/chaosbox";
-    "/homelab/nfs/copyparty/linux-isos" = nfs "${nas}/Linux_Isos";
-  };
-in
-{
-  nixpkgs.overlays = [ inputs.copyparty.overlays.default ];
 
-  # replaces the compose "volumes:" block
-  fileSystems = mounts;
+{
+  imports = [ inputs.copyparty.nixosModules.default ];
+
+  nixpkgs.overlays = [ inputs.copyparty.overlays.default ];
 
   services.copyparty = {
     enable = true;
@@ -46,9 +32,8 @@ in
       chmod-d = "770"; # must be a string, the module interpolates it
       zm-http = 80;
       zm-https = 443;
-
       rproxy = -1;
-      xff-src = "lan";
+      xff-src = "127.0.0.1";
       idp-h-usr = "X-Forwarded-User";
       idp-h-grp = "X-Forwarded-Groups";
       auth-ord = "idp,pw,ipu";
@@ -59,22 +44,35 @@ in
 
     volumes = {
       "/" = {
-        path = "/homelab/copyparty/root";
-        access = { r = "@acct"; a = "Java"; };
+        path = "/homelab/nfs/data-dumpster/copyparty/root";
+        access = {
+          r = "@acct";
+          a = "Java";
+        };
         flags.dots = true;
       };
       "/\${u}/" = {
-        path = "/homelab/nfs/copyparty/user-data/\${u}";
-        access = { rwmd = "\${u}"; a = "Java"; };
-        flags = { dots = true; e2dsa = true; e2ts = true; };
+        path = "/homelab/nfs/data-dumpster/copyparty/user-data/\${u}";
+        access = {
+          rwmd = "\${u}";
+          a = "Java";
+        };
+        flags = {
+          dots = true;
+          e2dsa = true;
+          e2ts = true;
+        };
       };
       "/chaosbox" = {
-        path = "/homelab/nfs/copyparty/chaosbox";
-        access = { rwmd = "@acct"; a = "Java"; };
+        path = "/homelab/nfs/data-dumpster/copyparty/chaosbox";
+        access = {
+          rwmd = "@acct";
+          a = "Java";
+        };
         flags.dots = true;
       };
       "/immich-data" = {
-        path = "/homelab/nfs/copyparty/user-photos";
+        path = "/homelab/nfs/data-dumpster/copyparty/user-photos";
         access.r = "Java";
         flags.dots = true;
       };
@@ -84,12 +82,12 @@ in
         flags.dots = true;
       };
       "/linuxisos-audio-book" = {
-        path = "/homelab/nfs/copyparty/linux-isos/audio_books";
+        path = "/homelab/nfs/data-dumpster/copyparty/linux-isos/audio_books";
         access.rwd = "Java";
         flags.dots = true;
       };
       "/linux-isos" = {
-        path = "/homelab/nfs/copyparty/linux-isos";
+        path = "/homelab/nfs/data-dumpster/copyparty/linux-isos";
         access.rwd = "Java";
         flags.dots = true;
       };
@@ -97,11 +95,11 @@ in
   };
 
   systemd.services.copyparty = {
-    # wait for NFS before starting
-    unitConfig.RequiresMountsFor = builtins.attrNames mounts;
-    # the module skips ${u} volumes when sandboxing, so bind the parent by hand
-    serviceConfig.BindPaths = [ "/homelab/nfs/copyparty/user-data" ];
+    serviceConfig.BindPaths = [ "/homelab/nfs/data-dumpster/copyparty/user-data" ];
   };
+
+  age.secrets.copyparty-oauth-client.file = ../../secrets/copyparty-oauth-client.age;
+  age.secrets.copyparty-oauth-cookie.file = ../../secrets/copyparty-oauth-cookie.age;
 
   services.oauth2-proxy = {
     enable = true;
@@ -134,8 +132,8 @@ in
   services.traefik.dynamicConfigOptions.http = {
     routers.copyparty = {
       rule = "Host(`fs.javamurray.com`)";
-      entryPoints = [ "https-external" ]; # match your other native routers
-      tls = { };
+      entryPoints = [ "https-web" ]; # match your other native routers
+      tls.certResolver = "letsencrypt";
       service = "copyparty";
     };
     services.copyparty.loadBalancer.servers = [ { url = "http://127.0.0.1:4180"; } ];
