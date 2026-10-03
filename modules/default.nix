@@ -17,5 +17,6 @@
     busybox
     python3
     dig
+    tmux
   ];
 }

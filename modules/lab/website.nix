@@ -7,7 +7,8 @@
   ];
   services.nginx = {
     enable = true;
-    virtualHosts."javamurraywebsite" = {
+    commonHttpConfig = "absolute_redirect off;";
+    virtualHosts."javamurray.com" = {
       listen = [
         {
           addr = "127.0.0.1";
