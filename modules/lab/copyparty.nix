@@ -32,7 +32,7 @@
       chmod-d = "770"; # must be a string, the module interpolates it
       zm-http = 80;
       zm-https = 443;
-      rproxy = -1;
+      rproxy = -2;
       xff-src = "127.0.0.1";
       idp-h-usr = "X-Forwarded-User";
       idp-h-grp = "X-Forwarded-Groups";
@@ -81,11 +81,11 @@
         access.r = "Java";
         flags.dots = true;
       };
-      "/linuxisos-audio-book" = {
-        path = "/homelab/nfs/data-dumpster/copyparty/linux-isos/audio_books";
-        access.rwd = "Java";
-        flags.dots = true;
-      };
+      # "/linuxisos-audio-book" = {
+      #   path = "/homelab/nfs/data-dumpster/copyparty/linux-isos/audio_books";
+      #   access.rwd = "Java";
+      #   flags.dots = true;
+      # };
       "/linux-isos" = {
         path = "/homelab/nfs/data-dumpster/copyparty/linux-isos";
         access.rwd = "Java";
@@ -114,10 +114,12 @@
     httpAddress = "http://127.0.0.1:4180";
     email.domains = [ "*" ];
     reverseProxy = true;
+    trustedProxyIP = [ "127.0.0.1/32" ];
     setXauthrequest = true;
     passAccessToken = true;
     passHostHeader = true;
     extraConfig = {
+      real-client-ip-header = "X-Forwarded-For";
       set-authorization-header = true;
       pass-authorization-header = true;
       pass-user-headers = true;

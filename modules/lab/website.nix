@@ -1,6 +1,7 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 
 {
+  imports = [ "${inputs.hundred_hues_website}" ];
   systemd.tmpfiles.rules = [
     "L+ /homelab/javamurray - - - - ${inputs.javamurraywebsite}"
     "L+ /homelab/government_crow_website - - - - ${inputs.government_crow_website}"
@@ -46,5 +47,13 @@
       tls.certResolver = "letsencrypt";
     };
     http.services.government_crow_website.loadBalancer.servers = [ { url = "http://127.0.0.1:8082"; } ];
+
+    http.routers.hundred_hues_website = {
+      rule = "Host(`meowdoku.jv.ax`)";
+      entryPoints = [ "https-web" ];
+      service = "hundred-hues";
+      tls.certResolver = "letsencrypt";
+    };
+    http.services.hundred-hues.loadBalancer.servers = [ { url = "http://127.0.0.1:8090"; } ];
   };
 }
