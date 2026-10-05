@@ -12,10 +12,13 @@
   environment.shellAliases = {
     s = "kitten ssh";
     fw-switch = "nh os switch ~/Nix-Config -H fw-nixos-btw";
+    fw-rollback = "nh os rollback";
     lab-build = "NIX_SSHOPTS='-p 2600' nh os build ~/Nix-Config -H homelab-nixos-btw --target-host javi@ssh.javamurray.com";
     lab-switch = "NIX_SSHOPTS='-p 2600' nh os switch ~/Nix-Config -H homelab-nixos-btw --target-host javi@ssh.javamurray.com --elevation-strategy passwordless";
+    lab-rollback = "ssh -p 2600 -t javi@ssh.javamurray.com 'sudo nixos-rebuild switch --rollback'";    
     lab = "ssh -p 2600 -t javi@ssh.javamurray.com 'cd /homelab && exec \$SHELL -l'";
     btw = "echo I use nixos, btw";
+    bot-shelly = "ssh -t -- agent@savm.shelvacu.com tmux new-session -A -s main";
   };
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";

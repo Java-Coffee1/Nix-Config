@@ -32,6 +32,10 @@
       url = "git+ssh://git@github.com/Java-Coffee1/government_crow_website.git";
       flake = false;
     };
+    hundred_hues_website = {
+      url = "git+ssh://git@git.uninsane.org/java/hundred-hues.git?ref=lobbies";
+      flake = false;
+    };
     authentiknix = {
       url = "github:nix-community/authentik-nix";
     };

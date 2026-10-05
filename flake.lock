@@ -250,14 +250,31 @@
         "type": "github"
       }
     },
+    "hundred_hues_website": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791191091,
+        "narHash": "sha256-ZPc6wFIsrJQ4Al444tIu4FG3B8fz69jGdsOacHY+YrI=",
+        "ref": "lobbies",
+        "rev": "9abf0141170f59d316a7b510b02b1a4b4aa1b5e9",
+        "revCount": 9,
+        "type": "git",
+        "url": "ssh://git@git.uninsane.org/java/hundred-hues.git"
+      },
+      "original": {
+        "ref": "lobbies",
+        "type": "git",
+        "url": "ssh://git@git.uninsane.org/java/hundred-hues.git"
+      }
+    },
     "javamurraywebsite": {
       "flake": false,
       "locked": {
-        "lastModified": 1791053451,
-        "narHash": "sha256-r5gP8DnWBRM/VuV/IlMRWhM7bkHjIAN6d7s/CgAWzfw=",
+        "lastModified": 1791055085,
+        "narHash": "sha256-jF6nKcRX28hEq4W3KyVbcs6LzVI02HmWSPCmj8+36Ic=",
         "ref": "refs/heads/main",
-        "rev": "c47bfb564079cd44b2a08f509248e0cc1f4eb8f3",
-        "revCount": 11,
+        "rev": "26b66bf94e0219b68d2beedafdf0aa099288e5ce",
+        "revCount": 16,
         "type": "git",
         "url": "ssh://git@github.com/Java-Coffee1/javamurraywebsite.git"
       },
@@ -489,6 +506,7 @@
         "declarative-jellyfin": "declarative-jellyfin",
         "government_crow_website": "government_crow_website",
         "hjem": "hjem",
+        "hundred_hues_website": "hundred_hues_website",
         "javamurraywebsite": "javamurraywebsite",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",

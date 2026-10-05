@@ -34,7 +34,7 @@
 
     rickroll.redirectRegex = {
       regex = "^https?://jv.ax/?(.*)";
-      replacement = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+      replacement = "https://javamurray.com/\${1}";
       permanent = true;
     };
 
