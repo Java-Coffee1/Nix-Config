@@ -33,7 +33,7 @@
       flake = false;
     };
     hundred_hues_website = {
-      url = "git+ssh://git@git.uninsane.org/java/hundred-hues.git?ref=lobbies";
+      url = "git+ssh://git@git.uninsane.org/java/hundred-hues.git";
       flake = false;
     };
     authentiknix = {
