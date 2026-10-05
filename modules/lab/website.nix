@@ -2,6 +2,7 @@
 
 {
   imports = [ "${inputs.hundred_hues_website}" ];
+  services.hundred-hues.dataDir = "/homelab/hundred-hues";
   systemd.tmpfiles.rules = [
     "L+ /homelab/javamurray - - - - ${inputs.javamurraywebsite}"
     "L+ /homelab/government_crow_website - - - - ${inputs.government_crow_website}"

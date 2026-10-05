@@ -253,16 +253,15 @@
     "hundred_hues_website": {
       "flake": false,
       "locked": {
-        "lastModified": 1791217202,
-        "narHash": "sha256-irkLotNk/FvIOzF9Y/86JlXHyXQUgSPsDDfAV+W9h7E=",
-        "ref": "lobbies",
-        "rev": "cd71a1ae47d78eec03a9308e9e9348c783289465",
-        "revCount": 22,
+        "lastModified": 1791218484,
+        "narHash": "sha256-J0fwVY5MtDHgjLYTrdaILoEMWcR48GowxLvx0/eCsls=",
+        "ref": "refs/heads/main",
+        "rev": "27338f2a2b8e1899b2bf1acd292e27ed38dd6b5d",
+        "revCount": 26,
         "type": "git",
         "url": "ssh://git@git.uninsane.org/java/hundred-hues.git"
       },
       "original": {
-        "ref": "lobbies",
         "type": "git",
         "url": "ssh://git@git.uninsane.org/java/hundred-hues.git"
       }
