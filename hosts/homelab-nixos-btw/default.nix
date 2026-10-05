@@ -160,6 +160,12 @@
     group = "homelab-admin";
     mode = "750";
   };
+  systemd.tmpfiles.settings."00-homelab"."/homelab/hundred-hues".d = {
+    user = "hundred-hues";
+    group = "homelab-admin";
+    mode = "750";
+  };
+
   fileSystems."/homelab/nfs/data-dumpster" = {
     device = "10.30.30.101:/mnt/DataDumpster/data-dumpster";
     fsType = "nfs";
