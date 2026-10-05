@@ -49,7 +49,7 @@
     http.services.government_crow_website.loadBalancer.servers = [ { url = "http://127.0.0.1:8082"; } ];
 
     http.routers.hundred_hues_website = {
-      rule = "Host(`meowdoku.jv.ax`)";
+      rule = "Host(`hh.jv.ax`)";
       entryPoints = [ "https-web" ];
       service = "hundred-hues";
       tls.certResolver = "letsencrypt";
