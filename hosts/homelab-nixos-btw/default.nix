@@ -95,7 +95,7 @@
   users.users.javi.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICq8ju6Hc+YoVJnr7+zN0ne2ydYQHkoDKCJE9K8aYRrX java@ghost"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDEtpecmaXPRkULTYaPzCiocRiVmJMxD2p3qCrStGCK5 java@Home-Lab-Live"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINznGot+L8kYoVQqdLV/R17XCd1ILMoDCILOg+I3s5wC"
+    "AAAAB3NzaC1yc2EAAAADAQABAAABgQCNZZVhA1VenxOFIIu9FffKhP9VhliKVxS/P0Z6OjU4X3gb6qHXia0SIwBW2bge0uJXynvgZvjEYpziG2wbpBjqimUCQB5DCzL5eQlTyLrhMIhnUz9yblG2b10pS6TgJSgUkIDytHAVtUxjYj/KJMcBZSu/EtmPGuhbFjCK7wagtLutu/P6uGuq7kqreOIy3fK6q4SEej5//xqxjuPBpULKkTtJyOYs/VsNjN2xNp4mt69+Q0RE2P+9jNJjtPtrZtMa5jtGNH7hAiNeeeb8gA3HvTrpuX/LENrG2/FPCGv7gamLW5Bxjb1mZncLKukzuceIma69KndSM+GZMJC4Z0QSQ6yPq6NCLA0RCf0fQM/Xi8BS8Z79SGSrQdDLUXMDAFkSEHiOvIsfQ2LucoXo6EEb9p56KUhxgXIRS6aFpo6oXFub2GleyqTPL04Q8BzgeiHCBeBN6ITCrAfwz45qJ9jt9vxvdvhbsMimmrIOilmoGsXgC4hBjJY8kjmj06vA880= root@truenas"
   ];
   users.groups.homelab-admin = { };
 
