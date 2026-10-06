@@ -12,6 +12,7 @@
     ../../modules/lab/outline.nix
     ../../modules/lab/jellyfin.nix
     ../../modules/lab/copyparty.nix
+    ../../modules/lab/immich.nix
   ];
 
   #######################
