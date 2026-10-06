@@ -5,6 +5,11 @@
   services.hundred-hues.dataDir = "/homelab/hundred-hues";
   services.hundred-hues.admins = [ "javi" ];
   services.hundred-hues.shareUrl = "https://hh.jv.ax";
+  services.hundred-hues.smtp = {
+    host = "10.10.1.150";
+    port = 2500;
+    from = "noreply@javamurray.com";
+  };
   
   systemd.tmpfiles.rules = [
     "L+ /homelab/javamurray - - - - ${inputs.javamurraywebsite}"
