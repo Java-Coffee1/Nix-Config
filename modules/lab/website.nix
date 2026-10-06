@@ -3,6 +3,9 @@
 {
   imports = [ "${inputs.hundred_hues_website}" ];
   services.hundred-hues.dataDir = "/homelab/hundred-hues";
+  services.hundred-hues.admins = [ "javi" ];
+  services.hundred-hues.shareUrl = "https://hh.jv.ax";
+  
   systemd.tmpfiles.rules = [
     "L+ /homelab/javamurray - - - - ${inputs.javamurraywebsite}"
     "L+ /homelab/government_crow_website - - - - ${inputs.government_crow_website}"
@@ -50,10 +53,22 @@
     http.services.government_crow_website.loadBalancer.servers = [ { url = "http://127.0.0.1:8082"; } ];
 
     http.routers.hundred_hues_website = {
-      rule = "Host(`hh.jv.ax`)";
+      rule = "Host(`hundred-hues.jv.ax`)";
       entryPoints = [ "https-web" ];
       service = "hundred-hues";
       tls.certResolver = "letsencrypt";
+    };
+    http.routers.hundred_hues_redirect = {
+      rule = "Host(`hh.jv.ax`) || Host(`www.hundred-hues.jv.ax`)";
+      entryPoints = [ "https-web" ];
+      middlewares = [ "hundred-hues-redirect" ];
+      service = "hundred-hues";
+      tls.certResolver = "letsencrypt";
+    };
+    http.middlewares.hundred-hues-redirect.redirectRegex = {
+      regex = "^https://[^/]+/(.*)";
+      replacement = "https://hundred-hues.jv.ax/\${1}";
+      permanent = true;
     };
     http.services.hundred-hues.loadBalancer.servers = [ { url = "http://127.0.0.1:8090"; } ];
   };
