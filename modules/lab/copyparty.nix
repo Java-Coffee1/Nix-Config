@@ -71,26 +71,26 @@
         };
         flags.dots = true;
       };
-      "/immich-data" = {
-        path = "/homelab/nfs/data-dumpster/copyparty/user-photos";
-        access.r = "Java";
-        flags.dots = true;
-      };
-      "/google-drive" = {
-        path = "/mnt/google-drive";
-        access.r = "Java";
-        flags.dots = true;
-      };
+      # "/immich-data" = {
+      #   path = "/homelab/nfs/data-dumpster/copyparty/user-photos";
+      #   access.r = "Java";
+      #   flags.dots = true;
+      # };
+      # "/google-drive" = {
+      #   path = "/mnt/google-drive";
+      #   access.r = "Java";
+      #   flags.dots = true;
+      # };
       # "/linuxisos-audio-book" = {
       #   path = "/homelab/nfs/data-dumpster/copyparty/linux-isos/audio_books";
       #   access.rwd = "Java";
       #   flags.dots = true;
       # };
-      "/linux-isos" = {
-        path = "/homelab/nfs/data-dumpster/copyparty/linux-isos";
-        access.rwd = "Java";
-        flags.dots = true;
-      };
+      # "/linux-isos" = {
+      #   path = "/homelab/nfs/data-dumpster/copyparty/linux-isos";
+      #   access.rwd = "Java";
+      #   flags.dots = true;
+      # };
     };
   };
 

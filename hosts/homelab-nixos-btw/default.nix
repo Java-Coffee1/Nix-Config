@@ -13,6 +13,7 @@
     ../../modules/lab/jellyfin.nix
     ../../modules/lab/copyparty.nix
     ../../modules/lab/immich.nix
+    ../../modules/lab/virtualization/dumdo.nix
   ];
 
   #######################
