@@ -17,7 +17,9 @@ in
   services.immich.host = "127.0.0.1";
   services.immich.environment.IMMICH_LOG_LEVEL = "warn";
   services.redis.servers.immich.logLevel = "warning";
-  systemd.services.immich-server.unitConfig.RequiresMountsFor = [ "/homelab/nfs/data-dumpster/immich" ];
+  systemd.services.immich-server.unitConfig.RequiresMountsFor = [
+    "/homelab/nfs/data-dumpster/immich"
+  ];
   services.immich.mediaLocation = "/homelab/nfs/data-dumpster/immich";
 
   services.immich.database = {
