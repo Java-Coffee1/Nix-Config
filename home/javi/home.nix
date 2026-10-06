@@ -38,6 +38,9 @@
         ## Vim
         ".vimrc".source = ./dotfiles/vim/vimrc;
         ".vim".source = ./dotfiles/vim;
+
+        ## Neovim
+        ".config/nvim".source = ./dotfiles/nvim;
       }
 
       ## GUI only

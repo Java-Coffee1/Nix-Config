@@ -3,6 +3,7 @@
 {
   imports = [
     ./apps/git.nix
+    ./apps/neovim.nix
     ../lazy-scripts/default.nix
   ];
   environment.systemPackages = with pkgs; [
