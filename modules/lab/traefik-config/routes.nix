@@ -99,10 +99,10 @@ in
       url = "http://10.10.1.107:8085";
       middlewares = authentik;
     })
-    (mkApp "Immich" {
-      host = "photos.javamurray.com";
-      url = "http://10.10.1.150:2283";
-    })
+    # (mkApp "Immich" {
+    #   host = "photos.javamurray.com";
+    #   url = "http://10.10.1.150:2283";
+    # })
     # (mkApp "Mainsail" {
     #   host = "mainsail.javamurray.com";
     #   url = "http://10.25.25.99:80";

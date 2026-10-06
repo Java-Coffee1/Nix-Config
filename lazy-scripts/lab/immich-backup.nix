@@ -1,6 +1,5 @@
-{config, ...}:
-{
- 
+{ config, ... }: {
+
   services.borgbackup.jobs."Immich" = {
     paths = config.services.immich.mediaLocation;
     repo = "/homelab/miscellaneous/borg-info/borg-immich";
