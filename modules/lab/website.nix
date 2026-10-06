@@ -10,7 +10,7 @@
     port = 2500;
     from = "noreply@javamurray.com";
   };
-  
+
   systemd.tmpfiles.rules = [
     "L+ /homelab/javamurray - - - - ${inputs.javamurraywebsite}"
     "L+ /homelab/government_crow_website - - - - ${inputs.government_crow_website}"
