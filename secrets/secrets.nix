@@ -23,7 +23,7 @@ in
     javi
     hostkey-homelab
   ];
-  "cf_email_token.age".publicKeys = [
+  "mailjet_email_token.age".publicKeys = [
     javi
     hostkey-homelab
   ];
