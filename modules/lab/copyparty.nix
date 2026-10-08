@@ -11,7 +11,7 @@
     # [global]
     settings = {
       i = "127.0.0.1";
-      hist = "/var/cache/copyparty"; # keeps the index db off NFS
+      hist = "/homelab/copyparty/root"; # keeps the index db off NFS
       no-rescan = true;
       ansi = true;
       usernames = true;
@@ -37,14 +37,14 @@
       idp-h-usr = "X-Forwarded-User";
       idp-h-grp = "X-Forwarded-Groups";
       auth-ord = "idp,pw,ipu";
-      idp-login = "https://fs.javamurray.com/oauth2/start";
+      idp-login = "https://fs.jv.ax/oauth2/start";
       idp-login-t = "Login with authentik.javamurray.com";
-      idp-logout = "https://fs.javamurray.com/oauth2/sign_out";
+      idp-logout = "https://fs.jv.ax/oauth2/sign_out";
     };
 
     volumes = {
       "/" = {
-        path = "/homelab/nfs/data-dumpster/copyparty/root";
+        path = "/homelab/copyparty/root";
         access = {
           r = "@acct";
           a = "Java";
@@ -109,7 +109,7 @@
     clientSecretFile = config.age.secrets.copyparty-oauth-client.path;
     cookie.secretFile = config.age.secrets.copyparty-oauth-cookie.path;
     cookie.secure = true;
-    redirectURL = "https://fs.javamurray.com/oauth2/callback";
+    redirectURL = "https://fs.jv.ax/oauth2/callback";
     upstream = [ "http://127.0.0.1:3923" ];
     httpAddress = "http://127.0.0.1:4180";
     email.domains = [ "*" ];
@@ -130,13 +130,25 @@
     };
   };
 
-  # same routing as your commented-out labels
   services.traefik.dynamicConfigOptions.http = {
     routers.copyparty = {
-      rule = "Host(`fs.javamurray.com`)";
+      rule = "Host(`fs.jv.ax`)";
       entryPoints = [ "https-web" ]; # match your other native routers
       tls.certResolver = "letsencrypt";
       service = "copyparty";
+    };
+    # old domain, redirects to fs.jv.ax
+    routers.copyparty-old = {
+      rule = "Host(`fs.javamurray.com`)";
+      entryPoints = [ "https-web" ];
+      tls.certResolver = "letsencrypt";
+      middlewares = [ "copyparty-redirect" ];
+      service = "copyparty";
+    };
+    middlewares.copyparty-redirect.redirectRegex = {
+      regex = "^https://[^/]+/(.*)";
+      replacement = "https://fs.jv.ax/\${1}";
+      permanent = true;
     };
     services.copyparty.loadBalancer.servers = [ { url = "http://127.0.0.1:4180"; } ];
   };

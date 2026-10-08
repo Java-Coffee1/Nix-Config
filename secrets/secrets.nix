@@ -23,6 +23,10 @@ in
     javi
     hostkey-homelab
   ];
+  "cf_email_token.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
   "postgres-password.age".publicKeys = [
     javi
     hostkey-homelab
