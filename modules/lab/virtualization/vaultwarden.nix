@@ -6,6 +6,7 @@
     pull = "always";
     environment = {
       DOMAIN = "https://vault.jv.ax";
+      SIGNUPS_ALLOWED = "false";
     };
     volumes = [ "/homelab/vaultwarden:/data" ];
     ports = [ "127.0.0.1:8000:80" ];
