@@ -17,10 +17,9 @@
         user = "authentik";
       };
       email = {
-        host = "10.10.1.150";
-        port = 2500;
-        username = "noreply@javamurray.com";
-        use_tls = true;
+        host = "127.0.0.1";
+        port = 2525;
+        use_tls = false;
         use_ssl = false;
         from = "noreply@javamurray.com";
       };
