@@ -14,6 +14,8 @@ in
   ];
   environment.systemPackages = with pkgs; [
     fwupd
+    system-config-printer # GUI for managing CUPS printers
+
     # -- Core CLI tools --
     qmk
     jdk25
@@ -78,7 +80,5 @@ in
 
     # -- fonts --
     nerd-fonts.geist-mono
-    # -- icons --
-    tela-circle-icon-theme
   ];
 }

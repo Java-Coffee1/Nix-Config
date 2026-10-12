@@ -16,9 +16,7 @@
   ############################################
 
   system.stateVersion = "26.05";
-
   javi.isGui = true;
-
   time.timeZone = "America/Vancouver";
 
   ############################################
@@ -35,8 +33,8 @@
   programs.nh = {
     enable = true;
     clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/user/my-nixos-config"; # sets NH_OS_FLAKE variable for you
+    clean.extraArgs = "--keep-since 4d --keep 7";
+    flake = "/home/javi/Nix-Config/"; # sets NH_OS_FLAKE variable for you
   };
 
   ############################################
@@ -66,7 +64,16 @@
 
   networking.networkmanager.enable = true;
 
-  services.avahi.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true; # lets CUPS discover printers advertised over mDNS
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.gutenprint ]; # broad driver coverage; most network printers also work driverless via IPP
+  };
 
   services.openssh.enable = true;
 
