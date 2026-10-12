@@ -19,7 +19,15 @@ in
     forceHttps = false; # Traefik handles TLS
     enableUpdateCheck = false;
     concurrency = 1;
-
+    
+    smtp.host = "127.0.0.1";
+    smtp.port = 2525;
+    smtp.username = "";
+    smtp.passwordFile = "/dev/null"; # script runs head -n1 on this, so it has to exist
+    smtp.fromEmail = "outline@javamurray.com";
+    smtp.replyEmail = "outline@javamurray.com";
+    smtp.secure = false;
+    
     # your hand-made db, over the unix socket (no password)
     databaseUrl = "postgres://outline@localhost/outline_db?host=/run/postgresql";
 
