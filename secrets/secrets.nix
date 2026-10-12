@@ -63,4 +63,8 @@ in
     javi
     hostkey-homelab
   ];
+  "grafana-oidc-secret.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
 }
