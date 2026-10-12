@@ -54,6 +54,12 @@ in
     kdePackages.kimageformats # avif, heif, psd, xcf, jxl...
     qt6.qtimageformats # webp, tiff, and friends
 
+    # -- Qt theming engine (makes QT_QPA_PLATFORMTHEME=qt6ct and style=kvantum actually do something) --
+    qt6Packages.qt6ct
+    qt6Packages.qtstyleplugin-kvantum
+    libsForQt5.qt5ct
+    libsForQt5.qtstyleplugin-kvantum
+
     # -- archive backends used by ark --
     unzip
     zip

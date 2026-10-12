@@ -60,6 +60,11 @@
         ## Kvantum
         ".config/Kvantum".source = ./dotfiles/kvantum;
 
+        ## KDE color scheme matching the active Kvantum theme, so Dolphin's
+        ## own KColorScheme palette (file labels, panels) isn't just whatever
+        ## Qt falls back to — see ~/.config/dolphinrc [UiSettings] ColorScheme
+        ".local/share/color-schemes/OrchisDark.colors".source = ./dotfiles/dolphin/color-schemes/OrchisDark.colors;
+
         ## cursor theme
         ".icons/default/index.theme".text = ''
           [Icon Theme]
