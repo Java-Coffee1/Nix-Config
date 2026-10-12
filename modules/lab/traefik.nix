@@ -27,6 +27,18 @@
         asDefault = true;
         http.tls.certResolver = "letsencrypt";
       };
+      # Loopback-only entrypoint for Prometheus to scrape /metrics on.
+      # Not exposed via a router, so it never goes out through Traefik itself.
+      metrics = {
+        address = "127.0.0.1:8083";
+      };
+    };
+
+    metrics.prometheus = {
+      entryPoint = "metrics";
+      addEntryPointsLabels = true;
+      addRoutersLabels = true;
+      addServicesLabels = true;
     };
     log = {
       level = "INFO";

@@ -4,15 +4,23 @@
 }:
 
 {
-  age.secrets.grafana-secret-key.file = ../../secrets/grafana-secret-key.age;
+  age.secrets.grafana-secret-key = {
+    file = ../../secrets/grafana-secret-key.age;
+    owner = "grafana";
+  };
+  age.secrets.grafana-oidc-secret = {
+    file = ../../secrets/grafana-oidc-secret.age;
+    owner = "grafana";
+  };
 
-  environment.etc."grafana-dashboards".source = /homelab/granfana/dashboards;
+  environment.etc."grafana-dashboards".source = "/homelab/granfana/dashboards";
   services.grafana = {
     enable = true;
+    dataDir = "/homelab/granfana";
     settings = {
       server = {
         http_addr = "127.0.0.1";
-        http_port = "3232";
+        http_port = 3232;
         enforce_domain = true;
         enable_gzip = true;
         domain = "gf.jv.ax";
@@ -27,7 +35,8 @@
         name = "authentik"; 
         allow_sign_up = true;
         client_id = "0yDP5Zxt6PTpRMeF2PSDjrCitBS9FdzafJgi4sui";
-        
+        client_secret = "$__file{${config.age.secrets.grafana-oidc-secret.path}}";
+
         # Scopes required for standard OIDC
         scopes = "openid profile email groups"; 
         
@@ -62,7 +71,7 @@
           isDefault = true; 
         }
       ];
-      dashboards.stettings.providers = [
+      dashboards.settings.providers = [
         {
           name = "homelab";
           disableDeletion = true;
@@ -79,16 +88,42 @@
     enable = true;
     listenAddress = "127.0.0.1";
     port = 9090;
-    retentionTime = "360";
+    retentionTime = "360d";
+    stateDir = "prometheus2";
     exporters = {
       node = {
         enable = true;
         listenAddress = "127.0.0.1";
         enabledCollectors = [ "systemd" ];
       };
-      varnish.enable = true;
-    }
-    ;
+    };
+    scrapeConfigs = [
+      {
+        job_name = "node";
+        static_configs = [ { targets = [ "127.0.0.1:9100" ]; } ];
+      }
+      {
+        job_name = "traefik";
+        static_configs = [ { targets = [ "127.0.0.1:8083" ]; } ];
+      }
+    ];
+  };
+
+  fileSystems."/var/lib/prometheus2" = {
+    device = "/homelab/nfs/data-dumpster/granfana/prometheus";
+    fsType = "none";
+    options = [ "bind" ];
+  };
+
+  systemd.tmpfiles.settings."00-homelab"."/homelab/granfana".d = {
+    user = "grafana";
+    group = "grafana";
+    mode = "755";
+  };
+  systemd.tmpfiles.settings."00-homelab"."/homelab/granfana/dashboards".d = {
+    user = "grafana";
+    group = "grafana";
+    mode = "755";
   };
 
   #######################
