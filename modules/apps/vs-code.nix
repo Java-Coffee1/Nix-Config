@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{pkgs, ... }:
 
 let
   vscode-configured = pkgs.vscode-with-extensions.override {
@@ -67,5 +67,9 @@ in
     "C_Cpp.intelliSenseEngine" = "default";
     "nix.enableLanguageServer" = true;
     "nix.serverPath" = "nixd";
+    "editor.inlineSuggest.enabled" = false;
+    "github.copilot.enable" = {
+      "*" = false;
+    };
   };
 }
