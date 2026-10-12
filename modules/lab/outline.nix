@@ -5,7 +5,7 @@
   ...
 }:
 let
-  unstable = import inputs.nixpkgs-unstable-outline {
+  unstable = import inputs.nixpkgs-unstable {
     inherit (pkgs.stdenv.hostPlatform) system;
     config.allowUnfree = true;
   };
@@ -19,7 +19,7 @@ in
     forceHttps = false; # Traefik handles TLS
     enableUpdateCheck = false;
     concurrency = 1;
-    
+
     smtp.host = "127.0.0.1";
     smtp.port = 2525;
     smtp.username = "";
@@ -27,7 +27,7 @@ in
     smtp.fromEmail = "outline@javamurray.com";
     smtp.replyEmail = "outline@javamurray.com";
     smtp.secure = false;
-    
+
     # your hand-made db, over the unix socket (no password)
     databaseUrl = "postgres://outline@localhost/outline_db?host=/run/postgresql";
 

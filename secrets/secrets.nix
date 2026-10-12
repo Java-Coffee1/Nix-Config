@@ -59,4 +59,8 @@ in
     javi
     hostkey-homelab
   ];
+  "grafana-secret-key.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
 }

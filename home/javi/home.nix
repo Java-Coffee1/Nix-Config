@@ -60,10 +60,30 @@
         ## Kvantum
         ".config/Kvantum".source = ./dotfiles/kvantum;
 
+        ## Vs Code
+        ".config/Code/User/settings.json".text = builtins.toJSON {
+          "editor.fontSize" = 18;
+          "editor.fontFamily" = "'GeistMono Nerd Font Mono', monospace";
+          "terminal.integrated.fontSize" = 14;
+          "window.zoomLevel" = 1;
+          "platformio-ide.useBuiltinPython" = false;
+          "python.languageServer" = "Pylance";
+          "C_Cpp.intelliSenseEngine" = "default";
+          "nix.enableLanguageServer" = true;
+          "nix.serverPath" = "nixd";
+          "telemetry.telemetryLevel" = "off";
+          "update.mode" = "none";
+          "extensions.autoUpdate" = false;
+          "extensions.autoCheckUpdates" = false;
+          "chat.disableAIFeatures" = true;
+          "editor.inlineSuggest.enabled" = false;
+        };
+
         ## KDE color scheme matching the active Kvantum theme, so Dolphin's
         ## own KColorScheme palette (file labels, panels) isn't just whatever
         ## Qt falls back to — see ~/.config/dolphinrc [UiSettings] ColorScheme
-        ".local/share/color-schemes/OrchisDark.colors".source = ./dotfiles/dolphin/color-schemes/OrchisDark.colors;
+        ".local/share/color-schemes/OrchisDark.colors".source =
+          ./dotfiles/dolphin/color-schemes/OrchisDark.colors;
 
         ## cursor theme
         ".icons/default/index.theme".text = ''
