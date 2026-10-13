@@ -57,6 +57,11 @@
         ## Kitty
         ".config/kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
 
+        # yazi
+        ".config/yazi/keymap.toml".source = ./dotfiles/yazi/keymap.toml;
+        ".config/yazi/theme.toml".source = ./dotfiles/yazi/theme.toml;
+        ".config/yazi/yazi.toml".source = ./dotfiles/yazi/yazi.toml;
+
         ## Kvantum
         ".config/Kvantum".source = ./dotfiles/kvantum;
 
