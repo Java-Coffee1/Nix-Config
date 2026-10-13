@@ -44,6 +44,7 @@ in
     blender # docker
 
     # -- Hyprland integration --
+    yazi
     zsh
     pipewire # audio driver
     wireplumber # audio driver

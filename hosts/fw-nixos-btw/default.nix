@@ -130,10 +130,13 @@
 
   # Needed for portals (screen share, file pickers, etc.)
   xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.hyprland = {
+      default = [ "hyprland" "gtk" ];
+      "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+      "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+    };
   };
-
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   programs.zsh.enable = true;
