@@ -18,11 +18,11 @@
     lab-switch = "NIX_SSHOPTS='-p 2600' nh os switch ~/Nix-Config -H homelab-nixos-btw --target-host javi@ssh.javamurray.com --elevation-strategy passwordless";
     lab-rollback = "ssh -p 2600 -t javi@ssh.javamurray.com 'sudo nixos-rebuild switch --rollback'";
     lab = "ssh -p 2600 -t javi@ssh.javamurray.com 'cd /homelab && exec \$SHELL -l'";
-    
+
     iso-switch = "NIX_SSHOPTS='-p 22' nh os switch ~/Nix-Config -H linux-iso-btw --target-host javi@10.10.1.105 --elevation-strategy passwordless";
 
     bot-shelly = "ssh -t -- agent@savm.shelvacu.com tmux new-session -A -s main";
-    
+
     btw = "echo I use nixos, btw";
   };
   environment.sessionVariables = {
@@ -33,7 +33,7 @@
     XCURSOR_SIZE = "24";
   };
 
-    # oh-my-zsh
+  # oh-my-zsh
   programs.zsh.ohMyZsh = {
     enable = true;
     theme = "lukerandall";

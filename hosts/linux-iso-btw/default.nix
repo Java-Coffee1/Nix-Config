@@ -2,8 +2,8 @@
 
 {
   imports = [
-      ./hardware-configuration.nix
-      ../../modules/default.nix
+    ./hardware-configuration.nix
+    ../../modules/default.nix
   ];
 
   ##########################
@@ -32,11 +32,11 @@
 
   programs.nh = {
     enable = true;
-    clean.enable = true; 
+    clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 7";
   };
   ##########################
-  ## Boot 
+  ## Boot
   ##########################
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
@@ -84,7 +84,7 @@
       "networkmanager"
       "homelab-admin"
     ];
-    packages = with pkgs; [ tree];
+    packages = with pkgs; [ tree ];
   };
 
   users.users.javi.openssh.authorizedKeys.keys = [
@@ -103,5 +103,20 @@
   services.xserver.xkb = {
     layout = "us";
     variant = "";
+  };
+
+  ##########################
+  ## Storage
+  ##########################
+  systemd.tmpfiles.settings."00-linux-iso"."/linux-isos-data".d = {
+    user = "root";
+    group = "homelab-admin";
+    mode = "755";
+  };
+
+  fileSystems."/linux-isos-data/linux-isos" = {
+    device = "10.30.30.101:/mnt/DataDumpster/Linux_Isos";
+    fsType = "nfs";
+    options = [ "defaults" ];
   };
 }
