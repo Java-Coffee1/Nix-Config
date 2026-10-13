@@ -2,9 +2,11 @@
 
 {
   imports = [
-    ../../lazy-scripts/default.nix
-    ./hardware-configuration.nix
     ../../modules/default.nix
+    ./hardware-configuration.nix
+
+    ../../lazy-scripts/default.nix
+
     ../../modules/lab/traefik.nix
     ../../modules/lab/website.nix
     ../../modules/lab/postgress.nix

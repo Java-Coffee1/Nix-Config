@@ -12,9 +12,14 @@ let
   ## homelab-nixos-btw ssh host key
   ###################################
   hostkey-homelab = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPI8z4PxR0H1riEhLwyBSfrbtb6mvTEhrEZkb5W+AJRd root@homelab-nixos-btw";
+
+  ###################################
+  ## linux-iso-btw ssh host key
+  ###################################
+  hostkey-linux-iso = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPwvS+OwqTWUrCuY72jUOtYAiltZPw2UkOVM98wniJT root@linux-iso-btw";
 in
 {
-  "wg-home-fw.age".publicKeys = [
+  "wg-private-fw.age".publicKeys = [
     javi
     hostkey
   ];
@@ -66,5 +71,13 @@ in
   "grafana-oidc-secret.age".publicKeys = [
     javi
     hostkey-homelab
+  ];
+  "wg-private-iso.age".publicKeys = [
+    javi
+    hostkey-linux-iso
+  ];
+  "wg-psk-iso.age".publicKeys = [
+    javi
+    hostkey-linux-iso
   ];
 }

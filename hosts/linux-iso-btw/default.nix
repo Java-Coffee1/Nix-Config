@@ -4,6 +4,10 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/default.nix
+
+    ../../modules/torrenting/torrenting.nix
+
+    ./wireguard.nix
   ];
 
   ##########################
