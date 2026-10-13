@@ -85,18 +85,18 @@ in
     #   middlewares = authentik;
     # })
     (mkApp "sonarr" {
-      host = "sonarr.javamurray.com";
-      url = "http://10.10.1.107:8989";
+      host = "sonarr.jv.ax";
+      url = "http://10.10.1.105:8989";
       middlewares = authentik;
     })
     (mkApp "radarr" {
-      host = "radarr.javamurray.com";
-      url = "http://10.10.1.107:7878";
+      host = "radarr.jv.ax";
+      url = "http://10.10.1.105:7878";
       middlewares = authentik;
     })
     (mkApp "qbittorrent" {
-      host = "qbit.javamurray.com";
-      url = "http://10.10.1.107:8085";
+      host = "qbit.jv.ax";
+      url = "http://10.10.1.105:4032";
       middlewares = authentik;
     })
     # (mkApp "Immich" {

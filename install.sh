@@ -121,5 +121,5 @@ echo
 echo "Done. Reboot to log in as $USER_NAME."
 echo
 echo "Secrets (agenix) won't decrypt until this machine's host key is added."
-echo "After rebooting, add this key to secrets/secrets.nix, then run: agenix -r"
+echo "After rebooting, add this key to secrets/agenix-rules.nix, then run: agenix -r"
 echo "  cat /etc/ssh/ssh_host_ed25519_key.pub"
