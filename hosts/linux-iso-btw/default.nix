@@ -2,6 +2,7 @@
 
 {
   imports = [
+      ./hardware-configuration.nix
       ../../modules/default.nix
   ];
 
@@ -11,7 +12,7 @@
 
   javi.isGui = false;
   system.stateVersion = "26.05";
-  time.timeZone = "America/Vancovuer";
+  time.timeZone = "America/Vancouver";
 
   ##########################
   ## Nix Settings
@@ -54,7 +55,7 @@
     useDHCP = false;
     interfaces.ens18 = {
       useDHCP = false;
-      ipv4.address = [
+      ipv4.addresses = [
         {
           address = "10.10.1.105";
           prefixLength = 24;
