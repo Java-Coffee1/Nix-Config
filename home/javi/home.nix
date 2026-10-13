@@ -28,6 +28,13 @@
     XCURSOR_SIZE = "24";
   };
 
+    # oh-my-zsh
+  programs.zsh.ohMyZsh = {
+    enable = true;
+    theme = "lukerandall";
+    plugins = [ "git" ];
+  };
+
   # yazi: launch with `y`, quit with q to cd into the last dir (Q quits without cd)
   programs.zsh.interactiveShellInit = ''
     function y() {
@@ -69,6 +76,10 @@
         "wallpapers".source = inputs.wallpapers;
         ## Kitty
         ".config/kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
+        ".config/kitty/themes/carbonfox".source = ./dotfiles/kitty/carbonfox.conf;
+
+        ## Zsh (real config is programs.zsh above, this just stops the new-user prompt)
+        ".zshrc".text = "# zsh is configured in Nix-Config/home/javi/home.nix\n";
 
         # yazi
         ".config/yazi/keymap.toml".source = ./dotfiles/yazi/keymap.toml;
