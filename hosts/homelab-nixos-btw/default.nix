@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../lazy-scripts/default.nix
     ./hardware-configuration.nix
     ../../modules/default.nix
     ../../modules/lab/traefik.nix

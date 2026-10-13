@@ -108,7 +108,6 @@ fetchers = [
 	# MIME-type
 	{ url = "*/",         run = "mime.dir",    prio = "high", group = "mime" },
 	{ url = "local://*",  run = "mime.local",  prio = "high", group = "mime" },
-	{ url = "trash://*",  run = "mime.trash",  prio = "high", group = "mime" },
 	{ url = "remote://*", run = "mime.remote", prio = "high", group = "mime" },
 ]
 spotters = [

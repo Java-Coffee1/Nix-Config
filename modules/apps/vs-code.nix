@@ -1,4 +1,4 @@
-{pkgs, ... }:
+{ pkgs, ... }:
 
 let
   vscode-configured = pkgs.vscode-with-extensions.override {

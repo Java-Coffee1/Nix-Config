@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}:
+{ config, ... }:
 
 {
   age.secrets.grafana-secret-key = {
@@ -25,26 +22,26 @@
         enable_gzip = true;
         domain = "gf.jv.ax";
         root_url = "https://gf.jv.ax/";
-      };#end of server
+      }; # end of server
       security.secret_key = "$__file{${config.age.secrets.grafana-secret-key.path}}";
       users.allow_sign_up = false;
       analytics.reporting_enabled = false;
       # 2. OIDC (Generic OAuth) Configuration
       "auth.generic_oauth" = {
         enabled = true;
-        name = "authentik"; 
+        name = "authentik";
         allow_sign_up = true;
         client_id = "0yDP5Zxt6PTpRMeF2PSDjrCitBS9FdzafJgi4sui";
         client_secret = "$__file{${config.age.secrets.grafana-oidc-secret.path}}";
 
         # Scopes required for standard OIDC
-        scopes = "openid profile email groups"; 
-        
+        scopes = "openid profile email groups";
+
         # Identity Provider Endpoints
         auth_url = "https://auth.javamurray.com/application/o/authorize/";
         token_url = "https://auth.javamurray.com/application/o/token/";
         api_url = "https://auth.javamurray.com/application/o/userinfo/";
-        
+
         # Token Validation & Security
         use_pkce = true;
         validate_id_token = true;
@@ -53,7 +50,7 @@
         email_attribute_path = "email";
         login_attribute_path = "preferred_username";
         name_attribute_path = "name";
-        
+
         # Role mapping from OIDC claims to Grafana Admin/Editor/Viewer roles
         role_attribute_path = "contains(groups[*], 'grafana-admins') && 'Admin' || contains(groups[*], 'grafana-editors') && 'Editor' || 'Viewer'";
         allow_assign_grafana_admin = true;
@@ -68,7 +65,7 @@
           type = "prometheus";
           url = "http://${config.services.prometheus.listenAddress}:${toString config.services.prometheus.port}";
           editable = false;
-          isDefault = true; 
+          isDefault = true;
         }
       ];
       dashboards.settings.providers = [
@@ -142,4 +139,3 @@
     ];
   };
 }
-

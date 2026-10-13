@@ -21,6 +21,8 @@
     bot-shelly = "ssh -t -- agent@savm.shelvacu.com tmux new-session -A -s main";
   };
   environment.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
     QT_QPA_PLATFORMTHEME = "qt6ct";
     XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = "24";
