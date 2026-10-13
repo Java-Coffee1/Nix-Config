@@ -101,6 +101,13 @@
             ./home/javi/home.nix
           ];
         };
+        linux-iso-btw = mkHost {
+          name = "linux-iso-btw";
+          modules = [
+            inputs.hjem.nixosModules.default
+            ./home/javi/home.nix
+          ];
+        };
       };
     };
 }
