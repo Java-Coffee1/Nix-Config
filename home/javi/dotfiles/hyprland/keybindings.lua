@@ -41,7 +41,7 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(ipc .. "panel-toggle clipboard"))
 
 -- ───────── Applications & Launchers ─────────
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("firefox"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e yazi"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e zsh -ic 'y; exec zsh'"))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 

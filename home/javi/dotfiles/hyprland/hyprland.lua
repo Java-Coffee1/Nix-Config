@@ -247,3 +247,11 @@ hl.config({
         no_hardware_cursors = 1, -- software cursor so it shows up in screen shares
     },
 })
+
+hl.config({
+    misc = {
+        force_default_wallpaper = 0,    -- Disable the anime mascot wallpaper
+        disable_hyprland_logo   = true, -- Disable the random hyprland logo / anime girl background
+        focus_on_activate       = true, -- Jump to apps that ask for focus (e.g. Firefox when opening a link)
+    },
+})

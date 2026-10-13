@@ -28,6 +28,17 @@
     XCURSOR_SIZE = "24";
   };
 
+  # yazi: launch with `y`, quit with q to cd into the last dir (Q quits without cd)
+  programs.zsh.interactiveShellInit = ''
+    function y() {
+      local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+      command yazi "$@" --cwd-file="$tmp"
+      IFS= read -r -d ''' cwd < "$tmp"
+      [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
+      command rm -f -- "$tmp"
+    }
+  '';
+
   hjem.users.javi = {
     user = "javi";
     directory = "/home/javi";
