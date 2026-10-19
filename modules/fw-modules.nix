@@ -11,6 +11,9 @@ in
     ./apps/steam.nix
     ./apps/vs-code.nix
     ./apps/eez-studio.nix
+    ./apps/discord.nix
+    ../lazy-scripts/fw/macropad.nix
+    ../lazy-scripts/fw/app-focus-or-launch.nix
   ];
   environment.systemPackages = with pkgs; [
     fwupd
@@ -19,13 +22,11 @@ in
     # -- Core CLI tools --
     qmk
     jdk25
-    python3
 
     obs-studio
 
     # -- Communication --
     element-desktop
-    (pkgs.discord.override { withOpenASAR = true; })
     slack
     teams-for-linux
 
@@ -42,7 +43,7 @@ in
     unstable.orca-slicer
     reaper
     blender # docker
-
+    hugo
     # -- Hyprland integration --
     yazi
     zsh

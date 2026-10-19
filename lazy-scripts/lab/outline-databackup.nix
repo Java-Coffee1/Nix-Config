@@ -10,18 +10,19 @@ let
   mycooloutlinebackupscript =
     pkgs.writers.writePython3Bin "outline-data-backup" { doCheck = false; }
       ''
-        import os 
-        from datetime import datetime
+        import os
         import tarfile
 
         SOURCE_DIR = "/homelab/outline/data"
         BACKUP_DIR = "/homelab/nfs/data-dumpster/backups/outline-data-backups"
-        TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")        
-        BACKUP_FILE = os.path.join(BACKUP_DIR, f"outline_backup_{TIMESTAMP}.tar.gz")
+        BACKUP_FILE = os.path.join(BACKUP_DIR, "outline.tar.gz")
+        TMP_FILE = BACKUP_FILE + ".tmp"
         os.makedirs(BACKUP_DIR, exist_ok=True)
 
-        with tarfile.open(BACKUP_FILE, "w:gz") as tar:
+        with tarfile.open(TMP_FILE, "w:gz") as tar:
             tar.add(SOURCE_DIR, arcname="outline")
+
+        os.replace(TMP_FILE, BACKUP_FILE)
       '';
 in
 {
