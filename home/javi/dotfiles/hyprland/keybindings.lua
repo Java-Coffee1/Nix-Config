@@ -62,3 +62,21 @@ hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i }))
 hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
+-- ───────── MACRO ─────────
+-- Framework macropad, Set A positions 13-20 (MACRO(5-8), MACRO(1-4)).
+-- Each one runs app-focus-or-launch (lazy-scripts/fw/app-focus-or-launch.nix):
+-- focuses the app's window if it's already open, otherwise launches it.
+-- The web apps open as a plain tab in the existing Firefox window (no
+-- --new-window) — title-matching only catches them if that tab is
+-- currently the active one in some window; a backgrounded tab opens a
+-- duplicate instead of being found.
+hl.bind("CTRL + SHIFT + ALT + F1", hl.dsp.exec_cmd("app-focus-or-launch class firefox firefox"))
+hl.bind("CTRL + SHIFT + ALT + F2", hl.dsp.exec_cmd("app-focus-or-launch class discord discord"))
+hl.bind("CTRL + SHIFT + ALT + F3", hl.dsp.exec_cmd("app-focus-or-launch class code code"))
+hl.bind("CTRL + SHIFT + ALT + F4", hl.dsp.exec_cmd("app-focus-or-launch class slack slack"))
+hl.bind("CTRL + SHIFT + ALT + F5", hl.dsp.exec_cmd("app-focus-or-launch title Outline firefox https://outline.javamurray.com"))
+hl.bind("CTRL + SHIFT + ALT + F6", hl.dsp.exec_cmd("app-focus-or-launch title copyparty firefox https://fs.jv.ax"))
+hl.bind("CTRL + SHIFT + ALT + F7", hl.dsp.exec_cmd("app-focus-or-launch title Onshape firefox https://www.onshape.com"))
+hl.bind("CTRL + SHIFT + ALT + F8", hl.dsp.exec_cmd("app-focus-or-launch title Gmail firefox https://mail.google.com"))
+-- Framework macropad, Set A position 9 (MACRO(9), Ctrl+Shift+Alt+F9): SSH into lab
+hl.bind("CTRL + SHIFT + ALT + F9", hl.dsp.exec_cmd(terminal .. " -e zsh -ic 'lab; exec zsh'"))

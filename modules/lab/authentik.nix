@@ -55,6 +55,15 @@
     mode = "700";
   };
 
+  # authentik-migrate.service only ordered itself after network-online.target,
+  # so on boot it could race postgresql.service and fail with "the database
+  # system is not yet accepting connections", cascading into authentik.service
+  # and authentik-worker.service failing with 'dependency'.
+  systemd.services.authentik-migrate = {
+    after = [ "postgresql.service" ];
+    requires = [ "postgresql.service" ];
+  };
+
   systemd.services.authentik-ldap.environment = {
     # Bind to loopback only — Jellyfin is the only consumer and it's on this
     # same host. Not exposed via Traefik; firewall doesn't open it either.
