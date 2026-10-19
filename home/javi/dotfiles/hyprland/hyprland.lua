@@ -208,6 +208,8 @@ hl.config({
 
         follow_mouse = 1,
 
+        numlock_by_default = true,
+
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
         touchpad = {

@@ -108,7 +108,10 @@
   ## Desktop Environment
   ############################################
 
-  services.displayManager.ly.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    settings.numlock = true;
+  };
 
   services.xserver = {
     enable = true;

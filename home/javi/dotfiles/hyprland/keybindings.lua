@@ -76,7 +76,7 @@ hl.bind("CTRL + SHIFT + ALT + F3", hl.dsp.exec_cmd("app-focus-or-launch class co
 hl.bind("CTRL + SHIFT + ALT + F4", hl.dsp.exec_cmd("app-focus-or-launch class slack slack"))
 hl.bind("CTRL + SHIFT + ALT + F5", hl.dsp.exec_cmd("app-focus-or-launch title Outline firefox https://outline.javamurray.com"))
 hl.bind("CTRL + SHIFT + ALT + F6", hl.dsp.exec_cmd("app-focus-or-launch title copyparty firefox https://fs.jv.ax"))
-hl.bind("CTRL + SHIFT + ALT + F7", hl.dsp.exec_cmd("app-focus-or-launch title Onshape firefox https://www.onshape.com"))
+hl.bind("CTRL + SHIFT + ALT + F7", hl.dsp.exec_cmd("app-focus-or-launch title Onshape firefox https://cad.onshape.com/documents"))
 hl.bind("CTRL + SHIFT + ALT + F8", hl.dsp.exec_cmd("app-focus-or-launch title Gmail firefox https://mail.google.com"))
 -- Framework macropad, Set A position 9 (MACRO(9), Ctrl+Shift+Alt+F9): SSH into lab
 hl.bind("CTRL + SHIFT + ALT + F9", hl.dsp.exec_cmd(terminal .. " -e zsh -ic 'lab; exec zsh'"))
