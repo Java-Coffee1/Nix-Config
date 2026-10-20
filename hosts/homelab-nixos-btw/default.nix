@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -26,8 +26,8 @@
   ########################
 
   javi.isGui = false;
-  system.stateVersion = "26.05";
-  time.timeZone = "America/Vancovuer";
+  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
+  time.timeZone = "America/Vancouver";
 
   ############################################
   ## Nix Settings

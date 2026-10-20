@@ -12,7 +12,6 @@ let
   ## homelab-nixos-btw ssh host key
   ###################################
   hostkey-homelab = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPI8z4PxR0H1riEhLwyBSfrbtb6mvTEhrEZkb5W+AJRd root@homelab-nixos-btw";
-
   ###################################
   ## linux-iso-btw ssh host key
   ###################################
@@ -69,6 +68,14 @@ in
     hostkey-homelab
   ];
   "grafana-oidc-secret.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
+  "backup-env.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
+  "backup-ssh-key.age".publicKeys = [
     javi
     hostkey-homelab
   ];

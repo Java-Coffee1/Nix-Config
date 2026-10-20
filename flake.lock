@@ -269,11 +269,11 @@
     "javamurraywebsite": {
       "flake": false,
       "locked": {
-        "lastModified": 1792050792,
-        "narHash": "sha256-FunhZqQrqp/1QWgHdN7YXb4XFXpBkB1eriJJk6pBJ9U=",
+        "lastModified": 1792437077,
+        "narHash": "sha256-1qkmsg9Lm9Nkc4yzd+2z5yaxT1J3wyEkkQQTj8t89Qs=",
         "ref": "refs/heads/main",
-        "rev": "1e06219c5427403d3ae2f0861a827ec583dc6aba",
-        "revCount": 20,
+        "rev": "8155f576f58dcf2650d70874eef8adc345c84b69",
+        "revCount": 21,
         "type": "git",
         "url": "ssh://git@github.com/Java-Coffee1/javamurraywebsite.git"
       },
