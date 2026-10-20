@@ -48,7 +48,10 @@
     # in, and builds — flashing only if asked, with a confirmation pause.
     (pkgs.writeShellApplication {
       name = "macropad";
-      runtimeInputs = [ pkgs.qmk pkgs.git ];
+      runtimeInputs = [
+        pkgs.qmk
+        pkgs.git
+      ];
       text = ''
         usage() {
           echo "usage: macropad <build|flash>" >&2

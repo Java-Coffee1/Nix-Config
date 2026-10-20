@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   environment.systemPackages = [
     (pkgs.discord.override {
       withOpenASAR = true;
@@ -16,7 +15,7 @@
       notifyAboutUpdates = false;
 
       useQuickCss = true;
-      themeLinks = [ ];
+      themeLinks = [ "https://capnkitten.github.io/BetterDiscord/Themes/Translucence/css/source.css" ];
       enabledThemes = [ ];
 
       disableMinSize = false;
@@ -40,7 +39,20 @@
 
       plugins = {
         # Logs edited/deleted messages instead of silently dropping them.
+        iLoveSpam.enabled = true;
+        AlwaysTrust.enabled = true;
+        FakeNitro.enabled = true;
         MessageLogger.enabled = true;
+        FixImagesQuality.enabled = true;
+        FixSpotifyEmbeds.enabled = true;
+        FixYoutubeEmbeds.enabled = true;
+        FixCodeblockGap.enabled = true;
+        ImageLink.enabled = true;
+        VolumeBooster.enabled = true;
+        NoProfileThemes.enabled = true;
+        TypingIndicator.enabled = true;
+        TypingTweaks.enabled = true;
+        SilentTyping.enabled = true;
       };
     };
 

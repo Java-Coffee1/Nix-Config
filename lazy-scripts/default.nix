@@ -6,5 +6,6 @@
     ./lab/outline-databackup.nix
     ./lab/jellyfin-backups.nix
     ./lab/immich-backup.nix
+    ./lab/shel-backup-server.nix
   ];
 }

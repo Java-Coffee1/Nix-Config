@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 {
 
@@ -17,7 +17,9 @@
 
   system.stateVersion = "26.05";
   javi.isGui = true;
+  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
   time.timeZone = "America/Vancouver";
+
 
   ############################################
   ## Nix Settings
