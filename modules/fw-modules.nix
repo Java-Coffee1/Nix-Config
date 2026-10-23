@@ -12,6 +12,8 @@ in
     ./apps/vs-code.nix
     ./apps/eez-studio.nix
     ./apps/discord.nix
+    ./apps/first-driver-station.nix
+    ./app/open-ds.nix
     ## scirpts
     ../lazy-scripts/fw/app-focus-or-launch.nix
     ../lazy-scripts/fw/macropad.nix

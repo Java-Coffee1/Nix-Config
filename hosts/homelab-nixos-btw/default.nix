@@ -5,7 +5,11 @@
     ../../modules/default.nix
     ./hardware-configuration.nix
 
+    ##Scripts
     ../../lazy-scripts/default.nix
+
+
+    ## Services 
 
     ../../modules/lab/traefik.nix
     ../../modules/lab/website.nix
@@ -19,6 +23,7 @@
     ../../modules/lab/virtualization/dumdo.nix
     ../../modules/lab/email-server.nix
     ../../modules/lab/granfana.nix
+    ../../modules/lab/navidrome.nix
   ];
 
   #######################
