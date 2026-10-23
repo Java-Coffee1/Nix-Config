@@ -71,6 +71,10 @@ in
     javi
     hostkey-homelab
   ];
+  "navidrome-lastfm-env.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
   "backup-env.age".publicKeys = [
     javi
     hostkey-homelab
