@@ -57,8 +57,8 @@
       useDHCP = false;
       ipv4.addresses = [
         {
-          address = "23.130.212.203/28";
-          prefixLength = 24;
+          address = "23.130.212.203";
+          prefixLength = 28;
         }
       ];
     };
