@@ -45,7 +45,6 @@
   ## Networking
   ###########################
 
-  networking.networkmanager.enable = true;
   services.avahi.enable = true;
   services.openssh.enable = true;
   services.openssh.settings.PasswordAuthentication = false;
@@ -77,7 +76,6 @@
     extraGroups = [
       "wheel"
       "docker"
-      "networkmanager"
       "homelab-admin"
     ];
     packages = with pkgs; [ tree ];
