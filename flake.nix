@@ -111,7 +111,7 @@
         javi-email = mkHost {
           name = "javi-email";
           modules = [inputs.hjem.nixosModules.default
-            ./home/javi.home.nix
+            ./home/javi/home.nix
           ];
         };
       };
