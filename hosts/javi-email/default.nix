@@ -38,8 +38,8 @@
   ##########################
   ## Boot
   ##########################
-  boot.loader.mbr.enable = true;
-  boot.loader.mbr.device = "/dev/sda";
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
 
   ###########################
   ## Networking
