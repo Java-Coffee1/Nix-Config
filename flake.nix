@@ -108,6 +108,12 @@
             ./home/javi/home.nix
           ];
         };
+        javi-email = mkHost {
+          name = "javi-email";
+          modules = [inputs.hjem.nixosModules.default
+            ./home/javi.home.nix
+          ];
+        };
       };
     };
 }
