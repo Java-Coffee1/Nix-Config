@@ -27,7 +27,11 @@ let
     icon = pname;
     desktopName = "OpenDS";
     comment = "Lightweight cross-platform FRC Driver Station";
-    categories = [ "Development" "Education" "Utility" ];
+    categories = [
+      "Development"
+      "Education"
+      "Utility"
+    ];
   };
 
   data = pkgs.runCommand "${pname}-data" { nativeBuildInputs = [ pkgs.unzip ]; } ''

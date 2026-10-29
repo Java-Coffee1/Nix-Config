@@ -5,7 +5,7 @@
     pull = "always";
     environment = {
       DUMBDO_SITE_TITLE = "Argyle Choices Requests";
-      ALLOWED_ORIGINS = "https://choices.javamurray.com";
+      ALLOWED_ORIGINS = "https://choices.jv.ax";
       # no DUMBDO_PIN set, anyone with the link can use it
     };
     volumes = [ "/homelab/dumbdo:/app/data" ];
@@ -19,14 +19,14 @@
   };
   services.traefik.dynamicConfigOptions = {
     http.routers.dumbdo = {
-      rule = "Host(`choices.javamurray.com`)";
+      rule = "Host(`choices.jv.ax`)";
       entryPoints = [ "https-web" ];
       service = "dumbdo";
       middlewares = [ "middlewares-rate-limit" ];
       tls.certResolver = "letsencrypt";
     };
     http.routers.dumbdo-redirect = {
-      rule = "Host(`choices.jv.ax`) || Host(`c.javamurray.com`)";
+      rule = "Host(`choices.jv.ax`) || Host(`c.jv.ax`)";
       entryPoints = [ "https-web" ];
       service = "dumbdo";
       middlewares = [ "dumbdo-redirect" ];
@@ -34,7 +34,7 @@
     };
     http.middlewares.dumbdo-redirect.redirectRegex = {
       regex = "^https://[^/]+/(.*)";
-      replacement = "https://choices.javamurray.com/\${1}";
+      replacement = "https://choices.jv.ax/\${1}";
       permanent = true;
     };
     http.services.dumbdo.loadBalancer.servers = [ { url = "http://127.0.0.1:8091"; } ];

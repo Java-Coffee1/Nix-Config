@@ -3,6 +3,11 @@
     (pkgs.discord.override {
       withOpenASAR = true;
       withVencord = true;
+      # Discord's bundled Chromium falls back to software rendering
+      # (--use-gl=disabled, Vulkan feature killed) on this AMD/Wayland setup,
+      # pegging the gpu-process at ~17% CPU and making the whole UI laggy.
+      # Force real GPU accel back on.
+      commandLineArgs = "--ignore-gpu-blocklist --enable-features=Vulkan --use-gl=angle --use-angle=vulkan";
     })
   ];
 

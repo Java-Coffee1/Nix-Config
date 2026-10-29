@@ -24,6 +24,7 @@
     bot-shelly = "ssh -t -- agent@savm.shelvacu.com tmux new-session -A -s main";
 
     btw = "echo I use nixos, btw";
+    shell = "echo wow ur such an alies";
   };
   environment.sessionVariables = {
     EDITOR = "nvim";

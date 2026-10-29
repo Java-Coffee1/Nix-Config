@@ -51,9 +51,8 @@
 
   networking = {
     useDHCP = false;
-    interfaces.enp5s0 = {
+    interfaces.ens18 = {
       useDHCP = false;
-      macAddress = "10:66:6a:2c:d2:a0";
       ipv4.addresses = [
         {
           address = "23.130.212.203";
