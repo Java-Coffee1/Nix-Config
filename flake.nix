@@ -48,6 +48,11 @@
       url = "github:9001/copyparty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixflix = {
+      url = "github:kiriwalawren/nixflix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   }; # end of inputs
 
   outputs =
@@ -110,7 +115,8 @@
         };
         javi-email = mkHost {
           name = "javi-email";
-          modules = [inputs.hjem.nixosModules.default
+          modules = [
+            inputs.hjem.nixosModules.default
             ./home/javi/home.nix
           ];
         };

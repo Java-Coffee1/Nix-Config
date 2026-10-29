@@ -1,4 +1,9 @@
-{ pkgs, lib, inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
 
@@ -7,6 +12,7 @@
     ./wireguard.nix
     ../../modules/default.nix
     ../../modules/fw-modules.nix
+    ../../modules/activate-nix.nix
     inputs.noctalia.nixosModules.default
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
   ];
@@ -19,7 +25,6 @@
   javi.isGui = true;
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
   time.timeZone = "America/Vancouver";
-
 
   ############################################
   ## Nix Settings
@@ -103,6 +108,8 @@
     login.fprintAuth = false;
     sudo.fprintAuth = false;
   };
+
+  # networking.firewall.enable = false;
 
   services.gnome.gnome-keyring.enable = true;
 

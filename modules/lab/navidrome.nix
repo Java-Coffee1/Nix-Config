@@ -1,11 +1,16 @@
-{ config, ... }:
+{ ... }:
 
 {
-  age.secrets.navidrome-lastfm-env.file = ../../secrets/navidrome-lastfm-env.age;
+  # LastFM scrobbling disabled until secrets/navidrome-lastfm-env.age exists.
+  # To re-enable: create the secret with
+  #   agenix -e -r secrets/navidrome-lastfm-env.age
+  # (content: ND_LASTFM_APIKEY=... / ND_LASTFM_SECRET=...), then restore:
+  #   age.secrets.navidrome-lastfm-env.file = ../../secrets/navidrome-lastfm-env.age;
+  #   environmentFile = config.age.secrets.navidrome-lastfm-env.path;
+  #   LastFM.Enabled = true;
 
   services.navidrome = {
     enable = true;
-    environmentFile = config.age.secrets.navidrome-lastfm-env.path;
     settings = {
       Address = "127.0.0.1";
       Port = 4533;
@@ -16,8 +21,7 @@
       ExtAuth.UserHeader = "X-authentik-username";
       ExtAuth.TrustedSources = "127.0.0.1/32";
 
-      # ApiKey/Secret come from environmentFile (ND_LASTFM_APIKEY / ND_LASTFM_SECRET)
-      LastFM.Enabled = true;
+      LastFM.Enabled = false;
     };
   };
 

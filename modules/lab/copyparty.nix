@@ -21,7 +21,7 @@
       rss = true;
       allow-flac = true;
       allow-wav = true;
-      name = "File_Browser";
+      name = "File Browser";
       no-clone = true;
       xdev = true;
       no-robots = true;
@@ -66,6 +66,7 @@
       "/chaosbox" = {
         path = "/homelab/nfs/data-dumpster/copyparty/chaosbox";
         access = {
+          r = "*"; # anonymous browse + download, no account needed
           rwmd = "@acct";
           a = "Java";
         };
@@ -139,12 +140,13 @@
     };
     # old domain, redirects to fs.jv.ax
     routers.copyparty-old = {
-      rule = "Host(`fs.javamurray.com`)";
+      rule = "Host(`fs.javamurray.com` || `f.jv.ax`)";
       entryPoints = [ "https-web" ];
       tls.certResolver = "letsencrypt";
       middlewares = [ "copyparty-redirect" ];
       service = "copyparty";
     };
+
     middlewares.copyparty-redirect.redirectRegex = {
       regex = "^https://[^/]+/(.*)";
       replacement = "https://fs.jv.ax/\${1}";
