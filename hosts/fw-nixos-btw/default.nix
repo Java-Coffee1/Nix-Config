@@ -35,6 +35,13 @@
     "flakes"
   ];
 
+  # Lets this machine build/emulate aarch64-linux (e.g. Raspberry Pi images)
+  # via qemu, and trusts the extra binary caches declared by flakes like
+  # nixos-raspberrypi so their aarch64 packages are substituted instead of
+  # built locally when possible.
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  nix.settings.trusted-users = [ "javi" ];
+
   nixpkgs.config.allowUnfree = true;
 
   programs.nh = {

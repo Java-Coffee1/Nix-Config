@@ -180,14 +180,14 @@ static const uint8_t config_colors[4][24][3] = {
     // everything else a low dim white so brightness changes are visible
     // across the whole pad. Pos 13-20 are the MACRO(5-8)/MACRO(1-4) app
     // launchers, each colored to match its app: outline (teal), copyparty
-    // (amber), onshape (sky blue), gmail (red), firefox (orange), discord
+    // (amber), onshape (green), gmail (red), firefox (orange), discord
     // (blurple), vscode (blue), slack (aubergine).
     [_LAYER_A] = {
         { 255,   0,   0 }, {  0,  0,  0 }, {  0,  0,  0 }, {  0,  0, 0 },
         {  0,  0,  0 }, {  0,  0,  0 }, {  0,  0,  0 }, {  80,  80,   0 },
         {  0,  0,  0 }, {  0,  0,  0 }, {  0,  0,  0 }, { 250, 255,   0 },
         {  0,  0,  0 }, {  0,  0,  0 }, {  0,  0,  0 }, {  0,  0,  0 },
-        {  0, 180, 150 }, { 230, 160,  20 }, {  30, 170, 230 }, { 234,  67,  53 },
+        {  0, 180, 150 }, { 230, 160,  20 }, {  30, 230,  30 }, { 234,  67,  53 },
         { 255,  90,   0 }, {  88, 101, 242 }, {   0, 122, 204 }, { 120,  40, 130 },
     },
     // Set B: its own switcher key (pos 2) red, rest of the switcher

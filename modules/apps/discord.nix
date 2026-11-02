@@ -20,7 +20,8 @@
       notifyAboutUpdates = false;
 
       useQuickCss = true;
-      themeLinks = [ "https://capnkitten.github.io/BetterDiscord/Themes/Translucence/css/source.css" ];
+      themeLinks = [ "" ];
+      # https://capnkitten.github.io/BetterDiscord/Themes/Translucence/css/source.css
       enabledThemes = [ ];
 
       disableMinSize = false;
