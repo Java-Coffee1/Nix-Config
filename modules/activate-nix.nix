@@ -6,7 +6,7 @@
     description = "Activate Linux watermark";
     wantedBy = [ "default.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.activate-linux}/bin/activate-linux -t 'Activate NixOS' -m 'Go to /etc/nixos/productkey.age'";
+      ExecStart = "${pkgs.activate-linux}/bin/activate-linux -t 'Activate NixOS' -m 'Configure system.productKeyFile to activate NixOS'";
       Restart = "on-failure";
       RestartSec = 2;
     };
