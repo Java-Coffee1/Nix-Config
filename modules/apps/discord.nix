@@ -7,7 +7,7 @@
       # (--use-gl=disabled, Vulkan feature killed) on this AMD/Wayland setup,
       # pegging the gpu-process at ~17% CPU and making the whole UI laggy.
       # Force real GPU accel back on.
-      commandLineArgs = "--ignore-gpu-blocklist --enable-features=Vulkan --use-gl=angle --use-angle=vulkan";
+      # commandLineArgs = "--ignore-gpu-blocklist --enable-features=Vulkan --use-gl=angle --use-angle=vulkan";
     })
   ];
 
@@ -15,11 +15,11 @@
     ".config/Vencord/settings/settings.json".text = builtins.toJSON {
       # Nix pins the Vencord version; let it self-update and it'll just get
       # overwritten by the next rebuild anyway.
-      autoUpdate = false;
+      autoUpdate = true;
       autoUpdateNotification = false;
       notifyAboutUpdates = false;
 
-      useQuickCss = true;
+      useQuickCss = false;
       themeLinks = [ "" ];
       # https://capnkitten.github.io/BetterDiscord/Themes/Translucence/css/source.css
       enabledThemes = [ ];

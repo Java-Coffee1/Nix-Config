@@ -12,7 +12,7 @@
     ./wireguard.nix
     ../../modules/default.nix
     ../../modules/fw-modules.nix
-    ../../modules/activate-nix.nix
+    # ../../modules/activate-nix.nix
     inputs.noctalia.nixosModules.default
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
   ];
@@ -103,6 +103,7 @@
       "docker"
       "networkmanager"
       "wireshark"
+      "video"
     ]; # Enable 'sudo' for the user.
     packages = with pkgs; [ tree ];
   };

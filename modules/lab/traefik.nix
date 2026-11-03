@@ -21,11 +21,13 @@
           to = "https-web";
           scheme = "https";
         };
+        http.middlewares = [ "middlewares-rate-limit@file" ];
       };
       https-web = {
         address = ":443";
         asDefault = true;
         http.tls.certResolver = "letsencrypt";
+        http.middlewares = [ "middlewares-rate-limit@file" ];
       };
       # Loopback-only entrypoint for Prometheus to scrape /metrics on.
       # Not exposed via a router, so it never goes out through Traefik itself.

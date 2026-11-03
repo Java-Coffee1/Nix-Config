@@ -24,11 +24,9 @@
       burst = 50;
     };
 
-    # was referenced by chain-no-auth but never defined
     middlewares-compress.compress = { };
 
     chain-no-auth.chain.middlewares = [
-      "middlewares-rate-limit"
       "middlewares-compress"
     ];
 
