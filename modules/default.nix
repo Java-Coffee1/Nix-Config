@@ -18,5 +18,6 @@
     python3
     dig
     tmux
+    btop
   ];
 }

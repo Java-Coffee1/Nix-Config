@@ -29,7 +29,7 @@ in
   environment.systemPackages = lib.mkIf (!config.javi.isGui) [ mycooloutlinebackupscript ];
   services.borgbackup.jobs.outline = {
     paths = [ "/homelab/nfs/data-dumpster/backups/outline-data-backups" ];
-    repo = "/homelab/miscellaneous/borg-info/borg-outline";
+    repo = "/homelab/nfs/data-dumpster/backups/borg-info/borg-outline";
     encryption.mode = "none";
     startAt = "daily";
 
