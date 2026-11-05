@@ -130,6 +130,12 @@
       code-challenge-method = "S256";
     };
   };
+  systemd.services.oauth2-proxy = {
+    after = [ "authentik.service" ];
+    wants = [ "authentik.service" ];
+    startLimitIntervalSec = 0;
+    serviceConfig.RestartSec = "5s";
+  };
 
   services.traefik.dynamicConfigOptions.http = {
     routers.copyparty = {
@@ -140,7 +146,7 @@
     };
     # old domain, redirects to fs.jv.ax
     routers.copyparty-old = {
-      rule = "Host(`fs.javamurray.com` || `f.jv.ax`)";
+      rule = "Host(`fs.javamurray.com`) || Host(`f.jv.ax`)";
       entryPoints = [ "https-web" ];
       tls.certResolver = "letsencrypt";
       middlewares = [ "copyparty-redirect" ];

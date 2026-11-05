@@ -60,6 +60,7 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; #allow emulation for devicesz
   ########################
   ## Networking
   ########################
@@ -170,11 +171,6 @@
   };
   systemd.tmpfiles.settings."00-homelab"."/homelab/jellyfin".d = {
     user = "jellyfin";
-    group = "homelab-admin";
-    mode = "750";
-  };
-  systemd.tmpfiles.settings."00-homelab"."/homelab/miscellaneous/borg-info".d = {
-    user = "root";
     group = "homelab-admin";
     mode = "750";
   };

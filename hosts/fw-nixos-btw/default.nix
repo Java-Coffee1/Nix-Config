@@ -43,6 +43,10 @@
   nix.settings.trusted-users = [ "javi" ];
 
   nixpkgs.config.allowUnfree = true;
+  # electron_42 crossed nixpkgs' EOL-insecure threshold (<43.0.0 is flagged).
+  # Stays pinned to 42 for ytmdesktop since electron_43 breaks its preload
+  # bridge and makes it self-quit (see modules/fw-modules.nix).
+  nixpkgs.config.permittedInsecurePackages = [ "electron-42.11.18" ];
 
   programs.nh = {
     enable = true;

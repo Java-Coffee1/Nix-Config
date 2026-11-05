@@ -26,7 +26,7 @@ in
   environment.systemPackages = lib.mkIf (!config.javi.isGui) [ jellyfin-backup ];
   services.borgbackup.jobs.jellyfin = {
     paths = [ "/homelab/nfs/data-dumpster/backups/jellyfin-backups" ];
-    repo = "/homelab/miscellaneous/borg-info/borg-jellyfin";
+    repo = "/homelab/nfs/data-dumpster/backups/borg-info/borg-jellyfin";
     encryption.mode = "none";
     startAt = "daily";
 
