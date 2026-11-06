@@ -26,9 +26,7 @@
 
     middlewares-compress.compress = { };
 
-    chain-no-auth.chain.middlewares = [
-      "middlewares-compress"
-    ];
+    chain-no-auth.chain.middlewares = [ "middlewares-compress" ];
 
     rickroll.redirectRegex = {
       regex = "^https?://jv.ax/?(.*)";

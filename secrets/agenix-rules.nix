@@ -91,4 +91,8 @@ in
     javi
     hostkey-linux-iso
   ];
+  "gitlab-env.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
 }
