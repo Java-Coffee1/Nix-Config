@@ -49,11 +49,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1793625125,
-        "narHash": "sha256-wdXOj2WbBFBDbQrQxrSgn+Ycw9XW3VGxSJX01436XwQ=",
+        "lastModified": 1793704918,
+        "narHash": "sha256-eGM+VE7rQ9k0leDmIFxFsuUFeGlffykSsIXvcNh4U1M=",
         "owner": "nix-community",
         "repo": "authentik-nix",
-        "rev": "0fc4898f336e6c8f4ff4ea1bcd53a1b38ba53928",
+        "rev": "5d339402a75b5ee823e3aeb62ea32a11ece756c5",
         "type": "github"
       },
       "original": {
@@ -315,11 +315,11 @@
         "vpn-confinement": "vpn-confinement"
       },
       "locked": {
-        "lastModified": 1793295624,
-        "narHash": "sha256-BZTLgxPS10cMKy0kVXBYPome8G9YJGqjuWSEj2+hoHc=",
+        "lastModified": 1793928283,
+        "narHash": "sha256-sLTWqTA9y012hHeQvFDK3xX5adtVTNyrLCwP3IYBYcM=",
         "owner": "kiriwalawren",
         "repo": "nixflix",
-        "rev": "8402435b337f5f94e971f4b585d92d8a81eedceb",
+        "rev": "8f0426505cf6325ed6a997336f4f276a60e521f5",
         "type": "github"
       },
       "original": {
@@ -333,11 +333,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1793355509,
-        "narHash": "sha256-/Zs18x+IW4LuVH0rKxra0WPRgsk0DQsi0Bwkf8sOC5c=",
+        "lastModified": 1793871777,
+        "narHash": "sha256-DbFyxXHjP4SJDWVVIILkgrUZxj29cDusi8ULXoQGuZ8=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "04c6b94fa104bc23650983a4513aea196794d321",
+        "rev": "d645c71a58dbae3eb17ff551a07aea13a541cb1a",
         "type": "github"
       },
       "original": {
@@ -380,11 +380,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1793540411,
-        "narHash": "sha256-us2GRWGXbOQpN1blyJGvmdx+g4bv9GoFYq5iiOHRiZ8=",
-        "rev": "0bb2eedc20e4739f29e8045034f2828ad7054f8f",
+        "lastModified": 1793726008,
+        "narHash": "sha256-iNjybNORi/2+shilhMlkNr01UHWKOHRGzQyIyvobs9o=",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1106360.0bb2eedc20e4/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1107793.1d060086d60c/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
@@ -423,11 +423,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1793526781,
-        "narHash": "sha256-GVeZeBj2vr6j0bZwjpRDc2OSQEq23xXmcjkYSqZ5ycM=",
-        "rev": "9bb52223f4f6a0cc606fd0852d8784f896c137d5",
+        "lastModified": 1793865203,
+        "narHash": "sha256-4D+5oPvxkOa6tTCWXi4jwRfmWhDXGRSrX4+eOTItLh0=",
+        "rev": "c56a87d8e41ce69bd2af57eb35dcc117a9dfca33",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.13375.9bb52223f4f6/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.13627.c56a87d8e41c/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
@@ -458,11 +458,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793649022,
-        "narHash": "sha256-KoqqfgNs65+XLEe4RlglJNrwikuvqqwTqljIi6kWod4=",
+        "lastModified": 1793976515,
+        "narHash": "sha256-FyvbpsUo43yWez6cahfjg43oTJP49e++E9zwX+ZTmds=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "1d3867f4f6a4d3d5ddedf2284e67b103780ec164",
+        "rev": "6abcd24bf70083492bd43eaa642127a5cf034c1c",
         "type": "github"
       },
       "original": {
@@ -475,11 +475,11 @@
     "pawprints-arcade": {
       "flake": false,
       "locked": {
-        "lastModified": 1793944164,
-        "narHash": "sha256-cDo1WLlqiaEg3Tblp+/jFoDZ8uyE4XUgXcNCuqMbk1I=",
+        "lastModified": 1793948858,
+        "narHash": "sha256-dof2ueVBike1X83gt6K6DzI0BCE7oGrP+WWzxZkFz5I=",
         "ref": "refs/heads/main",
-        "rev": "84943a76f22ae81cf90270d2083fd2097e80f4e9",
-        "revCount": 84,
+        "rev": "d8182398c9c263e08172672887f67606932db389",
+        "revCount": 86,
         "type": "git",
         "url": "ssh://git@git.uninsane.org/java/pawprints-arcade.git"
       },
@@ -701,11 +701,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1793942834,
-        "narHash": "sha256-j6RngClqAYWiwWn/xTmZJBuP3kAkpu1dPao6NPppbOk=",
+        "lastModified": 1793947411,
+        "narHash": "sha256-DM0Y8lQYINuUs+8p2bxVWLG/dBokVR+C516P7zOVIQk=",
         "ref": "refs/heads/main",
-        "rev": "bf90fff174f8c5424f787bf3bac576058cee937d",
-        "revCount": 2,
+        "rev": "816bc2cd0dd4b0173b8d3e9db27c6139e5930b16",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@git.uninsane.org/java/video-dl.git"
       },

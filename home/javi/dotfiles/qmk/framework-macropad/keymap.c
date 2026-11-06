@@ -94,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         CONFIG_A, CONFIG_B, CONFIG_C, CONFIG_D,
         KC_NO, KC_NO,    KC_NO, RGB_VAD,
         MACRO(9),    KC_NO,    MACRO(10),    RGB_VAI,
-        KC_NO,    KC_NO,    KC_NO,    KC_NO,
+        MACRO(11),    MACRO(12),    KC_NO,    KC_NO,
         MACRO(5),    MACRO(6),    MACRO(7),    MACRO(8),
         MACRO(1), MACRO(2), MACRO(3), MACRO(4)
     ),
@@ -186,7 +186,7 @@ static const uint8_t config_colors[4][24][3] = {
         { 255,   0,   0 }, {  0,  0,  0 }, {  0,  0,  0 }, {  0,  0, 0 },
         {  0,  0,  0 }, {  0,  0,  0 }, {  0,  0,  0 }, {  80,  80,   0 },
         {  0,  0,  0 }, {  0,  0,  0 }, {  0,  0,  0 }, { 250, 255,   0 },
-        {  0,  0,  0 }, {  0,  0,  0 }, {  0,  0,  0 }, {  0,  0,  0 },
+        { 128,   0, 255 }, {   0, 100,   0 }, {  0,  0,  0 }, {  0,  0,  0 },
         {  0, 180, 150 }, { 230, 160,  20 }, {  30, 230,  30 }, { 234,  67,  53 },
         { 255,  90,   0 }, {  88, 101, 242 }, {   0, 122, 204 }, { 120,  40, 130 },
     },
