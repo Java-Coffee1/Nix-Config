@@ -34,12 +34,11 @@
       flake = false;
     };
     pawprints-arcade = {
-      url = "git+ssh://git@git.uninsane.org:java/pawprints-arcade.git";
+      url = "git+ssh://git@git.uninsane.org/java/pawprints-arcade.git";
       flake = false;
     };
     video-dl = {
-      url = "git+ssh://git@git@git.uninsane.org:java/video-dl.git";
-      flake = false;
+      url = "git+ssh://git@git.uninsane.org/java/video-dl.git";
     };
     authentiknix = {
       url = "github:nix-community/authentik-nix";

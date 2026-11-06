@@ -250,22 +250,6 @@
         "type": "github"
       }
     },
-    "hundred_hues_website": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1792647884,
-        "narHash": "sha256-CRUQuYrfIERTVh8aPnehp5DyX5n9E7dKE/FjDQkN2U8=",
-        "ref": "refs/heads/main",
-        "rev": "4ce968d9bcd52bae275bcf8d5c38b538ae3e9298",
-        "revCount": 80,
-        "type": "git",
-        "url": "ssh://git@git.uninsane.org/java/hundred-hues.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@git.uninsane.org/java/hundred-hues.git"
-      }
-    },
     "javamurraywebsite": {
       "flake": false,
       "locked": {
@@ -451,6 +435,22 @@
         "type": "indirect"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1793726008,
+        "narHash": "sha256-jQp1wKvbwWdLBASTXkSi/VYmDJ5AbBi1WvcMt9HWJC8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "noctalia": {
       "inputs": {
         "nixpkgs": [
@@ -470,6 +470,22 @@
         "ref": "cachix",
         "repo": "noctalia",
         "type": "github"
+      }
+    },
+    "pawprints-arcade": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793944164,
+        "narHash": "sha256-cDo1WLlqiaEg3Tblp+/jFoDZ8uyE4XUgXcNCuqMbk1I=",
+        "ref": "refs/heads/main",
+        "rev": "84943a76f22ae81cf90270d2083fd2097e80f4e9",
+        "revCount": 84,
+        "type": "git",
+        "url": "ssh://git@git.uninsane.org/java/pawprints-arcade.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@git.uninsane.org/java/pawprints-arcade.git"
       }
     },
     "pyproject-build-systems": {
@@ -530,13 +546,13 @@
         "declarative-jellyfin": "declarative-jellyfin",
         "government_crow_website": "government_crow_website",
         "hjem": "hjem",
-        "hundred_hues_website": "hundred_hues_website",
         "javamurraywebsite": "javamurraywebsite",
         "nixflix": "nixflix",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
+        "pawprints-arcade": "pawprints-arcade",
         "treefmt-nix": "treefmt-nix_4",
         "video-dl": "video-dl",
         "wallpapers": "wallpapers"
@@ -681,16 +697,22 @@
       }
     },
     "video-dl": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
       "locked": {
-        "path": "git+ssh:/git@git@git.uninsane.org:java/video-dl.git",
-        "type": "path"
+        "lastModified": 1793942834,
+        "narHash": "sha256-j6RngClqAYWiwWn/xTmZJBuP3kAkpu1dPao6NPppbOk=",
+        "ref": "refs/heads/main",
+        "rev": "bf90fff174f8c5424f787bf3bac576058cee937d",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@git.uninsane.org/java/video-dl.git"
       },
       "original": {
-        "path": "git+ssh:/git@git@git.uninsane.org:java/video-dl.git",
-        "type": "path"
-      },
-      "parent": []
+        "type": "git",
+        "url": "ssh://git@git.uninsane.org/java/video-dl.git"
+      }
     },
     "vpn-confinement": {
       "locked": {
