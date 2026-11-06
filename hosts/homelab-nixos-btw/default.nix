@@ -25,7 +25,7 @@
   #######################
   ## System
   ########################
-
+  system.stateVersion = "26.05";
   javi.isGui = false;
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
   time.timeZone = "America/Vancouver";
