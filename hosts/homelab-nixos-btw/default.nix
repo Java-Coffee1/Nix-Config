@@ -1,5 +1,4 @@
 { pkgs, lib, ... }:
-
 {
   imports = [
     ../../modules/default.nix
@@ -8,8 +7,7 @@
     ##Scripts
     ../../lazy-scripts/default.nix
 
-    ## Services
-
+    # Services
     ../../modules/lab/traefik.nix
     ../../modules/lab/website.nix
     ../../modules/lab/postgress.nix
@@ -60,7 +58,7 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; #allow emulation for devicesz
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; # allow emulation for devicesz
   ########################
   ## Networking
   ########################
