@@ -33,8 +33,8 @@
       url = "git+ssh://git@github.com/Java-Coffee1/government_crow_website.git";
       flake = false;
     };
-    hundred_hues_website = {
-      url = "git+ssh://git@git.uninsane.org/java/hundred-hues.git";
+    pawprints-arcade = {
+      url = "git+ssh://git@git.uninsane.org:java/pawprints-arcade.git";
       flake = false;
     };
     video-dl = {
