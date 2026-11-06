@@ -95,4 +95,8 @@ in
     javi
     hostkey-homelab
   ];
+  "yt-dl-password.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
 }

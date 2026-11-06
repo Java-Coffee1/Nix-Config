@@ -1,14 +1,24 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 
 {
-  imports = [ "${inputs.hundred_hues_website}" ];
-  services.hundred-hues.dataDir = "/homelab/hundred-hues";
-  services.hundred-hues.admins = [ "javi" ];
-  services.hundred-hues.shareUrl = "https://hh.jv.ax";
-  services.hundred-hues.smtp = {
+  imports = [
+    "${inputs.pawprints-arcade}"
+    inputs.video-dl.nixosModules.default
+  ];
+  services.pawprints-arcade.dataDir = "/homelab/hundred-hues";
+  services.pawprints-arcade.admins = [ "javi" ];
+  services.pawprints-arcade.shareUrl = "https://pawprints-arcade.jv.ax";
+  services.pawprints-arcade.smtp = {
     host = "10.10.1.150";
     port = 2500;
     from = "noreply@javamurray.com";
+  };
+
+  services.video-dl = {
+    enable = true;
+    port = 8099;
+    maxFileSizeMB = 15360;
+    passwordFile = config.age.secrets.yt-dl-password.path;
   };
 
   systemd.tmpfiles.rules = [
@@ -57,24 +67,39 @@
     };
     http.services.government_crow_website.loadBalancer.servers = [ { url = "http://127.0.0.1:8082"; } ];
 
-    http.routers.hundred_hues_website = {
-      rule = "Host(`hundred-hues.jv.ax`)";
+    http.routers.pawprints_arcade = {
+      rule = "Host(`pawprints-arcade.jv.ax`)";
       entryPoints = [ "https-web" ];
       service = "hundred-hues";
       tls.certResolver = "letsencrypt";
     };
-    http.routers.hundred_hues_redirect = {
-      rule = "Host(`hh.jv.ax`) || Host(`www.hundred-hues.jv.ax`)";
+    http.routers.pawprints_arcade_redirect = {
+      rule = "Host(`hundred-hues.jv.ax`) || Host(`www.hundred-hues.jv.ax`) || Host(`hh.jv.ax`) || Host(`www.pawprints-arcade.jv.ax`)";
       entryPoints = [ "https-web" ];
-      middlewares = [ "hundred-hues-redirect" ];
+      middlewares = [
+        "old-hues-home"
+        "old-hues-rest"
+      ];
       service = "hundred-hues";
       tls.certResolver = "letsencrypt";
     };
-    http.middlewares.hundred-hues-redirect.redirectRegex = {
+    http.middlewares.old-hues-home.redirectRegex = {
+      regex = "^https://[^/]+/?$";
+      replacement = "https://pawprints-arcade.jv.ax/hundredhues";
+      permanent = true;
+    };
+    http.middlewares.old-hues-rest.redirectRegex = {
       regex = "^https://[^/]+/(.*)";
-      replacement = "https://hundred-hues.jv.ax/\${1}";
+      replacement = "https://pawprints-arcade.jv.ax/\${1}";
       permanent = true;
     };
     http.services.hundred-hues.loadBalancer.servers = [ { url = "http://127.0.0.1:8090"; } ];
+    http.routers.video-dl = {
+      rule = "Host(`dl.jv.ax`)";
+      entryPoints = [ "https-web" ];
+      service = "video-dl";
+      tls.certResolver = "letsencrypt";
+    };
+    http.services.video-dl.loadBalancer.servers = [ { url = "http://127.0.0.1:8099"; } ];
   };
 }

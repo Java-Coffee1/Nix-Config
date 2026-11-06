@@ -538,6 +538,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
         "treefmt-nix": "treefmt-nix_4",
+        "video-dl": "video-dl",
         "wallpapers": "wallpapers"
       }
     },
@@ -678,6 +679,18 @@
         "repo": "uv2nix",
         "type": "github"
       }
+    },
+    "video-dl": {
+      "flake": false,
+      "locked": {
+        "path": "git+ssh:/git@git@git.uninsane.org:java/video-dl.git",
+        "type": "path"
+      },
+      "original": {
+        "path": "git+ssh:/git@git@git.uninsane.org:java/video-dl.git",
+        "type": "path"
+      },
+      "parent": []
     },
     "vpn-confinement": {
       "locked": {
