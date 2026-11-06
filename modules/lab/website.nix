@@ -14,6 +14,7 @@
     from = "noreply@javamurray.com";
   };
 
+  age.secrets.yt-dl-password.file = ../../secrets/yt-dl-password.age;
   services.video-dl = {
     enable = true;
     port = 8099;
