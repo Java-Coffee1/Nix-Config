@@ -1,7 +1,18 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let
+  # Stable's vscode 1.144.0 fails to build: the patchPhase hardcodes the
+  # pre-1.122 ripgrep path, which upstream VSCode moved to
+  # node_modules.asar.unpacked/@vscode/ripgrep-universal/bin/<plat>/rg.
+  # Fixed in nixpkgs-unstable (same 1.144.0 release) but not yet backported
+  # to nixos-26.05. See https://github.com/NixOS/nixpkgs/issues/584492
+  unstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config.allowUnfree = true;
+  };
+
   vscode-configured = pkgs.vscode-with-extensions.override {
+    vscode = unstable.vscode;
     vscodeExtensions =
       with pkgs.vscode-extensions;
       [
