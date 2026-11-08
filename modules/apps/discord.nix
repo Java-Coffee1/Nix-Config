@@ -3,7 +3,6 @@
     (pkgs.discord.override {
       withOpenASAR = true;
       withVencord = true;
-      commandLineArgs = "--ignore-gpu-blocklist --enable-features=Vulkan --use-gl=angle --use-angle=vulkan";
     })
   ];
 
