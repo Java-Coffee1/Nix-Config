@@ -1,62 +1,73 @@
 # Java learns nixos 
-This is my personal dot files for my laptop. I do not recommand installing these dot files as they are extreamly custom to me. however feel free to to take sinipts of my config. 
+
+This is my Personal NixOs setup for my laptop and homelab.
+
+> ⚠️ This is very custom to me, so I don't recommend installing it as is. Feel free to steal snippets though!
+
+## Hosts
+
+| Host | What it is |
+|------|------------|
+| `fw-nixos-btw` | My Framework laptop (Hyprland desktop) |
+| `homelab-nixos-btw` | Homelab server (Traefik, Jellyfin, Immich, etc.) |
+| `javi-email` | Email server |
 
 ##
-Install 
 
-Clone the repo in a folder
-
-Also make sure you have nixos installed.
-```
-git clone github.com/Java-Coffee1/Nix-Config
-```
-link repo 
-```
-ln -s /your/home/dir/Nix-Config/flake.nix /etc/nixos/flake.nix
-```
-
-## Wireguard
-agenix 
-run this and paste your private key
-```
-agenix -e -r wg-private-fw.age put public wg key here 
-```
-## Install 
+## Repo layout
 
 ```
-sudo nixos-rebuild switch
+flake.nix       # entry point, defines every host
+hosts/          # one folder per machine
+home/           # home-manager config (dotfiles) for my user
+modules/        # shared NixOS modules (apps, lab services, torrenting)
+secrets/        # agenix encrypted secrets
+lazy-scripts/   # little helper scripts
+install.sh      # one-command installer
 ```
 
+## Install
+
+You need NixOS installed first.
+
+**On an existing NixOS machine:**
+
+```
+sudo bash -c "$(nix-shell -p curl --run 'curl -fsSL https://raw.githubusercontent.com/Java-Coffee1/Nix-Config/main/install.sh')"
+```
+
+or clone it and run it yourself:
+
+```
+git clone https://github.com/Java-Coffee1/Nix-Config
+cd Nix-Config
+sudo bash install.sh <host>
+```
+
+**Fresh install from the NixOS ISO** (⚠️ this WIPES the disk):
+
+```
+sudo bash install.sh <host> /dev/sda
+```
+
+## After install: secrets
+
+Secrets (like the WireGuard key) are encrypted with [agenix](https://github.com/ryantm/agenix) and won't decrypt until the new machine's key is added.
+
+1. Get the host key:
+   ```
+   cat /etc/ssh/ssh_host_ed25519_key.pub
+   ```
+2. Add it to `secrets/agenix-rules.nix`, then re-encrypt:
+   ```
+   agenix -r
+   ```
+3. To set the WireGuard private key:
+   ```
+   agenix -e wg-private-fw.age
+   ```
+
+**Clean up old generations:**
+```
 sudo nix-collect-garbage -d
-
-## Install more info 
-this is for my laptop 
 ```
-nixos-rebuild switch --flake .#nixos-btw --sudo
-```
-this is for a remote 
-```
-nixos-rebuild build --flake .#homelab-nixos-btw --target-host javi@10.10.1.170 --sudo
-```
-
-## Testing
-git add -A
-nix flake check
-
-nixos-rebuild dry-build --flake .#nixos-btw
-
-##
-update 
-nix flake update
-
-then
- nixos-rebuild switch --sudo 
-
- ## Installing
-
- run
- ```
- sudo bash -c "$(nix-shell -p curl --run 'curl -fsSL https://raw.githubusercontent.com/Java-Coffee1/Nix-Config/main/install.sh')"
-```
-
-or clone this repo and then do ./install.sh
