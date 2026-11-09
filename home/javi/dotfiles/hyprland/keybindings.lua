@@ -81,4 +81,4 @@ hl.bind("CTRL + SHIFT + ALT + F8", hl.dsp.exec_cmd("app-focus-or-launch title Gm
 -- Framework macropad, Set A position 9 (MACRO(9), Ctrl+Shift+Alt+F9): SSH into lab
 hl.bind("CTRL + SHIFT + ALT + F9", hl.dsp.exec_cmd(terminal .. " -e zsh -ic 'lab; exec zsh'"))
 hl.bind("CTRL + SHIFT + ALT + F12", hl.dsp.exec_cmd("app-focus-or-launch class element-desktop element-desktop"))
-hl.bind("CTRL + SHIFT + ALT + F11", hl.dsp.exec_cmd("code -n ~/Nix-Configs/"))
+hl.bind("CTRL + SHIFT + ALT + F11", hl.dsp.exec_cmd("code -n ~/Nix-Config/"))
