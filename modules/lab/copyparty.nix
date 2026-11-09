@@ -1,5 +1,8 @@
 { config, inputs, ... }:
 
+let 
+  nfs-data = config.homelab.path;
+in 
 {
   imports = [ inputs.copyparty.nixosModules.default ];
 
@@ -52,7 +55,7 @@
         flags.dots = true;
       };
       "/\${u}/" = {
-        path = "/homelab/nfs/data-dumpster/copyparty/user-data/\${u}";
+        path = "${nfs-data.nfs}/data-dumpster/copyparty/user-data/\${u}";
         access = {
           rwmd = "\${u}";
           a = "Java";
@@ -64,7 +67,16 @@
         };
       };
       "/chaosbox" = {
-        path = "/homelab/nfs/data-dumpster/copyparty/chaosbox";
+        path = "${nfs-data.nfs}/data-dumpster/copyparty/chaosbox";
+        access = {
+          r = "*"; # anonymous browse + download, no account needed
+          rwmd = "@acct";
+          a = "Java";
+        };
+        flags.dots = true;
+      };
+      "/Java-ISO" = {
+        path = "${nfs-data.nfs}/data-dumpster/copyparty/ISO";
         access = {
           r = "*"; # anonymous browse + download, no account needed
           rwmd = "@acct";

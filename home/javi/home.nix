@@ -7,7 +7,7 @@
 }:
 
 {
-  imports = [ ./javi.nix ];
+  imports = [ ./javi-options.nix ];
 
   environment.shellAliases = {
     s = "kitten ssh";
