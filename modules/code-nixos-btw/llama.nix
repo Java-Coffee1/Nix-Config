@@ -25,16 +25,11 @@ in
   services.llama-cpp = {
     enable = true;
 
-    # nixpkgs builds llama.cpp with AVX turned off, so turn on what the Xeon Gold 6130 has
+    # this host is a KVM VM exposed only the generic "QEMU Virtual CPU" model (no AVX/AVX2/AVX512/FMA/F16C/BMI2),
+    # so only enable what /proc/cpuinfo actually shows (sse4_2) - the Xeon Gold 6130 underneath isn't passed through
     package = pkgs.llama-cpp.overrideAttrs (old: {
       cmakeFlags = old.cmakeFlags ++ [
         (lib.cmakeBool "GGML_SSE42" true)
-        (lib.cmakeBool "GGML_AVX" true)
-        (lib.cmakeBool "GGML_AVX2" true)
-        (lib.cmakeBool "GGML_FMA" true)
-        (lib.cmakeBool "GGML_F16C" true)
-        (lib.cmakeBool "GGML_BMI2" true)
-        (lib.cmakeBool "GGML_AVX512" true)
       ];
     });
 
