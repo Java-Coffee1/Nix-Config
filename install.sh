@@ -56,7 +56,7 @@ if [ -n "$DISK" ]; then
   udevadm settle
 
   mkfs.ext4 -F -L nixos "$PART"
-  mount /dev/disk/by-label/nixos /mnt
+  mount "$PART" /mnt
 fi
 
 ############################################
