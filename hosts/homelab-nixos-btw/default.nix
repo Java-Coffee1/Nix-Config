@@ -1,5 +1,6 @@
-{ pkgs, lib, ... }: {
+{ ... }: {
   imports = [
+    ../../overlay
     ../../modules/default.nix
     ./hardware-configuration.nix
 
@@ -25,48 +26,17 @@
   #######################
   ## System
   ########################
-  system.stateVersion = "26.05";
-  javi.isGui = false;
-  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
-  time.timeZone = "America/Vancouver";
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; # allow emulation for devicesz
 
-  ############################################
-  ## Nix Settings
-  ############################################
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.settings.trusted-users = [
-    "root"
-    "@wheel"
-  ];
-
-  nixpkgs.config.allowUnfree = true;
-
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 7";
-  };
   ########################
   ## Boot
   ########################
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; # allow emulation for devicesz
   ########################
   ## Networking
   ########################
   networking.networkmanager.enable = true;
-
-  services.avahi.enable = true;
-
-  services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication = false;
 
   networking = {
     useDHCP = false; # Disable global DHCP
@@ -92,40 +62,16 @@
   ############################################
   ## Users & Security
   ############################################
-
-  # Define a user account. Don't forget to set a password with `passwd`.
-  users.users.javi = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "docker"
-      "networkmanager"
-      "homelab-admin"
-    ]; # Enable 'sudo' for the user.
-    packages = with pkgs; [ tree ];
-  };
+  users.users.javi.extraGroups = [ "networkmanager" ];
 
   users.users.javi.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICq8ju6Hc+YoVJnr7+zN0ne2ydYQHkoDKCJE9K8aYRrX java@ghost"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDEtpecmaXPRkULTYaPzCiocRiVmJMxD2p3qCrStGCK5 java@Home-Lab-Live"
     "AAAAB3NzaC1yc2EAAAADAQABAAABgQCNZZVhA1VenxOFIIu9FffKhP9VhliKVxS/P0Z6OjU4X3gb6qHXia0SIwBW2bge0uJXynvgZvjEYpziG2wbpBjqimUCQB5DCzL5eQlTyLrhMIhnUz9yblG2b10pS6TgJSgUkIDytHAVtUxjYj/KJMcBZSu/EtmPGuhbFjCK7wagtLutu/P6uGuq7kqreOIy3fK6q4SEej5//xqxjuPBpULKkTtJyOYs/VsNjN2xNp4mt69+Q0RE2P+9jNJjtPtrZtMa5jtGNH7hAiNeeeb8gA3HvTrpuX/LENrG2/FPCGv7gamLW5Bxjb1mZncLKukzuceIma69KndSM+GZMJC4Z0QSQ6yPq6NCLA0RCf0fQM/Xi8BS8Z79SGSrQdDLUXMDAFkSEHiOvIsfQ2LucoXo6EEb9p56KUhxgXIRS6aFpo6oXFub2GleyqTPL04Q8BzgeiHCBeBN6ITCrAfwz45qJ9jt9vxvdvhbsMimmrIOilmoGsXgC4hBjJY8kjmj06vA880= root@truenas"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQ+MKzP6XyJfJ/UX/lLkgxuVdF/lBZw2Pynhyn8pBnP ipadsshkey"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILxWxbeAk3VSguxZl9MzZ93ztk3SgwlRKs94TzE6Cjzm iPhonekey"
   ];
-  users.groups.homelab-admin = { };
 
   users.users.traefik.extraGroups = [ "homelab-admin" ];
   users.users.nginx.extraGroups = [ "homelab-admin" ];
-
-  security.sudo.wheelNeedsPassword = false;
-
-  ########################
-  ## Keyboard
-  ########################
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
 
   ############################################
   ## Apps & Virtualisation

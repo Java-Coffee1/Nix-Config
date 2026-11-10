@@ -10,6 +10,7 @@
   imports = [ ./javi-options.nix ];
 
   environment.shellAliases = {
+    vim = "nvim";
     s = "kitten ssh";
     fw-switch = "nh os switch ~/Nix-Config -H fw-nixos-btw";
     fw-rollback = "nh os rollback";

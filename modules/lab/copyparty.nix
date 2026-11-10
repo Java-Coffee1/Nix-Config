@@ -1,8 +1,8 @@
 { config, inputs, ... }:
 
-let 
+let
   nfs-data = config.homelab.path;
-in 
+in
 {
   imports = [ inputs.copyparty.nixosModules.default ];
 

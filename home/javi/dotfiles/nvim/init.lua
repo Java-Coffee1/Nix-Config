@@ -1,3 +1,14 @@
+-- Transparent background (match terminal opacity, like vim does by default)
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+  end,
+})
+vim.cmd.colorscheme("default")
+
 -- Options
 vim.opt.number = true
 vim.opt.shiftwidth = 2
