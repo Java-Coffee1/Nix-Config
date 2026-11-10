@@ -1,9 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./apps/neovim.nix
-  ];
+  imports = [ ./apps/neovim.nix ];
   environment.systemPackages = with pkgs; [
     wget
     curl
@@ -23,5 +21,6 @@
     rust-analyzer # LSP for neovim
     clippy # linter
     rustfmt # formatter
+    alsa-lib
   ];
 }

@@ -1,16 +1,15 @@
-{ ...}:
+{ ... }:
 
 {
   imports = [
     ../../overlay
     ../../modules/default.nix
-    ./hardware-configuration.nix  
+    ./hardware-configuration.nix
 
     ../../modules/code-nixos-btw/claude.nix
     ../../modules/code-nixos-btw/llama.nix
     ../../modules/code-nixos-btw/pi.nix
 
-    
   ];
 
   boot.loader.grub.useOSProber = true;
@@ -57,8 +56,9 @@
   ############################################
   hjem.users.javi.files.".tmux.conf".text = ''
     set -g extended-keys on
+    set -g extended-keys-format csi-u
+    set -g focus-events on
   '';
-
   programs.git.enable = true;
   programs.git.config = {
     user.name = "bot-javi";

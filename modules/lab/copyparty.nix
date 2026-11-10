@@ -14,7 +14,7 @@ in
     # [global]
     settings = {
       i = "127.0.0.1";
-      hist = "/homelab/copyparty/root"; # keeps the index db off NFS
+      hist = "/homelab/copyparty/hist"; # keeps the index db off NFS and out of the browsable root
       no-rescan = true;
       ansi = true;
       usernames = true;
@@ -47,7 +47,7 @@ in
 
     volumes = {
       "/" = {
-        path = "/homelab/copyparty/root";
+        path = "/homelab/copyparty/";
         access = {
           r = "@acct";
           a = "Java";
@@ -110,6 +110,8 @@ in
   systemd.services.copyparty = {
     serviceConfig.BindPaths = [ "/homelab/nfs/data-dumpster/copyparty/user-data" ];
   };
+
+  systemd.tmpfiles.rules = [ "d /homelab/copyparty/hist 0770 copyparty copyparty -" ];
 
   age.secrets.copyparty-oauth-client.file = ../../secrets/copyparty-oauth-client.age;
   age.secrets.copyparty-oauth-cookie.file = ../../secrets/copyparty-oauth-cookie.age;
