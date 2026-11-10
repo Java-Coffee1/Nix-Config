@@ -6,7 +6,7 @@
     mediaDir = "javi/set/this/latter";
     stateDir = "javi/set/this/latter";
 
-    postgress.enable = true;
+    postgres.enable = true;
 
     sonarr = {
       enable = true;
@@ -26,7 +26,7 @@
     }; # end of raddar
   }; # end of nixflix
 
-  sabnzbd = {
+  services.sabnzbd = {
     enable = true;
     settings = {
       misc.api_key = { };

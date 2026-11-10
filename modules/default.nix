@@ -6,7 +6,6 @@
     ./apps/neovim.nix
   ];
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! Nano is also installed by default.
     wget
     curl
     htop

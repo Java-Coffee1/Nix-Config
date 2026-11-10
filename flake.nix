@@ -101,14 +101,14 @@
             ./home/javi/home.nix
           ];
         };
-        
+
         fw-iso = mkHost {
           name = "fw-nixos-btw";
           modules = [
             inputs.hjem.nixosModules.default
             ./home/javi/home.nix
             "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
-          ];         
+          ];
         };
 
         homelab-nixos-btw = mkHost {
@@ -122,6 +122,7 @@
           name = "linux-iso-btw";
           modules = [
             inputs.hjem.nixosModules.default
+            inputs.nixflix.nixosModules.default
             ./home/javi/home.nix
           ];
         };
@@ -131,6 +132,14 @@
             inputs.hjem.nixosModules.default
             ./home/javi/home.nix
           ];
+        };
+
+        code-nixos-btw = mkHost {
+            name = "code-nixos-btw";
+            modules = [
+              inputs.hjem.nixosModules.default
+              ./home/javi/home.nix
+            ];
         };
       };
     };

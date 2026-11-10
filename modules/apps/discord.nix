@@ -1,9 +1,10 @@
 { pkgs, ... }: {
   environment.systemPackages = [
-    (pkgs.discord.override {
-      withOpenASAR = true;
-      withVencord = true;
-    })
+    pkgs.discord
+    # (pkgs.discord.override {
+    #   withOpenASAR = false;
+    #   withVencord = false;
+    # })
   ];
 
   hjem.users.javi.files = {
@@ -38,22 +39,23 @@
         settingsSyncVersion = 0;
       };
 
+      # Temporarily disabled while debugging Discord - flip back to true to restore.
       plugins = {
         # Logs edited/deleted messages instead of silently dropping them.
-        iLoveSpam.enabled = true;
-        AlwaysTrust.enabled = true;
-        FakeNitro.enabled = true;
-        MessageLogger.enabled = true;
-        FixImagesQuality.enabled = true;
-        FixSpotifyEmbeds.enabled = true;
-        FixYoutubeEmbeds.enabled = true;
-        FixCodeblockGap.enabled = true;
-        ImageLink.enabled = true;
-        VolumeBooster.enabled = true;
-        NoProfileThemes.enabled = true;
-        TypingIndicator.enabled = true;
-        TypingTweaks.enabled = true;
-        SilentTyping.enabled = true;
+        iLoveSpam.enabled = false;
+        AlwaysTrust.enabled = false;
+        FakeNitro.enabled = false;
+        MessageLogger.enabled = false;
+        FixImagesQuality.enabled = false;
+        FixSpotifyEmbeds.enabled = false;
+        FixYoutubeEmbeds.enabled = false;
+        FixCodeblockGap.enabled = false;
+        ImageLink.enabled = false;
+        VolumeBooster.enabled = false;
+        NoProfileThemes.enabled = false;
+        TypingIndicator.enabled = false;
+        TypingTweaks.enabled = false;
+        SilentTyping.enabled = false;
       };
     };
 
