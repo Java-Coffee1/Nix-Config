@@ -4,7 +4,7 @@
   imports = [
     ../../overlay
     ../../modules/default.nix
-    ./hardware-configuration.nix
+    ./hardware-configuration.nix  
 
     ../../modules/code-nixos-btw/claude.nix
     ../../modules/code-nixos-btw/llama.nix
@@ -52,4 +52,16 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILxWxbeAk3VSguxZl9MzZ93ztk3SgwlRKs94TzE6Cjzm iPhonekey"
   ];
 
+  ############################################
+  ## Dotfiles (this host only)
+  ############################################
+  hjem.users.javi.files.".tmux.conf".text = ''
+    set -g extended-keys on
+  '';
+
+  programs.git.enable = true;
+  programs.git.config = {
+    user.name = "bot-javi";
+    user.email = "bot-javi@jv.ax";
+  };
 }

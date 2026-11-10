@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./apps/git.nix
     ./apps/neovim.nix
   ];
   environment.systemPackages = with pkgs; [

@@ -5,6 +5,8 @@
     ../../overlay
     ./hardware-configuration.nix
     ../../modules/default.nix
+        ../../modules/apps/git.nix
+
   ];
 
   ###########################

@@ -12,6 +12,7 @@
     ./wireguard.nix
     ../../modules/default.nix
     ../../modules/fw-modules.nix
+    ../../modules/apps/git.nix
     # ../../modules/activate-nix.nix
     inputs.noctalia.nixosModules.default
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd

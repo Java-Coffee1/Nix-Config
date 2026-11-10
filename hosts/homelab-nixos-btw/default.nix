@@ -3,6 +3,8 @@
     ../../overlay
     ../../modules/default.nix
     ./hardware-configuration.nix
+        ../../modules/apps/git.nix
+
 
     ##Scripts
     ../../lazy-scripts/default.nix
