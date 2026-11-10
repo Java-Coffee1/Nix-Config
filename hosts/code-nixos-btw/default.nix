@@ -65,7 +65,7 @@
     user.email = "bot-javi@jv.ax";
   };
   hjem.users.javi.files.".pi/agent/settings.json".text = builtins.toJSON {
-    httpIdleTimeoutMs = 0;
-    retry.provider.timeoutMs = 0;
+    httpIdleTimeoutMs = "disabled";
+    retry.provider.timeoutMs = "disabled";
   };
 }
