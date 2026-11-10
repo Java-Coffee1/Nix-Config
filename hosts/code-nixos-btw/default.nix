@@ -65,7 +65,10 @@
     user.email = "bot-javi@jv.ax";
   };
   hjem.users.javi.files.".pi/agent/settings.json".text = builtins.toJSON {
-    httpIdleTimeoutMs = "disabled";
-    retry.provider.timeoutMs = "disabled";
+    # 1.5.0's custom-provider path validates this as an integer and rejects
+    # the "disabled" string; use max int32, the same value pi substitutes
+    # internally for "no timeout".
+    httpIdleTimeoutMs = 2147483647;
+    retry.provider.timeoutMs = 2147483647;
   };
 }
