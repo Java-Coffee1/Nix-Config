@@ -15,14 +15,17 @@
     fw-switch = "nh os switch ~/Nix-Config -H fw-nixos-btw";
     fw-rollback = "nh os rollback";
 
-    lab-build = "NIX_SSHOPTS='-p 2600' nh os build ~/Nix-Config -H homelab-nixos-btw --target-host javi@ssh.javamurray.com";
-    lab-switch = "NIX_SSHOPTS='-p 2600' nh os switch ~/Nix-Config -H homelab-nixos-btw --target-host javi@ssh.javamurray.com --elevation-strategy passwordless";
-    lab-rollback = "ssh -p 2600 -t javi@ssh.javamurray.com 'sudo nixos-rebuild switch --rollback'";
-    lab = "ssh -p 2600 -t javi@ssh.javamurray.com 'cd /homelab && exec \$SHELL -l'";
+    lab-build = "rbuild lab";
+    lab-switch = "rswitch lab";
+    lab-rollback = "rrollback lab";
+    lab = "rshell lab";
 
-    iso-switch = "NIX_SSHOPTS='-p 22' nh os switch ~/Nix-Config -H linux-iso-btw --target-host javi@10.10.1.105 --elevation-strategy passwordless";
+    iso-switch = "rswitch iso";
 
     bot-shelly = "ssh -t -- agent@savm.shelvacu.com tmux new-session -A -s main";
+    bot-c = "ssh -t -- javi@10.10.1.180 tmux new-session -A -s claude";
+    bot-p = "ssh -t -- javi@10.10.1.180 tmux new-session -A -s pi";
+
 
     btw = "echo I use nixos, btw";
     shell = "echo wow ur such an alies";
@@ -50,6 +53,54 @@
       IFS= read -r -d ''' cwd < "$tmp"
       [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
       command rm -f -- "$tmp"
+    }
+
+    # Remote NixOS hosts, keyed by short name: "fqdn:ip:port[:remote-dir]"
+    # Add a host here and rbuild/rswitch/rrollback/rshell work on it for free.
+    typeset -gA NIX_HOSTS
+    NIX_HOSTS=(
+      lab "homelab-nixos-btw:ssh.javamurray.com:2600:/homelab"
+      iso "linux-iso-btw:10.10.1.105:22"
+      code "code-nixos-btw:10.10.1.180:22"
+    )
+
+    function _nix_host() {
+      local short=$1
+      local entry=$NIX_HOSTS[$short]
+      if [[ -z $entry ]]; then
+        echo "unknown host '$short', known hosts: ''${(k)NIX_HOSTS}" >&2
+        return 1
+      fi
+      local -a fields
+      fields=(''${(s/:/)entry})
+      NIX_HOST_FQDN=$fields[1]
+      NIX_HOST_IP=$fields[2]
+      NIX_HOST_PORT=$fields[3]
+      NIX_HOST_DIR=$fields[4]
+    }
+
+    function rbuild() {
+      _nix_host $1 || return 1
+      NIX_SSHOPTS="-p $NIX_HOST_PORT" nh os build ~/Nix-Config -H "$NIX_HOST_FQDN" --target-host "javi@$NIX_HOST_IP"
+    }
+
+    function rswitch() {
+      _nix_host $1 || return 1
+      NIX_SSHOPTS="-p $NIX_HOST_PORT" nh os switch ~/Nix-Config -H "$NIX_HOST_FQDN" --target-host "javi@$NIX_HOST_IP" --elevation-strategy passwordless
+    }
+
+    function rrollback() {
+      _nix_host $1 || return 1
+      ssh -p "$NIX_HOST_PORT" -t "javi@$NIX_HOST_IP" 'sudo nixos-rebuild switch --rollback'
+    }
+
+    function rshell() {
+      _nix_host $1 || return 1
+      if [[ -n $NIX_HOST_DIR ]]; then
+        ssh -p "$NIX_HOST_PORT" -t "javi@$NIX_HOST_IP" "cd $NIX_HOST_DIR && exec \$SHELL -l"
+      else
+        ssh -p "$NIX_HOST_PORT" -t "javi@$NIX_HOST_IP"
+      fi
     }
   '';
 

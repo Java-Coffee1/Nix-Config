@@ -6,8 +6,9 @@
     ../../modules/default.nix
     ./hardware-configuration.nix
 
-    ## Scripts
-    ../../lazy-scripts/default.nix
+    ../../modules/code-nixos-btw/claude.nix
+    ../../modules/code-nixos-btw/llama.nix
+    ../../modules/code-nixos-btw/pi.nix
 
     
   ];
