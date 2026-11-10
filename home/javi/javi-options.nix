@@ -17,7 +17,7 @@
 
     nfs = lib.mkOption {
       type = lib.types.path;
-      default = "/homelab/nfsw";
+      default = "/homelab/nfs";
       description = "Root of the NFS mounts.";
     };
   };

@@ -13,11 +13,26 @@ let
     };
   };
 
-  models = {
-    inherit (mlModels)
-      qwen-heretic
-      gpt-oss-derestricted
-      ;
+  models = { inherit (mlModels) qwen-heretic gpt-oss-derestricted; };
+
+  # llama-server has no built-in flag to cap HF model-download speed, so throttle
+  # it with trickle (userspace bandwidth shaper) instead - cap at 100 MiB/s to
+  # leave headroom on a 275 MB/s line.
+  # VM CPU type is set to "host" in Proxmox so the Xeon Gold 6130's AVX2/AVX512/FMA
+  # are passed through - stock package picks them up, no SSE-only override needed
+  llamaCppBase = pkgs.llama-cpp;
+
+  downloadRateKiBs = 100 * 1024;
+
+  llamaCppThrottled = pkgs.symlinkJoin {
+    name = "llama-cpp-throttled";
+    paths = [ llamaCppBase ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      rm $out/bin/llama-server
+      makeWrapper ${pkgs.trickle}/bin/trickle $out/bin/llama-server \
+        --add-flags "-s -d ${toString downloadRateKiBs} ${lib.getExe' llamaCppBase "llama-server"}"
+    '';
   };
 
 in
@@ -25,13 +40,7 @@ in
   services.llama-cpp = {
     enable = true;
 
-    # this host is a KVM VM exposed only the generic "QEMU Virtual CPU" model (no AVX/AVX2/AVX512/FMA/F16C/BMI2),
-    # so only enable what /proc/cpuinfo actually shows (sse4_2) - the Xeon Gold 6130 underneath isn't passed through
-    package = pkgs.llama-cpp.overrideAttrs (old: {
-      cmakeFlags = old.cmakeFlags ++ [
-        (lib.cmakeBool "GGML_SSE42" true)
-      ];
-    });
+    package = llamaCppThrottled;
 
     modelsPreset = models;
 
@@ -43,12 +52,16 @@ in
       "--numa"
       "distribute"
       "-t"
-      "32"
+      "48"
+      "--threads-batch"
+      "48"
       "-c"
       "32768"
       "--models-max"
       "2"
       "--mlock"
+      "--timeout"
+      "10800"
     ];
   };
 

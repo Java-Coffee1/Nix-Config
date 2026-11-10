@@ -23,9 +23,8 @@
     iso-switch = "rswitch iso";
 
     bot-shelly = "ssh -t -- agent@savm.shelvacu.com tmux new-session -A -s main";
-    bot-c = "ssh -t -- javi@10.10.1.180 tmux new-session -A -s claude";
-    bot-p = "ssh -t -- javi@10.10.1.180 tmux new-session -A -s pi";
-
+    bot-c = "ssh -p 2700 -t -- javi@ssh.javamurray.com tmux new-session -A -s claude";
+    bot-p = "ssh -p 2700 -t -- javi@ssh.javamurray.com tmux new-session -A -s pi";
 
     btw = "echo I use nixos, btw";
     shell = "echo wow ur such an alies";
@@ -61,7 +60,7 @@
     NIX_HOSTS=(
       lab "homelab-nixos-btw:ssh.javamurray.com:2600:/homelab"
       iso "linux-iso-btw:10.10.1.105:22"
-      code "code-nixos-btw:10.10.1.180:22"
+      code "code-nixos-btw:ssh.javamurray.com:2700"
     )
 
     function _nix_host() {

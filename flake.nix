@@ -135,11 +135,11 @@
         };
 
         code-nixos-btw = mkHost {
-            name = "code-nixos-btw";
-            modules = [
-              inputs.hjem.nixosModules.default
-              ./home/javi/home.nix
-            ];
+          name = "code-nixos-btw";
+          modules = [
+            inputs.hjem.nixosModules.default
+            ./home/javi/home.nix
+          ];
         };
       };
     };
