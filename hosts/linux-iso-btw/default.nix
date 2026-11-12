@@ -7,7 +7,7 @@
     ../../modules/default.nix
     ../../modules/apps/git.nix
 
-    ../../modules/torrenting/torrenting.nix
+    ../../modules/linux-iso/qbittorrent.nix
 
     ./wireguard.nix
   ];

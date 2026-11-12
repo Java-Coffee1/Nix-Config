@@ -96,7 +96,7 @@ in
     })
     (mkApp "qbittorrent" {
       host = "qbit.jv.ax";
-      url = "http://10.10.1.105:4032";
+      url = "http://10.10.1.105:8012";
       middlewares = authentik;
     })
     # (mkApp "Immich" {

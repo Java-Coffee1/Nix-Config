@@ -6,7 +6,7 @@
     ../../modules/apps/git.nix
 
     ##Scripts
-    ../../lazy-scripts/default.nix
+    ../../lazy-scripts/lab/default.nix
 
     # Services
     ../../modules/lab/traefik.nix

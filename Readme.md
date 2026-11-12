@@ -73,3 +73,5 @@ sudo nix-collect-garbage -d
 ```
 ## Overview video of my homelab
 [![Nix Config Overview](https://fs.jv.ax/chaosbox/Nix-Config-Overview/thumbnail.png)](https://fs.jv.ax/chaosbox/Nix-Config-Overview/Nix-Config-Overview.mp4)
+
+
