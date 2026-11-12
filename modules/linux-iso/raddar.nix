@@ -4,14 +4,19 @@ let
 in
 
 {
-  age.secrets.radarr-env.file = ../../secretes/servarr-env.age;
+  age.secrets.radarr-env.file = ../../secrets/servarr-env.age;
   services.radarr = {
     enable = true;
     openFirewall = true; # on port 7878
     dataDir = "${nfs-data.data}/radarr";
 
-    environmentFiles = [ 
-      config.radarr-env.path
+    settings.auth = {
+      method = "Forms";
+      required = "DisabledForLocalAddresses";
+    };
+
+    environmentFiles = [
+      config.age.secrets.radarr-env.path
     ];
   };
 }

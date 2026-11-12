@@ -119,7 +119,7 @@
           name = "linux-iso-btw";
           modules = [
             inputs.hjem.nixosModules.default
-            inputs.nixflix.nixosModules.default
+            inputs.vpn.nixosModules.default
             ./home/javi/home.nix
           ];
         };
