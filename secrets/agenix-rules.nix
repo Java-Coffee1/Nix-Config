@@ -22,7 +22,10 @@ in
     javi
     hostkey
   ];
-
+  "windscribe-wg.age".publicKeys = [
+    javi
+    hostkey-linux-iso
+  ];
   "cf_api_token.age".publicKeys = [
     javi
     hostkey-homelab
@@ -82,14 +85,6 @@ in
   "backup-ssh-key.age".publicKeys = [
     javi
     hostkey-homelab
-  ];
-  "wg-private-iso.age".publicKeys = [
-    javi
-    hostkey-linux-iso
-  ];
-  "wg-psk-iso.age".publicKeys = [
-    javi
-    hostkey-linux-iso
   ];
   "gitlab-env.age".publicKeys = [
     javi
