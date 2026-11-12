@@ -71,5 +71,5 @@ Secrets (like the WireGuard key) are encrypted with [agenix](https://github.com/
 ```
 sudo nix-collect-garbage -d
 ```
-## Overview video of my homlab
-[![Nix Config Overview](https://fs.jv.ax/chaosbox/Nix-Config-Overview/Nix-Config-Overview.mp4)]
+## Overview video of my homelab
+[![Nix Config Overview](https://fs.jv.ax/chaosbox/Nix-Config-Overview/thumbnail.png)](https://fs.jv.ax/chaosbox/Nix-Config-Overview/Nix-Config-Overview.mp4)
