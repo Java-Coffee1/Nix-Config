@@ -266,22 +266,6 @@
         "url": "ssh://git@github.com/Java-Coffee1/javamurraywebsite.git"
       }
     },
-    "mkdocs-catppuccin": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1767028711,
-        "narHash": "sha256-YVIZAtQT2B4Xs2sBaszvyyukm+1klCJdRpsc/BYV1gw=",
-        "owner": "ruslanlap",
-        "repo": "mkdocs-catppuccin",
-        "rev": "fd8ac6106b5b6d32922cd80cbc3d221622a17408",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ruslanlap",
-        "repo": "mkdocs-catppuccin",
-        "type": "github"
-      }
-    },
     "nix-fast-build": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -302,29 +286,6 @@
       "original": {
         "owner": "Mic92",
         "repo": "nix-fast-build",
-        "type": "github"
-      }
-    },
-    "nixflix": {
-      "inputs": {
-        "mkdocs-catppuccin": "mkdocs-catppuccin",
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ],
-        "treefmt-nix": "treefmt-nix_3",
-        "vpn-confinement": "vpn-confinement"
-      },
-      "locked": {
-        "lastModified": 1794452193,
-        "narHash": "sha256-UuLA1oavIfoW8PgX5YMU5oCNL0s5mlkGYWNywWjQDOA=",
-        "owner": "kiriwalawren",
-        "repo": "nixflix",
-        "rev": "3357d8701c271ec67b709c81071c791042558245",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kiriwalawren",
-        "repo": "nixflix",
         "type": "github"
       }
     },
@@ -547,13 +508,12 @@
         "government_crow_website": "government_crow_website",
         "hjem": "hjem",
         "javamurraywebsite": "javamurraywebsite",
-        "nixflix": "nixflix",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
         "pawprints-arcade": "pawprints-arcade",
-        "treefmt-nix": "treefmt-nix_4",
+        "treefmt-nix": "treefmt-nix_3",
         "video-dl": "video-dl",
         "vpn": "vpn",
         "wallpapers": "wallpapers"
@@ -634,27 +594,6 @@
     "treefmt-nix_3": {
       "inputs": {
         "nixpkgs": [
-          "nixflix",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1791885023,
-        "narHash": "sha256-C3alQ2MEt0zVrUSho5NUDo3jmhbff72++bfwoqT9Omo=",
-        "owner": "numtide",
-        "repo": "treefmt-nix",
-        "rev": "0d6d739a833ba9a9c93034862e4a7b061a062a1c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "treefmt-nix_4": {
-      "inputs": {
-        "nixpkgs": [
           "nixpkgs"
         ]
       },
@@ -716,21 +655,6 @@
       }
     },
     "vpn": {
-      "locked": {
-        "lastModified": 1791310298,
-        "narHash": "sha256-SpqEEuyrkzTqjIHwHrZE+Rs6ez2tzIeYkSY67zp6fcQ=",
-        "owner": "Maroka-chan",
-        "repo": "VPN-Confinement",
-        "rev": "cc37bcf5000e237709e725a9cda010a5cbce3111",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Maroka-chan",
-        "repo": "VPN-Confinement",
-        "type": "github"
-      }
-    },
-    "vpn-confinement": {
       "locked": {
         "lastModified": 1791310298,
         "narHash": "sha256-SpqEEuyrkzTqjIHwHrZE+Rs6ez2tzIeYkSY67zp6fcQ=",

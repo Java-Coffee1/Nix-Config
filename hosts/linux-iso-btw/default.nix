@@ -8,6 +8,7 @@
     ../../modules/apps/git.nix
 
     ../../modules/linux-iso/qbittorrent.nix
+    ../../modules/linux-iso/raddar.nix
 
     ./wireguard.nix
   ];
@@ -52,13 +53,8 @@
   ##########################
   ## Storage
   ##########################
-  systemd.tmpfiles.settings."00-linux-iso"."/linux-isos-data".d = {
-    user = "root";
-    group = "homelab-admin";
-    mode = "755";
-  };
 
-  fileSystems."/linux-isos-data/linux-isos" = {
+  fileSystems."/homelab/nfs/linux-isos" = {
     device = "10.30.30.101:/mnt/DataDumpster/Linux_Isos";
     fsType = "nfs";
     options = [ "defaults" ];
