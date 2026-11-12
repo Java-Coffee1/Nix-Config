@@ -22,10 +22,25 @@ in
     javi
     hostkey
   ];
+
+  ###################################
+  ## linux-iso-btw
+  ###################################
+
   "windscribe-wg.age".publicKeys = [
     javi
     hostkey-linux-iso
   ];
+
+
+  "servarr-env.age".publicKeys = [
+    javi
+    hostkey-linux-iso
+  ];
+
+  ##################################
+  ## Homelab Keys
+  ##################################
   "cf_api_token.age".publicKeys = [
     javi
     hostkey-homelab
@@ -94,4 +109,5 @@ in
     javi
     hostkey-homelab
   ];
+
 }

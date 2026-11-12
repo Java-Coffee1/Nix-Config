@@ -3,8 +3,8 @@
 {
   nixflix = {
     enable = true;
-    mediaDir = "javi/set/this/latter";
-    stateDir = "javi/set/this/latter";
+    mediaDir = "javi/set/this/later";
+    stateDir = "javi/set/this/later";
 
     postgres.enable = true;
 
@@ -23,7 +23,7 @@
         apiKey = { };
         hostConfig.password = { };
       };
-    }; # end of raddar
+    }; # end of radarr
   }; # end of nixflix
 
   services.sabnzbd = {

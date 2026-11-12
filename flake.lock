@@ -315,11 +315,11 @@
         "vpn-confinement": "vpn-confinement"
       },
       "locked": {
-        "lastModified": 1794296940,
-        "narHash": "sha256-mcUkeG0bdeaMcj0EndaO17pi5QW82Dmf8H97w+oEOWQ=",
+        "lastModified": 1794452193,
+        "narHash": "sha256-UuLA1oavIfoW8PgX5YMU5oCNL0s5mlkGYWNywWjQDOA=",
         "owner": "kiriwalawren",
         "repo": "nixflix",
-        "rev": "991ccf908da801f752729c2362ae92b3f016b26f",
+        "rev": "3357d8701c271ec67b709c81071c791042558245",
         "type": "github"
       },
       "original": {
@@ -333,11 +333,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1794222723,
-        "narHash": "sha256-jehPADpSIsWnyNHw/s44OHF9l6Y75QmW74sqO9cEe0A=",
+        "lastModified": 1794425805,
+        "narHash": "sha256-4s5CRvkYX4oAJVZ+zu2bBKFH2gG2GqN6OKHEWgJr1AY=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "919c16cf46a7acf9b44b2c2444bc39aa094eaa85",
+        "rev": "b6ca87f78ec5bafc4b2aef7b29803dcf419266af",
         "type": "github"
       },
       "original": {
@@ -380,11 +380,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1794042290,
-        "narHash": "sha256-VZ8WvA9m3XN36juXyg/GwbDRU2OezOHJlXpJCXkccv0=",
-        "rev": "f4a03c008967841f2a0b3cb7c436fc6fc31671f6",
+        "lastModified": 1794192123,
+        "narHash": "sha256-YOhabADcIwaWo9992egosQF3iVpvWysmZAyhbGBzinY=",
+        "rev": "177d0540942fb205af6993b1d5fa0b57799e09f8",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1113206.f4a03c008967/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1114946.177d0540942f/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
@@ -458,11 +458,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794277964,
-        "narHash": "sha256-+lSWclNb9XCgYvoaqfznFwo4hAmsVgx1+2UjI/dWsow=",
+        "lastModified": 1794447720,
+        "narHash": "sha256-JFT5v+NFN6j/5nDZ5oKizflUsGJNMvwCOdt+4zZ0IX8=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "2d3545609f4d2d0952ae169cebac6bb658c3a7b2",
+        "rev": "c2573248a89470383e41b8e1ac432424691cbc1f",
         "type": "github"
       },
       "original": {
@@ -555,6 +555,7 @@
         "pawprints-arcade": "pawprints-arcade",
         "treefmt-nix": "treefmt-nix_4",
         "video-dl": "video-dl",
+        "vpn": "vpn",
         "wallpapers": "wallpapers"
       }
     },
@@ -712,6 +713,21 @@
       "original": {
         "type": "git",
         "url": "ssh://git@git.uninsane.org/java/video-dl.git"
+      }
+    },
+    "vpn": {
+      "locked": {
+        "lastModified": 1791310298,
+        "narHash": "sha256-SpqEEuyrkzTqjIHwHrZE+Rs6ez2tzIeYkSY67zp6fcQ=",
+        "owner": "Maroka-chan",
+        "repo": "VPN-Confinement",
+        "rev": "cc37bcf5000e237709e725a9cda010a5cbce3111",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Maroka-chan",
+        "repo": "VPN-Confinement",
+        "type": "github"
       }
     },
     "vpn-confinement": {
