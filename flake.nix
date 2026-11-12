@@ -52,14 +52,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixflix = {
-      url = "github:kiriwalawren/nixflix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    vpn = {
-      url = "github:Maroka-chan/VPN-Confinement";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    vpn.url = "github:Maroka-chan/VPN-Confinement";
   }; # end of inputs
 
   outputs =

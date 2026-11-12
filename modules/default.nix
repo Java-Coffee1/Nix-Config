@@ -15,6 +15,7 @@
     dig
     tmux
     btop
+    openssl
 
     cargo
     rustc
