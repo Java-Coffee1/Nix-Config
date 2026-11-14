@@ -49,6 +49,12 @@ let
           # sha256 = pkgs.lib.fakeSha256;
           sha256 = "sha256-WRg8ObPVQMluuCW/dBM2ibBDW/zc8cQQS5QQMfcpw2c=";
         }
+        {
+          name = "vscodeyazi";
+          publisher = "xiaodong";
+          version = "0.0.1";
+          sha256 = "sha256-bQEbqlwZ8X7/wYNRtcv2t5isJU6RuVpn0HMa3UhW0XI=";
+        }
       ];
   };
 in
@@ -63,11 +69,26 @@ in
     python3
     platformio
     nixd
+    yazi
   ];
   # -- PlatformIO --
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [ pkgs.libusb1 ]; # needed by OpenOCD for PIO debugging
   services.udev.packages = [ pkgs.platformio-core.udev ];
+  # -- Yazi file picker --
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-termfilechooser ];
+    config.hyprland."org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
+  };
+  hjem.users.javi.files.".config/xdg-desktop-portal-termfilechooser/config".text = ''
+    [filechooser]
+    cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+    default_dir=$HOME
+    env=TERMCMD=kitty --title "terminal filechooser"
+    open_mode=suggested
+    save_mode=last
+  '';
   hjem.users.javi.files.".config/Code/User/settings.json".text = builtins.toJSON {
     "editor.fontSize" = 18;
     "editor.fontFamily" = "'GeistMono Nerd Font Mono', monospace";
@@ -79,6 +100,7 @@ in
     "nix.enableLanguageServer" = true;
     "nix.serverPath" = "nixd";
     "editor.inlineSuggest.enabled" = false;
+    "files.simpleDialog.enable" = false;
     "github.copilot.enable" = {
       "*" = false;
     };

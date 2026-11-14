@@ -58,7 +58,7 @@ in
       Group = "qbittorrent";
     };
     script = ''
-      ${pkgs.curl}/bin/curl -fsSL https://github.com/Naunter/BT_BlockLists/raw/master/combined.gz \
+      ${pkgs.curl}/bin/curl -fsSL https://github.com/Naunter/BT_BlockLists/raw/master/bt_blocklists.gz \
         | ${pkgs.gzip}/bin/gzip -dc > ${ipFilterFile}.tmp
       mv ${ipFilterFile}.tmp ${ipFilterFile}
     '';
