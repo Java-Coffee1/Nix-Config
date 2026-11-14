@@ -106,10 +106,18 @@
     ];
   };
 
+  # Source lives under the data-dumpster NFS mount, so this bind must be
+  # ordered after the network comes up too — otherwise it gets pulled into
+  # local-fs.target (needed before sysinit.target/NetworkManager), while also
+  # needing the NFS mount (which needs network-online.target first), forming
+  # a boot-time ordering cycle that systemd breaks unpredictably.
   fileSystems."/var/lib/prometheus2" = {
     device = "/homelab/nfs/data-dumpster/granfana/prometheus";
     fsType = "none";
-    options = [ "bind" ];
+    options = [
+      "bind"
+      "_netdev"
+    ];
   };
 
   systemd.tmpfiles.settings."00-homelab"."/homelab/granfana".d = {
