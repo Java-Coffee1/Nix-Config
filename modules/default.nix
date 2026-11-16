@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./apps/neovim.nix ];
+  imports = [
+    ./apps/neovim.nix
+    ./requirefile-mirror.nix
+  ];
   environment.systemPackages = with pkgs; [
     wget
     curl
