@@ -40,7 +40,7 @@ in
     lunar-client
 
     # -- Media / Audio --
-    
+
     pear-desktop
     easyeffects
     unstable.orca-slicer

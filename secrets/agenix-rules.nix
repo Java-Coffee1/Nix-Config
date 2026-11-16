@@ -32,7 +32,6 @@ in
     hostkey-linux-iso
   ];
 
-
   "servarr-env.age".publicKeys = [
     javi
     hostkey-linux-iso

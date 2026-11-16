@@ -1,5 +1,1 @@
-{ pkgs, ... }: {
-  environment.systemPackages = [
-    pkgs.mixxx
-  ];
-}
+{ pkgs, ... }: { environment.systemPackages = [ pkgs.mixxx ]; }

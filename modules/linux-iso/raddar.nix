@@ -15,8 +15,6 @@ in
       required = "DisabledForLocalAddresses";
     };
 
-    environmentFiles = [
-      config.age.secrets.radarr-env.path
-    ];
+    environmentFiles = [ config.age.secrets.radarr-env.path ];
   };
 }
