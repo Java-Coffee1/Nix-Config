@@ -40,8 +40,8 @@ in
     lunar-client
 
     # -- Media / Audio --
-
-    ytmdesktop
+    
+    pear-desktop
     easyeffects
     unstable.orca-slicer
     reaper
