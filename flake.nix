@@ -56,8 +56,9 @@
       url = "github:Maroka-chan/VPN-Confinement";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixarr = {
-      url = "github:nix-media-server/nixarr";
+    nixflix = {
+      url = "github:kiriwalawren/nixflix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
   }; # end of inputs
