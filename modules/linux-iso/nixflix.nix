@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
   nfs-media = "/homelab/nfs/linux-isos";
 
@@ -96,8 +96,8 @@ in
       config.apiKey._secret = config.age.secrets.prowlarr-api-key.path;
       config.hostConfig.username = null;
       config.hostConfig.authenticationMethod = "external";
-      config.hostConfig.bindAddress = "10.10.1.105";
-      openFirewall = true;
+      # config.hostConfig.bindAddress = "10.10.1.105";
+      # openFirewall = true;
       config.indexers =
         (map (name: { inherit name; }) publicIndexerNames)
         ++ (map (name: { inherit name; tags = [ "flaresolverr" ]; }) cloudflareIndexerNames);
@@ -114,7 +114,6 @@ in
       package = unstablePkgs.seerr;
       apiKey._secret = config.age.secrets.seerr-api-key.path;
       openFirewall = true;
-
       jellyfin = {
         hostname = "jelly.jv.ax";
         port = 443;
@@ -122,6 +121,7 @@ in
         adminUsername = "nixadmin";
         adminPassword._secret = config.age.secrets.seerr-jellyfin-admin-password.path;
       };
+      settings.users.defaultPermissions = 160;
     };
   };
 
@@ -130,6 +130,8 @@ in
     allowedTCPPorts = [ 51413 ];
     allowedUDPPorts = [ 51413 ];
   };
+
+  systemd.services.seerr.environment.HOST = lib.mkForce "10.10.1.105";
 
   systemd.services.prowlarr-app-tags = {
     description = "Tag Prowlarr's Radarr/Sonarr applications with flaresolverr so tagged indexers still sync to them";

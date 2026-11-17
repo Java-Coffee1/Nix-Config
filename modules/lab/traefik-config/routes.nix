@@ -89,6 +89,10 @@ in
     #   url = "http://10.10.1.105:9696";
     #   middleware = authentik;
     # })
+    (mkApp "seerr" {
+      host = "get-media.jv.ax";
+      url = "http://10.10.1.105:5055";
+    })    
     (mkApp "sonarr" {
       host = "sonarr.jv.ax";
       url = "http://10.10.1.105:8989";
