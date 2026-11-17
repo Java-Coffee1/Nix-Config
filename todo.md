@@ -1,4 +1,3 @@
-torrenting setup
 lastfm 
 router
 server barmetal

@@ -61,6 +61,10 @@ in
     javi
     hostkey-linux-iso
   ];
+  "lidarr-api-key.age".publicKeys = [
+    javi
+    hostkey-linux-iso
+  ];
 
   ##################################
   ## Homelab Keys

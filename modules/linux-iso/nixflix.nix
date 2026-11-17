@@ -14,11 +14,23 @@ let
   # guides) - dropping the niche/regional/adult/crack-site long tail.
   # Reachable directly - no Cloudflare challenge in the way.
   publicIndexerNames = [
+    "AniSource"
+    "Anime Tosho"
+    "Bangumi Moe"
     "Internet Archive"
     "LimeTorrents"
     "LinuxTracker"
+    "nekoBT"
+    "Nipponsei"
     "Nyaa.si"
-    "showRSS"
+    "PandaCD"
+    "Shana Project"
+    # "showRSS" dropped: Prowlarr has TWO schemas both literally named
+    # "showRSS" (the real Cardigann one, and an unrelated generic "Torrent
+    # RSS Feed" type whose default display name collides with it).
+    # nixflix's indexers.nix looks up schemas by display name only, so it
+    # always matches both and sends Prowlarr a corrupted two-object request
+    # body. Not fixable from our side without patching nixflix itself.
     "The Pirate Bay"
     "Tokyo Toshokan"
     "TorrentDownload"
@@ -46,6 +58,7 @@ in
     prowlarr-api-key.file = ../../secrets/prowlarr-api-key.age;
     seerr-api-key.file = ../../secrets/seerr-api-key.age;
     seerr-jellyfin-admin-password.file = ../../secrets/seerr-jellyfin-admin-password.age;
+    lidarr-api-key.file = ../../secrets/lidarr-api-key.age;
   };
 
   nixflix = {
@@ -85,6 +98,16 @@ in
     radarr = {
       enable = true;
       config.apiKey._secret = config.age.secrets.radarr-api-key.path;
+      config.hostConfig.username = null;
+      config.hostConfig.authenticationMethod = "external";
+      config.hostConfig.bindAddress = "10.10.1.105";
+      openFirewall = true;
+    };
+
+    lidarr = {
+      enable = true;
+      mediaDirs = [ "${nfs-media}/music" ];
+      config.apiKey._secret = config.age.secrets.lidarr-api-key.path;
       config.hostConfig.username = null;
       config.hostConfig.authenticationMethod = "external";
       config.hostConfig.bindAddress = "10.10.1.105";
@@ -131,7 +154,22 @@ in
     allowedUDPPorts = [ 51413 ];
   };
 
-  systemd.services.seerr.environment.HOST = lib.mkForce "10.10.1.105";
+  # nixflix's lidarr-delayprofiles sends a hardcoded payload using an old
+  # Lidarr API shape (an "items" array keyed by protocol) that the installed
+  # Lidarr version rejects with HTTP 400 - confirmed by hand against the live
+  # API, which expects flat enableUsenet/usenetDelay/torrentDelay fields
+  # instead. Lidarr's own shipped default delay profile (immediate grab, no
+  # artificial delay) is already correct for a torrent-only setup, so this
+  # step was never changing anything real - just disable it rather than
+  # have it fail every deploy.
+  systemd.services.lidarr-delayprofiles.enable = false;
+
+  # "0.0.0.0" (not the LAN IP specifically) - nixflix's own setup services
+  # (seerr-setup, seerr-jellyfin, seerr-libraries, seerr-radarr, seerr-sonarr)
+  # all hardcode 127.0.0.1 to talk to Seerr internally via connectionAddress,
+  # which doesn't know about this override. Binding to one specific LAN IP
+  # breaks those; binding to all interfaces satisfies both that and Traefik.
+  systemd.services.seerr.environment.HOST = lib.mkForce "0.0.0.0";
 
   systemd.services.prowlarr-app-tags = {
     description = "Tag Prowlarr's Radarr/Sonarr applications with flaresolverr so tagged indexers still sync to them";

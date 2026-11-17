@@ -35,6 +35,14 @@ in
         AnonymousModeEnabled = true;
         # 1 = require encrypted peer connections
         Encryption = 1;
+
+        # qBittorrent's own defaults (3 active downloads, 5 active torrents
+        # total) were queuing requests behind each other - bump the cap so
+        # more of what Radarr/Sonarr/Lidarr grab can actually run at once.
+        QueueingSystemEnabled = true;
+        MaxActiveDownloads = 10;
+        MaxActiveUploads = 5;
+        MaxActiveTorrents = 15;
       };
     };
   };
