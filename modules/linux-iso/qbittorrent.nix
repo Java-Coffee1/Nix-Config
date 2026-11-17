@@ -5,6 +5,10 @@ let
   ipFilterFile = "${profileDir}/qBittorrent/ipfilter.dat";
 in
 {
+  # raw value only (no KEY=value) - the plaintext login password, used by
+  # nixflix.downloadarr to register this qBittorrent with sonarr/radarr/prowlarr
+  age.secrets.qbittorrent-password.file = ../../secrets/qbittorrent-password.age;
+
   services.qbittorrent = {
     enable = true;
     webuiPort = 8012;
@@ -15,6 +19,12 @@ in
       AuthSubnetWhitelistEnabled = true;
       AuthSubnetWhitelist = "10.10.1.170/32";
       ShowExternalIpInStatusBar = true;
+
+      # local login for nixflix's downloadarr integration (sonarr/radarr talk to
+      # qBittorrent's API from the VPN bridge, which AuthSubnetWhitelist above
+      # doesn't cover). Password matches secrets/qbittorrent-password.age.
+      Username = "javi";
+      Password_PBKDF2 = "@ByteArray(PUnvoYY0kvwuj4Z95Tzf8Q==:3ocgdUvjllp/FTCtTDBn1QJuIZLEp4hMs+J+qe+9r9Z1rAmHiiLYglMMnhg0EMu5RSFIhxL8fvEeHhEDROkLew==)";
     };
 
     serverConfig.Preferences.IPFilter = {
@@ -44,6 +54,16 @@ in
     wants = [ "qbittorrent-ipfilter-update.service" ];
     after = [ "qbittorrent-ipfilter-update.service" ];
   };
+
+  # Lets the WebUI be reached at vpnNamespaces.wg.namespaceAddress:8012 from
+  # the default netns (where sonarr/radarr/the downloadarr integration run) -
+  # the "wg" netns firewall drops everything by default otherwise.
+  vpnNamespaces.wg.portMappings = [
+    {
+      from = 8012;
+      to = 8012;
+    }
+  ];
 
   # Keeps the IP blocklist used by serverConfig.Preferences.IPFilter above
   # fresh. Runs on the host's normal network, not the "wg" namespace -

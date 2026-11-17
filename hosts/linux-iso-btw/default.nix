@@ -7,10 +7,8 @@
     ../../modules/default.nix
     ../../modules/apps/git.nix
 
+    ../../modules/linux-iso/nixflix.nix
     ../../modules/linux-iso/qbittorrent.nix
-    ../../modules/linux-iso/raddar.nix
-
-    ./wireguard.nix
   ];
 
   ##########################

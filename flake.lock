@@ -253,11 +253,11 @@
     "javamurraywebsite": {
       "flake": false,
       "locked": {
-        "lastModified": 1792949149,
-        "narHash": "sha256-PhnJ1xPBBbuzcFcMnai898vvQ6HYOyhMAAzXFysPk5c=",
+        "lastModified": 1794865766,
+        "narHash": "sha256-CMsJ6sEMpgAL7bc4DCD6Kj+znp2LcFnx/rAr6btC91E=",
         "ref": "refs/heads/main",
-        "rev": "6aa914cd8898cb8f566a30412bd5e79b0899b8b1",
-        "revCount": 22,
+        "rev": "73fb419652bf33fb4a6f380d88438e385907cd83",
+        "revCount": 25,
         "type": "git",
         "url": "ssh://git@github.com/Java-Coffee1/javamurraywebsite.git"
       },
@@ -315,11 +315,11 @@
         "vpn-confinement": "vpn-confinement"
       },
       "locked": {
-        "lastModified": 1794846703,
-        "narHash": "sha256-Fp+VLMywlSkSkAu8ykfNTK5h5sDcvtoe0DAdO9gPJvM=",
+        "lastModified": 1794871614,
+        "narHash": "sha256-CQHpIuC5qrvKOOLnVRJGzdEkdr8/m5JfvWGDHBqKHw8=",
         "owner": "kiriwalawren",
         "repo": "nixflix",
-        "rev": "f235fca2595d098b46aa7877af96132bb2e34603",
+        "rev": "8251a67f50f9e7298c301c6864a25dd7c572cf9e",
         "type": "github"
       },
       "original": {
@@ -555,7 +555,6 @@
         "pawprints-arcade": "pawprints-arcade",
         "treefmt-nix": "treefmt-nix_4",
         "video-dl": "video-dl",
-        "vpn": "vpn",
         "wallpapers": "wallpapers"
       }
     },
@@ -713,21 +712,6 @@
       "original": {
         "type": "git",
         "url": "ssh://git@git.uninsane.org/java/video-dl.git"
-      }
-    },
-    "vpn": {
-      "locked": {
-        "lastModified": 1794523109,
-        "narHash": "sha256-AwEm7+NWkEgyZsKLlR3a0qU/V0uIirwCuxSLpmAiufA=",
-        "owner": "Maroka-chan",
-        "repo": "VPN-Confinement",
-        "rev": "eeab5446fdbba273905da915805db665524abda6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Maroka-chan",
-        "repo": "VPN-Confinement",
-        "type": "github"
       }
     },
     "vpn-confinement": {

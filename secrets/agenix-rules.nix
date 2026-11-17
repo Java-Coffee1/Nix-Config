@@ -37,6 +37,23 @@ in
     hostkey-linux-iso
   ];
 
+  "sonarr-api-key.age".publicKeys = [
+    javi
+    hostkey-linux-iso
+  ];
+  "radarr-api-key.age".publicKeys = [
+    javi
+    hostkey-linux-iso
+  ];
+  "prowlarr-api-key.age".publicKeys = [
+    javi
+    hostkey-linux-iso
+  ];
+  "qbittorrent-password.age".publicKeys = [
+    javi
+    hostkey-linux-iso
+  ];
+
   ##################################
   ## Homelab Keys
   ##################################

@@ -52,10 +52,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vpn = {
-      url = "github:Maroka-chan/VPN-Confinement";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixflix = {
       url = "github:kiriwalawren/nixflix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -127,7 +123,7 @@
           name = "linux-iso-btw";
           modules = [
             inputs.hjem.nixosModules.default
-            inputs.vpn.nixosModules.default
+            inputs.nixflix.nixosModules.default
             ./home/javi/home.nix
           ];
         };
