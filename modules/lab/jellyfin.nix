@@ -28,13 +28,13 @@ in
     cacheDir = "/homelab/jellyfin/cache";
     # configDir and logDir default to dataDir/config and dataDir/log
 
-    # users.nixadmin = {
-    #   hashedPassword = "$PBKDF2-SHA512$iterations=210000$C5E9E9D8D92FBAF63722CDB3C17656CB$4760E47DC2A82EE670F47741613EB38D322785DD5C79D34EC03C4674295A9EE0AE73D0B57FB39F887EF4D0E043EEC2118AEB50131C54C12D25503014DB628E90";
-    #   permissions = {
-    #     isAdministrator = true;
-    #     isHidden = true;
-    #   };
-    # };
+    users.nixadmin = {
+      hashedPassword = "$PBKDF2-SHA512$iterations=210000$B2BDC0291028CBC8004AC8A5C8A898C1$2D6F7BCAF6ED78503BCED22BA28E7BA0AEA46EE5E8AD45C14D2B00DF6E65AD830E7159535FA3F9FBA22E2D5A8CB7EDCE3AE9B39EB0AF1F4EC34E55AA2BD687FC";
+      permissions = {
+        isAdministrator = true;
+        isHidden = true;
+      };
+    };
 
     backupDir = "/homelab/jellyfin/backups";
 

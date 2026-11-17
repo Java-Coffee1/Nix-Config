@@ -53,6 +53,14 @@ in
     javi
     hostkey-linux-iso
   ];
+  "seerr-api-key.age".publicKeys = [
+    javi
+    hostkey-linux-iso
+  ];
+  "seerr-jellyfin-admin-password.age".publicKeys = [
+    javi
+    hostkey-linux-iso
+  ];
 
   ##################################
   ## Homelab Keys
