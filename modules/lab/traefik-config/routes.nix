@@ -84,6 +84,11 @@ in
     #   url = "http://homepage:3000";
     #   middlewares = authentik;
     # })
+    (mkApp "prowlarr"{
+      host = "prowlarr.jv.ax";
+      url = "http://10.10.1.105:9696";
+      middleware = authentik;
+    })
     (mkApp "sonarr" {
       host = "sonarr.jv.ax";
       url = "http://10.10.1.105:8989";
