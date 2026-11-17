@@ -15,7 +15,7 @@ let
   ###################################
   ## linux-iso-btw ssh host key
   ###################################
-  hostkey-linux-iso = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPwvS+OwqTWUrCuY72jUOtYAiltZPw2UkOVM98wniJT root@linux-iso-btw";
+  hostkey-linux-iso = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHHzdyeeFDjly6UhCLws4v4asgnkULMNDpu6mI21NZf0 root@linux-iso-btw";
 in
 {
   "wg-private-fw.age".publicKeys = [
