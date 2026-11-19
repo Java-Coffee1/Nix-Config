@@ -37,7 +37,7 @@ in
     storage = {
       storageType = "local";
       localRootDir = "/homelab/outline/data";
-      uploadMaxSize = 26214400;
+      uploadMaxSize = 26843545600;
     };
 
     # reuse your OLD keys from the .env or existing data breaks
@@ -72,15 +72,15 @@ in
 
   age.secrets = {
     outline-secret-key = {
-      file = ../../secrets/outline-secret-key.age;
+      file = ../../secrets/homelab-nixos-btw/outline-secret-key.age;
       owner = "outline";
     };
     outline-utils-secret = {
-      file = ../../secrets/outline-utils-secret.age;
+      file = ../../secrets/homelab-nixos-btw/outline-utils-secret.age;
       owner = "outline";
     };
     outline-oidc-secret = {
-      file = ../../secrets/outline-oidc.age;
+      file = ../../secrets/homelab-nixos-btw/outline-oidc.age;
       owner = "outline";
     };
   };

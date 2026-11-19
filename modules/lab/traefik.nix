@@ -8,7 +8,7 @@
   ];
   services.traefik.dataDir = "/homelab/traefik";
 
-  age.secrets.cf_api_token.file = ../../secrets/cf_api_token.age;
+  age.secrets.cf_api_token.file = ../../secrets/homelab-nixos-btw/cf_api_token.age;
 
   services.traefik.enable = true;
   services.traefik.environmentFiles = [ config.age.secrets.cf_api_token.path ];

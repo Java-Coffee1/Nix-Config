@@ -1,8 +1,8 @@
 { inputs, config, ... }:
 
 {
-  age.secrets.authentik-env.file = ../../secrets/authentik-env.age;
-  age.secrets.authentik-ldap-env.file = ../../secrets/authentik-ldap-env.age;
+  age.secrets.authentik-env.file = ../../secrets/homelab-nixos-btw/authentik-env.age;
+  age.secrets.authentik-ldap-env.file = ../../secrets/homelab-nixos-btw/authentik-ldap-env.age;
   imports = [ inputs.authentiknix.nixosModules.default ];
   services.authentik = {
     enable = true;

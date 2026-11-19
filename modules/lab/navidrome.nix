@@ -1,11 +1,11 @@
 { ... }:
 
 {
-  # LastFM scrobbling disabled until secrets/navidrome-lastfm-env.age exists.
+  # LastFM scrobbling disabled until secrets/homelab-nixos-btw/navidrome-lastfm-env.age exists.
   # To re-enable: create the secret with
-  #   agenix -e -r secrets/navidrome-lastfm-env.age
+  #   agenix -e -r secrets/homelab-nixos-btw/navidrome-lastfm-env.age
   # (content: ND_LASTFM_APIKEY=... / ND_LASTFM_SECRET=...), then restore:
-  #   age.secrets.navidrome-lastfm-env.file = ../../secrets/navidrome-lastfm-env.age;
+  #   age.secrets.navidrome-lastfm-env.file = ../../secrets/homelab-nixos-btw/navidrome-lastfm-env.age;
   #   environmentFile = config.age.secrets.navidrome-lastfm-env.path;
   #   LastFM.Enabled = true;
 

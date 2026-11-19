@@ -52,13 +52,13 @@ in
 {
   # one file per secret, each holding ONLY the raw value (no KEY=value)
   age.secrets = {
-    wg-conf.file = ../../secrets/windscribe-wg.age;
-    sonarr-api-key.file = ../../secrets/sonarr-api-key.age;
-    radarr-api-key.file = ../../secrets/radarr-api-key.age;
-    prowlarr-api-key.file = ../../secrets/prowlarr-api-key.age;
-    seerr-api-key.file = ../../secrets/seerr-api-key.age;
-    seerr-jellyfin-admin-password.file = ../../secrets/seerr-jellyfin-admin-password.age;
-    lidarr-api-key.file = ../../secrets/lidarr-api-key.age;
+    wg-conf.file = ../../secrets/linux-iso-btw/windscribe-wg.age;
+    sonarr-api-key.file = ../../secrets/linux-iso-btw/sonarr-api-key.age;
+    radarr-api-key.file = ../../secrets/linux-iso-btw/radarr-api-key.age;
+    prowlarr-api-key.file = ../../secrets/linux-iso-btw/prowlarr-api-key.age;
+    seerr-api-key.file = ../../secrets/linux-iso-btw/seerr-api-key.age;
+    seerr-jellyfin-admin-password.file = ../../secrets/linux-iso-btw/seerr-jellyfin-admin-password.age;
+    lidarr-api-key.file = ../../secrets/linux-iso-btw/lidarr-api-key.age;
   };
 
   nixflix = {

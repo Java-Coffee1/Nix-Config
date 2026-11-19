@@ -64,7 +64,7 @@ Secrets (like the WireGuard key) are encrypted with [agenix](https://github.com/
    ```
 3. To set the WireGuard private key:
    ```
-   agenix -e wg-private-fw.age
+   agenix -e fw-nixos-btw/wg-private-fw.age
    ```
 
 **Clean up old generations:**

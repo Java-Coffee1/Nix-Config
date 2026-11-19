@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  age.secrets.gitlab-env.file = ../../secrets/gitlab-env.age;
+  age.secrets.gitlab-env.file = ../../secrets/homelab-nixos-btw/gitlab-env.age;
   systemd.services.gitlab-secrets = {
     before = [ "gitlab-config.service" ];
     requiredBy = [ "gitlab-config.service" ];

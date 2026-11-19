@@ -113,8 +113,8 @@ in
 
   systemd.tmpfiles.rules = [ "d /homelab/copyparty/hist 0770 copyparty copyparty -" ];
 
-  age.secrets.copyparty-oauth-client.file = ../../secrets/copyparty-oauth-client.age;
-  age.secrets.copyparty-oauth-cookie.file = ../../secrets/copyparty-oauth-cookie.age;
+  age.secrets.copyparty-oauth-client.file = ../../secrets/homelab-nixos-btw/copyparty-oauth-client.age;
+  age.secrets.copyparty-oauth-cookie.file = ../../secrets/homelab-nixos-btw/copyparty-oauth-cookie.age;
 
   services.oauth2-proxy = {
     enable = true;

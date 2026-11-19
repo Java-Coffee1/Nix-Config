@@ -6,7 +6,7 @@ let
   defaultSavePath = "${config.nixflix.downloadsDir}/default";
 in
 {
-  age.secrets.qbittorrent-password.file = ../../secrets/qbittorrent-password.age;
+  age.secrets.qbittorrent-password.file = ../../secrets/linux-iso-btw/qbittorrent-password.age;
 
   services.qbittorrent = {
     enable = true;
@@ -40,9 +40,9 @@ in
         # total) were queuing requests behind each other - bump the cap so
         # more of what Radarr/Sonarr/Lidarr grab can actually run at once.
         QueueingSystemEnabled = true;
-        MaxActiveDownloads = 10;
-        MaxActiveUploads = 5;
-        MaxActiveTorrents = 15;
+        MaxActiveDownloads = 50;
+        MaxActiveUploads = 25;
+        MaxActiveTorrents = 75;
       };
     };
   };

@@ -221,13 +221,13 @@ in
 
   config = {
     age.secrets.backup-env = {
-      file = ../../secrets/backup-env.age;
+      file = ../../secrets/homelab-nixos-btw/backup-env.age;
       owner = "javi";
       mode = "400";
     };
 
     age.secrets.backup-ssh-key = {
-      file = ../../secrets/backup-ssh-key.age;
+      file = ../../secrets/homelab-nixos-btw/backup-ssh-key.age;
       owner = "javi";
       mode = "400";
     };

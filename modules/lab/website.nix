@@ -14,7 +14,7 @@
     from = "noreply@javamurray.com";
   };
 
-  age.secrets.yt-dl-password.file = ../../secrets/yt-dl-password.age;
+  age.secrets.yt-dl-password.file = ../../secrets/homelab-nixos-btw/yt-dl-password.age;
   services.video-dl = {
     enable = true;
     port = 8099;

@@ -2,11 +2,11 @@
 
 {
   age.secrets.grafana-secret-key = {
-    file = ../../secrets/grafana-secret-key.age;
+    file = ../../secrets/homelab-nixos-btw/grafana-secret-key.age;
     owner = "grafana";
   };
   age.secrets.grafana-oidc-secret = {
-    file = ../../secrets/grafana-oidc-secret.age;
+    file = ../../secrets/homelab-nixos-btw/grafana-oidc-secret.age;
     owner = "grafana";
   };
 

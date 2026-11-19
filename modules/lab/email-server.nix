@@ -1,5 +1,5 @@
 { config, lib, ... }: {
-  age.secrets.smtp.file = ../../secrets/mailjet_email_token.age;
+  age.secrets.smtp.file = ../../secrets/homelab-nixos-btw/mailjet_email_token.age;
   services.postfix = {
     enable = true;
     settings.master.smtp_inet.name = lib.mkForce "2525";

@@ -5,7 +5,7 @@
     enable = true;
     package = pkgs.wireshark; # default is wireshark-cli (no GUI)
   };
-  age.secrets.wg-private-fw.file = ../../secrets/wg-private-fw.age;
+  age.secrets.wg-private-fw.file = ../../secrets/fw-nixos-btw/wg-private-fw.age;
 
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [ config.age.secrets.wg-private-fw.path ];

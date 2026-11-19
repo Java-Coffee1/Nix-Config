@@ -18,7 +18,10 @@ let
   hostkey-linux-iso = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHHzdyeeFDjly6UhCLws4v4asgnkULMNDpu6mI21NZf0 root@linux-iso-btw";
 in
 {
-  "wg-private-fw.age".publicKeys = [
+  ###################################
+  ## fw-nixos-btw
+  ###################################
+  "fw-nixos-btw/wg-private-fw.age".publicKeys = [
     javi
     hostkey
   ];
@@ -27,113 +30,113 @@ in
   ## linux-iso-btw
   ###################################
 
-  "windscribe-wg.age".publicKeys = [
+  "linux-iso-btw/windscribe-wg.age".publicKeys = [
     javi
     hostkey-linux-iso
   ];
 
-  "servarr-env.age".publicKeys = [
+  "linux-iso-btw/servarr-env.age".publicKeys = [
     javi
     hostkey-linux-iso
   ];
 
-  "sonarr-api-key.age".publicKeys = [
+  "linux-iso-btw/sonarr-api-key.age".publicKeys = [
     javi
     hostkey-linux-iso
   ];
-  "radarr-api-key.age".publicKeys = [
+  "linux-iso-btw/radarr-api-key.age".publicKeys = [
     javi
     hostkey-linux-iso
   ];
-  "prowlarr-api-key.age".publicKeys = [
+  "linux-iso-btw/prowlarr-api-key.age".publicKeys = [
     javi
     hostkey-linux-iso
   ];
-  "qbittorrent-password.age".publicKeys = [
+  "linux-iso-btw/qbittorrent-password.age".publicKeys = [
     javi
     hostkey-linux-iso
   ];
-  "seerr-api-key.age".publicKeys = [
+  "linux-iso-btw/seerr-api-key.age".publicKeys = [
     javi
     hostkey-linux-iso
   ];
-  "seerr-jellyfin-admin-password.age".publicKeys = [
+  "linux-iso-btw/seerr-jellyfin-admin-password.age".publicKeys = [
     javi
     hostkey-linux-iso
   ];
-  "lidarr-api-key.age".publicKeys = [
+  "linux-iso-btw/lidarr-api-key.age".publicKeys = [
     javi
     hostkey-linux-iso
   ];
 
   ##################################
-  ## Homelab Keys
+  ## homelab-nixos-btw
   ##################################
-  "cf_api_token.age".publicKeys = [
+  "homelab-nixos-btw/cf_api_token.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "mailjet_email_token.age".publicKeys = [
+  "homelab-nixos-btw/mailjet_email_token.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "postgres-password.age".publicKeys = [
+  "homelab-nixos-btw/postgres-password.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "authentik-env.age".publicKeys = [
+  "homelab-nixos-btw/authentik-env.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "authentik-ldap-env.age".publicKeys = [
+  "homelab-nixos-btw/authentik-ldap-env.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "outline-oidc.age".publicKeys = [
+  "homelab-nixos-btw/outline-oidc.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "outline-utils-secret.age".publicKeys = [
+  "homelab-nixos-btw/outline-utils-secret.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "outline-secret-key.age".publicKeys = [
+  "homelab-nixos-btw/outline-secret-key.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "copyparty-oauth-client.age".publicKeys = [
+  "homelab-nixos-btw/copyparty-oauth-client.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "copyparty-oauth-cookie.age".publicKeys = [
+  "homelab-nixos-btw/copyparty-oauth-cookie.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "grafana-secret-key.age".publicKeys = [
+  "homelab-nixos-btw/grafana-secret-key.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "grafana-oidc-secret.age".publicKeys = [
+  "homelab-nixos-btw/grafana-oidc-secret.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "navidrome-lastfm-env.age".publicKeys = [
+  "homelab-nixos-btw/navidrome-lastfm-env.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "backup-env.age".publicKeys = [
+  "homelab-nixos-btw/backup-env.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "backup-ssh-key.age".publicKeys = [
+  "homelab-nixos-btw/backup-ssh-key.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "gitlab-env.age".publicKeys = [
+  "homelab-nixos-btw/gitlab-env.age".publicKeys = [
     javi
     hostkey-homelab
   ];
-  "yt-dl-password.age".publicKeys = [
+  "homelab-nixos-btw/yt-dl-password.age".publicKeys = [
     javi
     hostkey-homelab
   ];
