@@ -26,9 +26,9 @@
     };
     http.routers.vaultwarden-redirect = {
       rule = "Host(`vw.jv.ax`) || Host(`vw.javamurray.com`)";
-      entryPoints = [ "https-web"];
+      entryPoints = [ "https-web" ];
       service = "vaultwarden";
-      middlewares = ["vaultwarden-redirect"];
+      middlewares = [ "vaultwarden-redirect" ];
       tls.certResolver = "letsencrypt";
     };
     http.middlewares.vaultwarden-redirect.redirectRegex = {

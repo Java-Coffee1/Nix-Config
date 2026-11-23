@@ -1,12 +1,16 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   nfs-media = "/homelab/nfs/linux-isos";
 
   # nixflix.seerr requires Seerr >=3.5.0; the pinned nixpkgs (26.05) only has
   # 3.2.0, so pull the package from nixpkgs-unstable instead.
-  unstablePkgs = import inputs.nixpkgs-unstable {
-    inherit (pkgs.stdenv.hostPlatform) system;
-  };
+  unstablePkgs = import inputs.nixpkgs-unstable { inherit (pkgs.stdenv.hostPlatform) system; };
 
   # type:public Prowlarr indexers (github.com/Prowlarr/Indexers), trimmed to
   # the ones that actually show up as reliable/widely-used in current
@@ -86,7 +90,7 @@ in
 
     sonarr = {
       enable = true;
-      mediaDirs = [ "${nfs-media}/shows" ]; 
+      mediaDirs = [ "${nfs-media}/shows" ];
       config.apiKey._secret = config.age.secrets.sonarr-api-key.path;
 
       config.hostConfig.username = null;
@@ -123,7 +127,10 @@ in
       # openFirewall = true;
       config.indexers =
         (map (name: { inherit name; }) publicIndexerNames)
-        ++ (map (name: { inherit name; tags = [ "flaresolverr" ]; }) cloudflareIndexerNames);
+        ++ (map (name: {
+          inherit name;
+          tags = [ "flaresolverr" ];
+        }) cloudflareIndexerNames);
     };
 
     # Radarr/Sonarr wiring is automatic (nixflix derives it from
