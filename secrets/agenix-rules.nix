@@ -136,6 +136,10 @@ in
     javi
     hostkey-homelab
   ];
+  "homelab-nixos-btw/gitea-env.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
   "homelab-nixos-btw/yt-dl-password.age".publicKeys = [
     javi
     hostkey-homelab

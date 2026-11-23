@@ -22,6 +22,7 @@
     ../../modules/lab/email-server.nix
     ../../modules/lab/granfana.nix
     ../../modules/lab/navidrome.nix
+    ../../modules/lab/gitea.nix
   ];
 
   #######################

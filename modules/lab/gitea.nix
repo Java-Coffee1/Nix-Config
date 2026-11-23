@@ -1,0 +1,102 @@
+# config options: https://docs.gitea.com/administration/config-cheat-sheet/
+{ config, lib, pkgs, ... }:
+
+{
+  age.secrets.gitea-env = {
+    file = ../../secrets/homelab-nixos-btw/gitea-env.age;
+    owner = "gitea";
+  };
+
+  services.gitea = {
+    enable = true;
+    stateDir = "/homelab/gitea";
+
+    # hand-made db, over the unix socket (peer auth) — same as outline/gitlab.
+    # create it yourself once: `sudo -u postgres createuser gitea && sudo -u postgres createdb -O gitea gitea_db`
+    database = {
+      type = "postgres";
+      createDatabase = false;
+      name = "gitea_db";
+      user = "gitea";
+      socket = "/run/postgresql";
+    };
+
+    settings = {
+      server = {
+        DOMAIN = "git.jv.ax";
+        ROOT_URL = "https://git.jv.ax/";
+        HTTP_ADDR = "127.0.0.1";
+        HTTP_PORT = 3001;
+      };
+      service.DISABLE_REGISTRATION = true; # sign in via Authentik OIDC instead
+      service.ENABLE_PASSWORD_SIGNIN_FORM = false; # hide local login form, SSO button only
+      oauth2_client.ENABLE_AUTO_REGISTRATION = true;
+      oauth2_client.USERNAME = "preferred_username"; 
+    };
+  };
+
+  systemd.services.gitea = {
+    after = [ "postgresql.service" ];
+    requires = [ "postgresql.service" ];
+  };
+
+  systemd.tmpfiles.settings."00-homelab"."/homelab/gitea".d = {
+    user = "gitea";
+    group = "gitea";
+    mode = "750";
+  };
+
+  systemd.services.gitea-oidc-setup = {
+    description = "Register Authentik as a Gitea OAuth2 auth source";
+    after = [ "gitea.service" ];
+    wantedBy = [ "gitea.service" ];
+    path = [ pkgs.gawk ];
+    environment = {
+      GITEA_WORK_DIR = config.services.gitea.stateDir;
+      GITEA_CUSTOM = config.services.gitea.customDir;
+      HOME = config.services.gitea.stateDir;
+    };
+    serviceConfig = {
+      Type = "oneshot";
+      User = config.services.gitea.user;
+      WorkingDirectory = config.services.gitea.stateDir;
+      EnvironmentFile = config.age.secrets.gitea-env.path;
+    };
+    script = ''
+      set -u
+      existing_id=$(${lib.getExe config.services.gitea.package} admin auth list --vertical-bars 2>/dev/null \
+        | awk -F'|' '{gsub(/^[ \t]+|[ \t]+$/,"",$2)} $2=="Authentik" {gsub(/^[ \t]+|[ \t]+$/,"",$1); print $1; exit}')
+
+      auth_args=(
+        --name Authentik
+        --provider openidConnect
+        --key "$GITEA_OIDC_CLIENT_ID"
+        --secret "$GITEA_OIDC_CLIENT_SECRET"
+        # "git" here is the Authentik application *slug* — update it if
+        # you name the Authentik application/provider something else.
+        --auto-discover-url "https://auth.javamurray.com/application/o/git/.well-known/openid-configuration"
+        --scopes "openid email profile groups"
+        --group-claim-name "git"
+        --admin-group "Admin"
+      )
+
+      if [ -n "$existing_id" ]; then
+        ${lib.getExe config.services.gitea.package} admin auth update-oauth --id "$existing_id" "''${auth_args[@]}"
+      else
+        ${lib.getExe config.services.gitea.package} admin auth add-oauth "''${auth_args[@]}"
+      fi
+    '';
+  };
+
+  services.traefik.dynamicConfigOptions.http = {
+    routers.gitea = {
+      rule = "Host(`${config.services.gitea.settings.server.DOMAIN}`)";
+      entryPoints = [ "https-web" ];
+      service = "gitea";
+      tls.certResolver = "letsencrypt";
+    };
+    services.gitea.loadBalancer.servers = [
+      { url = "http://127.0.0.1:${toString config.services.gitea.settings.server.HTTP_PORT}"; }
+    ];
+  };
+}
