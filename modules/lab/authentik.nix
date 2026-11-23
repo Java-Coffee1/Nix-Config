@@ -25,6 +25,14 @@
       };
       disable_startup_analytics = true;
       avatars = "initials";
+      # Upstream hardcodes a default of 2 workers / 4 threads (8 concurrent
+      # request slots), which starves on this host: 5+ embedded proxy
+      # providers, Jellyfin LDAP, and copyparty's oauth2-proxy all hit the
+      # API constantly, on top of real logins. Quadrupling capacity here.
+      web = {
+        workers = 4;
+        threads = 8;
+      };
     };
   };
   services.authentik-ldap = {

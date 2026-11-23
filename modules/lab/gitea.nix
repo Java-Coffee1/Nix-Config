@@ -13,6 +13,17 @@ let
     tar -xzf $src -C $out --strip-components=1
   '';
   githubThemeVariants = [ "github-auto" "github-light" "github-dark" "github-soft-dark" ];
+
+  giteaRobotsTxt = pkgs.writeText "gitea-robots.txt" ''
+    User-agent: *
+    Disallow: /
+  '';
+  blockedBotUserAgents = [
+    "nikto" "nmap" "masscan" "sqlmap" "nuclei" "zgrab" "gobuster" "dirbuster" "wpscan" "acunetix" "nessus"
+    "GPTBot" "ChatGPT-User" "ClaudeBot" "Claude-Web" "anthropic-ai" "CCBot" "Bytespider" "PetalBot"
+    "AhrefsBot" "SemrushBot" "MJ12bot" "DotBot" "Amazonbot" "Applebot-Extended" "Google-Extended"
+    "Diffbot" "FacebookBot" "ImagesiftBot" "Meta-ExternalAgent"
+  ];
 in
 {
   age.secrets.gitea-env = {
@@ -43,12 +54,15 @@ in
       };
       service.DISABLE_REGISTRATION = true; # sign in via Authentik OIDC instead
       service.ENABLE_PASSWORD_SIGNIN_FORM = false; # hide local login form, SSO button only
+      service.REQUIRE_SIGNIN_VIEW = "expensive"; # Gitea 1.23+; login only for heavy pages (blame/archives/raw), rest stays public/indexable
+      repository.DISABLE_DOWNLOAD_SOURCE_ARCHIVES = true; # kills the 274MB tarball endpoint
       oauth2_client.ENABLE_AUTO_REGISTRATION = true;
       oauth2_client.USERNAME = "preferred_username";
       ui = {
         THEMES = lib.concatStringsSep "," ([ "gitea-auto" "gitea-light" "gitea-dark" ] ++ githubThemeVariants);
         DEFAULT_THEME = "github-dark";
       };
+      "git.timeout".MIGRATE = 3600;
     };
   };
 
@@ -71,6 +85,7 @@ in
       "d ${config.services.gitea.customDir}/public 0750 gitea gitea -"
       "d ${config.services.gitea.customDir}/public/assets 0750 gitea gitea -"
       "d ${cssDir} 0750 gitea gitea -"
+      "L+ ${config.services.gitea.customDir}/public/robots.txt - - - - ${giteaRobotsTxt}"
     ]
     ++ map
       (name: "L+ ${cssDir}/theme-${name}.css - - - - ${githubThemeCss}/theme-${name}.css")
@@ -120,7 +135,7 @@ in
 
   services.traefik.dynamicConfigOptions.http = {
     routers.gitea = {
-      rule = "Host(`${config.services.gitea.settings.server.DOMAIN}`)";
+      rule = "Host(`${config.services.gitea.settings.server.DOMAIN}`) && !HeaderRegexp(`User-Agent`, `(?i)(${lib.concatStringsSep "|" blockedBotUserAgents})`)";
       entryPoints = [ "https-web" ];
       service = "gitea";
       tls.certResolver = "letsencrypt";
