@@ -8,9 +8,9 @@ set -euo pipefail
 # --- config ---
 AUTHENTIK_URL="${AUTHENTIK_URL:?set AUTHENTIK_URL}"        # e.g. https://auth.javamurray.com
 AUTHENTIK_TOKEN="${AUTHENTIK_TOKEN:?set AUTHENTIK_TOKEN}"  # Directory > Tokens
-FLOW_SLUG="${FLOW_SLUG:-enrollment}"
-SMTP_URL="${SMTP_URL:-smtp://localhost:2525}"              # postfix relay
-FROM_ADDR="${FROM_ADDR:-noreply@auth-signup.javamurray.com}"
+FLOW_SLUG="${FLOW_SLUG:-enrollment-invitation}"
+SMTP_URL="${SMTP_URL:-smtp://127.0.0.1:2525}"              # postfix relay; 127.0.0.1 not localhost, mynetworks has no ::1
+FROM_ADDR="${FROM_ADDR:-noreply@javamurray.com}"
 EXPIRE_DAYS=7
 
 api() {
@@ -70,7 +70,7 @@ FLOW_PK=$(api GET "/flows/instances/$FLOW_SLUG/" | jq -r .pk)
 
 # build the invite body
 BODY=$(jq -n \
-  --arg name "$(echo "$EMAIL" | tr 'A-Z' 'a-z' | sed 's/[^a-z0-9-]/-/g')" \
+  --arg name "$(echo "$EMAIL" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g')" \
   --arg expires "$(date -u -d "+$EXPIRE_DAYS days" -Iseconds)" \
   --arg flow "$FLOW_PK" \
   --arg email "$EMAIL" \

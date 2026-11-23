@@ -1,5 +1,8 @@
 { config, pkgs, ... }: {
-  age.secrets.authentik-token.file = ../../secrets/homelab-nixos-btw/authentik_token.age;
+  age.secrets.authentik-token = {
+    file = ../../secrets/homelab-nixos-btw/authentik-token.age;
+    owner = "javi";
+  };
 
   environment.systemPackages = [
     (pkgs.writeShellApplication {

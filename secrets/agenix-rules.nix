@@ -92,6 +92,10 @@ in
     javi
     hostkey-homelab
   ];
+  "homelab-nixos-btw/authentik-token.age".publicKeys = [
+    javi
+    hostkey-homelab
+  ];
   "homelab-nixos-btw/outline-oidc.age".publicKeys = [
     javi
     hostkey-homelab

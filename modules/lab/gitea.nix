@@ -1,6 +1,19 @@
 # config options: https://docs.gitea.com/administration/config-cheat-sheet/
 { config, lib, pkgs, ... }:
 
+let
+  # https://github.com/lutinglt/gitea-github-theme
+  githubThemeCss = pkgs.runCommand "gitea-github-theme-css" {
+    src = pkgs.fetchurl {
+      url = "https://github.com/lutinglt/gitea-github-theme/releases/download/v28.4.0/theme-github-base.tar.gz";
+      sha256 = "sha256-cSEBRIcc50uvJUWG4Xji9+Y+UPxH2RopexkdsHHn+/0=";
+    };
+  } ''
+    mkdir -p $out
+    tar -xzf $src -C $out --strip-components=1
+  '';
+  githubThemeVariants = [ "github-auto" "github-light" "github-dark" "github-soft-dark" ];
+in
 {
   age.secrets.gitea-env = {
     file = ../../secrets/homelab-nixos-btw/gitea-env.age;
@@ -31,7 +44,11 @@
       service.DISABLE_REGISTRATION = true; # sign in via Authentik OIDC instead
       service.ENABLE_PASSWORD_SIGNIN_FORM = false; # hide local login form, SSO button only
       oauth2_client.ENABLE_AUTO_REGISTRATION = true;
-      oauth2_client.USERNAME = "preferred_username"; 
+      oauth2_client.USERNAME = "preferred_username";
+      ui = {
+        THEMES = lib.concatStringsSep "," ([ "gitea-auto" "gitea-light" "gitea-dark" ] ++ githubThemeVariants);
+        DEFAULT_THEME = "github-dark";
+      };
     };
   };
 
@@ -45,6 +62,19 @@
     group = "gitea";
     mode = "750";
   };
+
+  systemd.tmpfiles.rules =
+    let
+      cssDir = "${config.services.gitea.customDir}/public/assets/css";
+    in
+    [
+      "d ${config.services.gitea.customDir}/public 0750 gitea gitea -"
+      "d ${config.services.gitea.customDir}/public/assets 0750 gitea gitea -"
+      "d ${cssDir} 0750 gitea gitea -"
+    ]
+    ++ map
+      (name: "L+ ${cssDir}/theme-${name}.css - - - - ${githubThemeCss}/theme-${name}.css")
+      githubThemeVariants;
 
   systemd.services.gitea-oidc-setup = {
     description = "Register Authentik as a Gitea OAuth2 auth source";
