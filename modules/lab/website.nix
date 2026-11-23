@@ -19,6 +19,7 @@
     enable = true;
     port = 8099;
     maxFileSizeMB = 15360;
+    storageBudgetMB = 5120;
     passwordFile = config.age.secrets.yt-dl-password.path;
   };
 

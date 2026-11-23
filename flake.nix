@@ -57,6 +57,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      ## declarative disk partitioning/formatting, used for nas-nixos-btw's zfs raid0 boot+root
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   }; # end of inputs
 
   outputs =
@@ -64,6 +69,7 @@
       nixpkgs,
       treefmt-nix,
       agenix,
+      disko,
       ...
     }@inputs:
     let
@@ -93,7 +99,9 @@
         in
         treefmtEval.config.build.wrapper // { inherit (treefmtEval) config; }
       );
-
+      #########################
+      ## VM Hosts
+      #########################
       nixosConfigurations = {
         fw-nixos-btw = mkHost {
           name = "fw-nixos-btw";
@@ -102,7 +110,6 @@
             ./home/javi/home.nix
           ];
         };
-
         fw-iso = mkHost {
           name = "fw-nixos-btw";
           modules = [
@@ -134,12 +141,24 @@
             ./home/javi/home.nix
           ];
         };
+        #########################
+        ## Bear Metal
+        #########################
 
         code-nixos-btw = mkHost {
           name = "code-nixos-btw";
           modules = [
             inputs.hjem.nixosModules.default
             ./home/javi/home.nix
+          ];
+        };
+
+        nas-nixos-btw = mkHost {
+          name = "nas-nixos-btw";
+          modules = [
+            inputs.hjem.nixosModules.default
+            ./home/javi/home.nix
+            disko.nixosModules.disko
           ];
         };
       };

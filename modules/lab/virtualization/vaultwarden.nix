@@ -17,13 +17,24 @@
     group = "homelab-admin";
     mode = "770";
   };
-
   services.traefik.dynamicConfigOptions = {
     http.routers.vaultwarden = {
       rule = "Host(`vault.jv.ax`)";
       entryPoints = [ "https-web" ];
       service = "vaultwarden";
       tls.certResolver = "letsencrypt";
+    };
+    http.routers.vaultwarden-redirect = {
+      rule = "Host(`vw.jv.ax`) || Host(`vw.javamurray.com`)";
+      entryPoints = [ "https-web"];
+      service = "vaultwarden";
+      middlewares = ["vaultwarden-redirect"];
+      tls.certResolver = "letsencrypt";
+    };
+    http.middlewares.vaultwarden-redirect.redirectRegex = {
+      regex = "^https://[^/]+/(.*)";
+      replacement = "https://vault.jv.ax/\${1}";
+      permanent = true;
     };
     http.services.vaultwarden.loadBalancer.servers = [ { url = "http://127.0.0.1:8000"; } ];
   };

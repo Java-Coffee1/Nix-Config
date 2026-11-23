@@ -1,16 +1,19 @@
-{...}:
+{ ... }:
 
 {
   imports = [
     ../../overlay
-    ./hardware-configuration.nix
+    # no hardware-configuration.nix yet -- this host hasn't been installed.
+    # disko generates the fileSystems/swapDevices entries itself from
+    # ./disko.nix, so one may not even be needed; if nixos-generate-config
+    # produces one after install, add it back here (without its fileSystems).
     ../../modules/default.nix
     ../../modules/apps/git.nix
-
+    ./disko.nix
   ];
 
   ###########################
-  ## Networking 
+  ## Networking
   ###########################
 
   networking = {
@@ -46,9 +49,27 @@
 
   ];
 
+  ###########################################
+  ## Raid Setup (zfs raid0 boot+root, see ./disko.nix)
+  ###########################################
 
-  ###########################################
-  ## Raid Setup
-  ###########################################
-  
+  # required for zfs pools to auto-import at boot; must be 8 hex chars
+  # and unique per machine (not shared with any other host/clone).
+  networking.hostId = "a1b2c3d4";
+
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = false;
+
+  boot.loader.efi.canTouchEfiVariables = false;
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+    zfsSupport = true;
+  };
+
+  services.zfs = {
+    autoScrub.enable = true;
+    trim.enable = true;
+  };
 }
