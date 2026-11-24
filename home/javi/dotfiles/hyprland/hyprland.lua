@@ -73,11 +73,6 @@ hl.config({
 
         border_size = 2,
 
-        col = {
-            active_border   = { colors = {"rgba(6E75A8FF)", "rgba(8D91C7FF)"}, angle = 45 },
-            inactive_border = "rgba(0F1020FF)",
-        },
-
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border = false,
 
@@ -114,6 +109,11 @@ hl.config({
         enabled = true,
     },
 })
+
+-- Noctalia writes ~/.config/hypr/noctalia.lua whenever the wallpaper/theme
+-- changes; applying it here lets border colors follow that scheme instead
+-- of being fixed.
+require("noctalia").apply_theme()
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
 hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })

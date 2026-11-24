@@ -51,7 +51,18 @@ hl.layer_rule({
 })
 
 --------------------------
--- screen sharing 
+-- per-app transparency
+--------------------------
+
+hl.window_rule({
+    name  = "vscode-transparency",
+    match = { class = "^(code)$" },
+
+    opacity = 0.88,
+})
+
+--------------------------
+-- screen sharing
 --------------------------
 
 hl.window_rule({

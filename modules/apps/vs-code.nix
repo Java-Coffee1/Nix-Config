@@ -31,6 +31,7 @@ let
         rust-lang.rust-analyzer
         vadimcn.vscode-lldb
         tamasfe.even-better-toml
+        mvllow.rose-pine
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
@@ -92,6 +93,7 @@ in
     save_mode=last
   '';
   hjem.users.javi.files.".config/Code/User/settings.json".text = builtins.toJSON {
+    "workbench.colorTheme" = "Rosé Pine";
     "editor.fontSize" = 18;
     "editor.fontFamily" = "'GeistMono Nerd Font Mono', monospace";
     "terminal.integrated.fontSize" = 14;
