@@ -753,11 +753,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1790140810,
-        "narHash": "sha256-0++brXADvMXUc6fsltijVcZpGsIQNXoc+wzzj6IKHO0=",
+        "lastModified": 1795470787,
+        "narHash": "sha256-SLZVt2DtRKmyrjPJcvnjX857WL7uzq3M2P2+nOSuA+g=",
         "ref": "refs/heads/main",
-        "rev": "e0be444e71d84e09e9f7b6bfa03029152de78bb7",
-        "revCount": 4,
+        "rev": "6b9e77a289bf1270bc129dedbfe779c8007a0fb1",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/Java-Coffee1/wallpaper.git"
       },

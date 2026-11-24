@@ -1,28 +1,67 @@
 # config options: https://docs.gitea.com/administration/config-cheat-sheet/
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   # https://github.com/lutinglt/gitea-github-theme
-  githubThemeCss = pkgs.runCommand "gitea-github-theme-css" {
-    src = pkgs.fetchurl {
-      url = "https://github.com/lutinglt/gitea-github-theme/releases/download/v28.4.0/theme-github-base.tar.gz";
-      sha256 = "sha256-cSEBRIcc50uvJUWG4Xji9+Y+UPxH2RopexkdsHHn+/0=";
-    };
-  } ''
-    mkdir -p $out
-    tar -xzf $src -C $out --strip-components=1
-  '';
-  githubThemeVariants = [ "github-auto" "github-light" "github-dark" "github-soft-dark" ];
+  githubThemeCss =
+    pkgs.runCommand "gitea-github-theme-css"
+      {
+        src = pkgs.fetchurl {
+          url = "https://github.com/lutinglt/gitea-github-theme/releases/download/v28.4.0/theme-github-base.tar.gz";
+          sha256 = "sha256-cSEBRIcc50uvJUWG4Xji9+Y+UPxH2RopexkdsHHn+/0=";
+        };
+      }
+      ''
+        mkdir -p $out
+        tar -xzf $src -C $out --strip-components=1
+      '';
+  githubThemeVariants = [
+    "github-auto"
+    "github-light"
+    "github-dark"
+    "github-soft-dark"
+  ];
 
   giteaRobotsTxt = pkgs.writeText "gitea-robots.txt" ''
     User-agent: *
     Disallow: /
   '';
   blockedBotUserAgents = [
-    "nikto" "nmap" "masscan" "sqlmap" "nuclei" "zgrab" "gobuster" "dirbuster" "wpscan" "acunetix" "nessus"
-    "GPTBot" "ChatGPT-User" "ClaudeBot" "Claude-Web" "anthropic-ai" "CCBot" "Bytespider" "PetalBot"
-    "AhrefsBot" "SemrushBot" "MJ12bot" "DotBot" "Amazonbot" "Applebot-Extended" "Google-Extended"
-    "Diffbot" "FacebookBot" "ImagesiftBot" "Meta-ExternalAgent"
+    "nikto"
+    "nmap"
+    "masscan"
+    "sqlmap"
+    "nuclei"
+    "zgrab"
+    "gobuster"
+    "dirbuster"
+    "wpscan"
+    "acunetix"
+    "nessus"
+    "GPTBot"
+    "ChatGPT-User"
+    "ClaudeBot"
+    "Claude-Web"
+    "anthropic-ai"
+    "CCBot"
+    "Bytespider"
+    "PetalBot"
+    "AhrefsBot"
+    "SemrushBot"
+    "MJ12bot"
+    "DotBot"
+    "Amazonbot"
+    "Applebot-Extended"
+    "Google-Extended"
+    "Diffbot"
+    "FacebookBot"
+    "ImagesiftBot"
+    "Meta-ExternalAgent"
   ];
 in
 {
@@ -59,7 +98,14 @@ in
       oauth2_client.ENABLE_AUTO_REGISTRATION = true;
       oauth2_client.USERNAME = "preferred_username";
       ui = {
-        THEMES = lib.concatStringsSep "," ([ "gitea-auto" "gitea-light" "gitea-dark" ] ++ githubThemeVariants);
+        THEMES = lib.concatStringsSep "," (
+          [
+            "gitea-auto"
+            "gitea-light"
+            "gitea-dark"
+          ]
+          ++ githubThemeVariants
+        );
         DEFAULT_THEME = "github-dark";
       };
       "git.timeout".MIGRATE = 3600;
@@ -87,9 +133,9 @@ in
       "d ${cssDir} 0750 gitea gitea -"
       "L+ ${config.services.gitea.customDir}/public/robots.txt - - - - ${giteaRobotsTxt}"
     ]
-    ++ map
-      (name: "L+ ${cssDir}/theme-${name}.css - - - - ${githubThemeCss}/theme-${name}.css")
-      githubThemeVariants;
+    ++ map (
+      name: "L+ ${cssDir}/theme-${name}.css - - - - ${githubThemeCss}/theme-${name}.css"
+    ) githubThemeVariants;
 
   systemd.services.gitea-oidc-setup = {
     description = "Register Authentik as a Gitea OAuth2 auth source";

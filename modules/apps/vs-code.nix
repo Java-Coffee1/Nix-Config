@@ -28,6 +28,9 @@ let
         vscjava.vscode-java-debug
         vscjava.vscode-java-test
         vscjava.vscode-java-dependency
+        rust-lang.rust-analyzer
+        vadimcn.vscode-lldb
+        tamasfe.even-better-toml
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {

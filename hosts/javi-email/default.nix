@@ -7,6 +7,7 @@
     ../../modules/default.nix
     ../../modules/apps/git.nix
 
+    ../../modules/email/salwart.nix
   ];
 
   ###########################
