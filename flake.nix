@@ -134,19 +134,19 @@
             ./home/javi/home.nix
           ];
         };
-        javi-email = mkHost {
-          name = "javi-email";
+        email-nixos-btw = mkHost {
+          name = "email-nixos-btw";
           modules = [
             inputs.hjem.nixosModules.default
             ./home/javi/home.nix
           ];
         };
-        javi-email-iso = mkHost {
-          name = "javi-email";
+        email-nixos-btw-iso = mkHost {
+          name = "email-nixos-btw";
           modules = [
             inputs.hjem.nixosModules.default
             ./home/javi/home.nix
-            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-base.nix"
           ];
         };
         #########################
