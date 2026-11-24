@@ -43,6 +43,7 @@
     theme = "lukerandall";
     plugins = [ "git" ];
   };
+  programs.zsh.autosuggestions.enable = true;
 
   # yazi: launch with `y`, quit with q to cd into the last dir (Q quits without cd)
   programs.zsh.interactiveShellInit = ''
@@ -212,8 +213,8 @@
         ## hypridle
         ".config/hypr/hypridle.conf".text = ''
           general {
-              lock_cmd = noctalia msg session lock
-              before_sleep_cmd = noctalia msg session lock
+              lock_cmd = sh -c 'playerctl -a pause; noctalia msg session lock'
+              before_sleep_cmd = sh -c 'playerctl -a pause; noctalia msg session lock'
               after_sleep_cmd = hyprctl dispatch dpms on
           }
 
