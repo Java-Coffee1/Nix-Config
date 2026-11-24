@@ -141,6 +141,14 @@
             ./home/javi/home.nix
           ];
         };
+        javi-email-iso = mkHost {
+          name = "javi-email";
+          modules = [
+            inputs.hjem.nixosModules.default
+            ./home/javi/home.nix
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
+          ];
+        };
         #########################
         ## Bear Metal
         #########################
