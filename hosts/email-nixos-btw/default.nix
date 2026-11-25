@@ -10,6 +10,15 @@
     # ../../modules/email/salwart.nix
   ];
 
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "nodev"; # "nodev" is used for UEFI
+      efiSupport = true;
+    };
+    efi.canTouchEfiVariables = true;
+  };
+
   ###########################
   ## Networking
   ###########################

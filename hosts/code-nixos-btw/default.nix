@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   imports = [
@@ -11,7 +11,11 @@
     ../../modules/code-nixos-btw/pi.nix
 
   ];
-
+  ########################
+  ## Boot
+  ########################
+  boot.loader.grub.enable = lib.mkDefault true;
+  boot.loader.grub.device = lib.mkDefault "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
   ########################

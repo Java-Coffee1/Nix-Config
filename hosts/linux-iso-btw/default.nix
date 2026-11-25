@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   imports = [
@@ -15,6 +15,8 @@
   ## Boot
   ##########################
   boot.loader.grub.useOSProber = true;
+  boot.loader.grub.enable = lib.mkDefault true;
+  boot.loader.grub.device = lib.mkDefault "/dev/sda";
 
   ###########################
   ## Networking
