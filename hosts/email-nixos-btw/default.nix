@@ -16,7 +16,7 @@
 
   networking = {
     useDHCP = false;
-    interfaces.ens18 = {
+    interfaces.enp5s0 = {
       useDHCP = false;
       ipv4.addresses = [
         {

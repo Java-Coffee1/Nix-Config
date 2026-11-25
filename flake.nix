@@ -146,7 +146,7 @@
           modules = [
             inputs.hjem.nixosModules.default
             ./home/javi/home.nix
-            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-base.nix"
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           ];
         };
         #########################
