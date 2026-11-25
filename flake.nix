@@ -4,6 +4,9 @@
     nixpkgs.url = "nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     # nixpkgs-unstable-outline.url = "nixpkgs/6774f7bc253789b113a4f39285dc0fa100abeacc"; # just a temp fix for outline, until it gets merged into nixpkgs-unstable
+    # Pins Stalwart to the exact build email-nixos-btw was configured against, so a routine
+    # `nix flake update` of the main nixpkgs input can't silently change its version underneath us.
+    nixpkgs-stalwart.url = "nixpkgs/f5c082a40f7571c266e74e80ae2e68aadd8a9fc7";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     agenix.url = "github:ryantm/agenix";
 

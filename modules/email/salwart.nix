@@ -1,85 +1,44 @@
-{ config, ... }:
-
+{
+  config, 
+  ...
+}:
 let
-  mailDomains = [
-    "javamurray.com"
-    "jv.ax"
-  ];
-  hostname = "mail.${builtins.head mailDomains}";
-  oidcUserinfo = "https://auth.jv.ax/application/o/userinfo/";
+  dataEtc = "/homelab/stalwart/etc";
+  dataDir = "/homelab/stalwart/data";
+  dataLog = "/homelab/stalwart/logs";
 in
 {
-  services.stalwart = {
-    enable = true;
-    stateVersion = config.system.stateVersion;
+  age.secrets.stalwart-env.file = ../../secrets/email-nixos-btw/stalwart-env.age;
 
-    openFirewall = true;
-
-    settings = {
-      server.hostname = hostname;
-
-      directory."authentik" = {
-        type = "oidc";
-        timeout = "2s";
-        endpoint.url = oidcUserinfo;
-        endpoint.method = "userinfo";
-        fields.email = "email";
-        fields.username = "preferred_username";
-        fields.full-name = "name";
-      };
-
-      storage.directory = "authentik";
-      certificate."default" = {
-        cert = "%{file:${config.security.acme.certs.${hostname}.directory}/fullchain.pem}%";
-        private-key = "%{file:${config.security.acme.certs.${hostname}.directory}/key.pem}%";
-      };
-
-      server.tls = {
-        enable = true;
-        certificate = "default";
-        implicit = false;
-      };
-
-      server.listener = {
-        smtp = {
-          bind = [ "[::]:25" ];
-          protocol = "smtp";
-        };
-        submission = {
-          bind = [ "[::]:587" ];
-          protocol = "smtp";
-        };
-        submissions = {
-          bind = [ "[::]:465" ];
-          protocol = "smtp";
-          tls.implicit = true;
-        };
-        imap = {
-          bind = [ "[::]:143" ];
-          protocol = "imap";
-        };
-        imaps = {
-          bind = [ "[::]:993" ];
-          protocol = "imap";
-          tls.implicit = true;
-        };
-        # webadmin UI + JMAP
-        https = {
-          bind = [ "[::]:443" ];
-          protocol = "http";
-          tls.implicit = true;
-        };
-      };
-    };
+  virtualisation.oci-containers.backend = "docker";
+  virtualisation.oci-containers.containers.stalwart = {
+    image = "stalwartlabs/stalwart:v1.2.0";
+    pull = "always";
+    extraOptions = [ "--init" ];
+    environmentFiles = [ config.age.secrets.stalwart-env.path ];
+    ports = [
+      "25:25"
+      "465:465"
+      "993:993"
+      "995:995"
+      "4190:4190"
+      "443:443"
+      "127.0.0.1:8080:8080"
+    ];
+    volumes = [ 
+      "${dataEtc}:/etc/stalwart"
+      "${dataDir}:/var/lib/stalwart"
+      "${dataLog}:/var/log/stalwart"
+     ];
   };
 
-  security.acme.acceptTerms = true;
-  security.acme.defaults.email = "julianmurray4152@gmail.com"; # same contact traefik.nix uses
-  security.acme.certs.${hostname} = {
-    listenHTTP = ":80";
-    group = config.services.stalwart.group;
-    reloadServices = [ "stalwart.service" ];
+    systemd.tmpfiles.rules = [
+    "d ${dataEtc} 0750 2000 2000 -"
+    "d ${dataDir} 0750 2000 2000 -"
+    "d ${dataLog} 0750 2000 2000 -"
+  ];
+  systemd.services.docker-stalwart = {
+    after = [ "systemd-tmpfiles-setup.service" ];
+    requires = [ "systemd-tmpfiles-setup.service" ];
   };
-
-  networking.firewall.allowedTCPPorts = [ 80 ];
 }

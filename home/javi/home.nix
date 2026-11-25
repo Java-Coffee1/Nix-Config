@@ -62,6 +62,7 @@
       lab "homelab-nixos-btw:ssh.javamurray.com:2600:/homelab"
       iso "linux-iso-btw:10.10.1.105:22"
       code "code-nixos-btw:ssh.javamurray.com:2700"
+      email "email-nixos-btw:23.130.212.203:22"
     )
 
     function _nix_host() {

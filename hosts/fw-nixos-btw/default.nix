@@ -55,8 +55,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.enable = lib.mkDefault true;
-  boot.loader.grub.device = lib.mkDefault "/dev/sda";
+
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
 
   ############################################

@@ -16,6 +16,10 @@ let
   ## linux-iso-btw ssh host key
   ###################################
   hostkey-linux-iso = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHHzdyeeFDjly6UhCLws4v4asgnkULMNDpu6mI21NZf0 root@linux-iso-btw";
+  ###################################
+  ## email-nixos-btw ssh host key
+  ###################################
+  hostkey-email = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEnFlJw+NyDbXdS3EyrZujhPJ5dPy8rIFwQFhizFns4g root@nixos";
 in
 {
   ###################################
@@ -147,6 +151,14 @@ in
   "homelab-nixos-btw/yt-dl-password.age".publicKeys = [
     javi
     hostkey-homelab
+  ];
+
+  ###################################
+  ## email-nixos-btw
+  ###################################
+  "email-nixos-btw/stalwart-env.age".publicKeys = [
+    javi
+    hostkey-email
   ];
 
 }
