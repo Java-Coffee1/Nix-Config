@@ -12,7 +12,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-  boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.efi.efiSysMountPoint = "/boot/";
+  boot.loader.grub.efiSupport = true;
 
   fileSystems."/" =
     { device = "/dev/sda2";
