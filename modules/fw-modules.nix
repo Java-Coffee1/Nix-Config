@@ -15,6 +15,7 @@ in
     ./apps/first-driver-station.nix
     ./apps/open-ds.nix
     ./apps/mixxx.nix
+    ./apps/aerc.nix
     ## scirpts
     ../lazy-scripts/fw/app-focus-or-launch.nix
     ../lazy-scripts/fw/macropad.nix

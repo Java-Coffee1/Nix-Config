@@ -160,5 +160,9 @@ in
     javi
     hostkey-email
   ];
+  "email-nixos-btw/stalwart-backup-ssh-key.age".publicKeys = [
+    javi
+    hostkey-email
+  ];
 
 }

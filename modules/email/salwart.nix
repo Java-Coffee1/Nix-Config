@@ -1,7 +1,4 @@
-{
-  config, 
-  ...
-}:
+{ config, ... }:
 let
   dataEtc = "/homelab/stalwart/etc";
   dataDir = "/homelab/stalwart/data";
@@ -25,14 +22,14 @@ in
       "443:443"
       "127.0.0.1:8080:8080"
     ];
-    volumes = [ 
+    volumes = [
       "${dataEtc}:/etc/stalwart"
       "${dataDir}:/var/lib/stalwart"
       "${dataLog}:/var/log/stalwart"
-     ];
+    ];
   };
 
-    systemd.tmpfiles.rules = [
+  systemd.tmpfiles.rules = [
     "d ${dataEtc} 0750 2000 2000 -"
     "d ${dataDir} 0750 2000 2000 -"
     "d ${dataLog} 0750 2000 2000 -"

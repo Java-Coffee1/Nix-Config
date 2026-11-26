@@ -137,6 +137,9 @@
         ".config/kitty/kitty.conf".source = ./dotfiles/kitty/kitty.conf;
         ".config/kitty/themes/carbonfox".source = ./dotfiles/kitty/carbonfox.conf;
 
+        ## Aerc (mail password lives outside the repo, see accounts.conf)
+        ".config/aerc".source = ./dotfiles/aerc;
+
         ## Zsh (real config is programs.zsh above, this just stops the new-user prompt)
         ".zshrc".text = "# zsh is configured in Nix-Config/home/javi/home.nix\n";
 

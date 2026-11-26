@@ -108,6 +108,10 @@ in
       url = "http://10.10.1.105:8012";
       middlewares = authentik;
     })
+    (mkApp "bulwark" {
+      host = "jmail.jv.ax";
+      url = "http://23.130.212.203:3000";
+    })
     # (mkApp "Immich" {
     #   host = "photos.javamurray.com";
     #   url = "http://10.10.1.150:2283";

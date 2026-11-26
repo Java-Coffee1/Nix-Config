@@ -8,6 +8,8 @@
     ../../modules/apps/git.nix
 
     ../../modules/email/salwart.nix
+    ../../modules/email/bulwark.nix
+    ../../lazy-scripts/email/default.nix
   ];
 
   boot.loader = {

@@ -72,6 +72,7 @@
     "assh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/mqwjzWT4o4ARZjX6uvcQa2iynZEIar8uFs3JSsNXK javi@code-nixos-btw"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQ+MKzP6XyJfJ/UX/lLkgxuVdF/lBZw2Pynhyn8pBnP ipadsshkey"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILxWxbeAk3VSguxZl9MzZ93ztk3SgwlRKs94TzE6Cjzm iPhonekey"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIElY4QTsKg18kZYzdFT/oRMPYNkVb4f1gZ2126/1ht1h stalwart-backup@email-nixos-btw"
   ];
 
   users.users.traefik.extraGroups = [ "homelab-admin" ];
